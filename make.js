@@ -111,7 +111,7 @@ target.publish = function() {
       "/AzlamSalam.sfpowerscripts-" +
       options.version +
       '.vsix"' +
-      " --share-with cloudfirstanz --token "+options.token
+      " --share-with azlamsalam --token "+options.token
   );
 };
 
