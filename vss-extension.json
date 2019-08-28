@@ -1,0 +1,192 @@
+{
+    "manifestVersion": 1,
+    "id": "sfpowerscripts",
+    "publisher": "AzlamSalam",
+    "name": "sfpowerscripts",
+    "version": "1.0.13",
+    "description": "Azure Pipelines tasks for working with SFDX",
+    "tags": [
+        "Extension",
+        "Salesforce",
+        "SFDX",
+        "Publish",
+        "Package",
+        "Install",
+        "Continuous Integration",
+        "Continuous Delivery",
+        "Build",
+        "Release",
+        "Azure Pipelines",
+        "Azure DevOps Extensions",
+        "Visual Studio Extensions"
+    ],
+    "icons": {
+        "default": "tools-icon.png"
+    },
+    "public": false,
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "scopes": [],
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "content": {
+        "details": {
+            "path": "overview.md"
+        },
+        "license": {
+            "path": "LICENSE.txt"
+        }
+    },
+    "links": {
+        "repository": {
+            "uri": "https://github.com/azlamsalam/sfpowerscripts"
+        },
+        "issues": {
+            "uri": "https://github.com/azlamsalam/sfpowerscripts/issues"
+        },
+        "support": {
+            "uri": "https://github.com/azlamsalam/sfpowerscripts/issues"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/azlamsalam/sfpowerscripts"
+    },
+    "badges": [
+        {
+            "href": "https://almrangers.visualstudio.com/ALM/_build?definitionId=127",
+            "uri": "https://almrangers.visualstudio.com/ALM/_apis/build/status/Extensions/Azure%20DevOps%20Extension%20Tasks",
+            "description": "Build"
+        },
+        {
+            "href": "https://almrangers.visualstudio.com/ALM/_releaseDefinition?definitionId=25",
+            "uri": "https://almrangers.vsrm.visualstudio.com/_apis/public/Release/badge/7f3cfb9a-d1cb-4e66-9d36-1af87b906fe9/25/70",
+            "description": "Release"
+        }
+    ],
+    "files": [
+        {
+            "path": "BuildTasks/InstallSFDXCLITask"
+        },
+        {
+            "path": "BuildTasks/AuthenticateDevHubTask"
+        },
+        {
+            "path": "BuildTasks/AuthenticateSandboxTask"
+        },
+        {
+            "path": "BuildTasks/CreateScratchOrgTask"
+        },
+        {
+            "path": "BuildTasks/InstallPackageDependenciesTask"
+        },
+        {
+            "path": "BuildTasks/DeploySourceToOrgTask"
+        },
+        {
+            "path": "BuildTasks/TriggerApexTestTask"
+        },
+        {
+            "path": "BuildTasks/ValidateApexCoverageTask"
+        },
+        {
+            "path": "BuildTasks/DeleteScratchOrgTask"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "sfpwowerkit-installsfdx-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/InstallSFDXCLITask"
+            }
+        },
+        {
+            "id": "sfpwowerkit-authenticatedevhub-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/AuthenticateDevHubTask"
+            }
+        },
+        {
+            "id": "sfpwowerkit-authenticatesandbox-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/AuthenticateSandboxTask"
+            }
+        },
+        {
+            "id": "sfpwowerkit-createscratchorg-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/CreateScratchOrgTask"
+            }
+        },
+        {
+            "id": "sfpowerscript-installpackagedependencies-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/InstallPackageDependenciesTask"
+            }
+        },
+        {
+            "id": "sfpowerscript-deploysourcetoorg-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/DeploySourceToOrgTask"
+            }
+        },
+        {
+            "id": "sfpwowerscript-triggerapextest-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/TriggerApexTestTask"
+            }
+        },
+        {
+            "id": "sfpwowerscript-validateapextestcoverage-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/ValidateApexCoverageTask"
+            }
+        },
+        {
+            "id": "sfpwowerscript-deletescratchorg-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/DeleteScratchOrgTask"
+            }
+        }
+    ]
+}
