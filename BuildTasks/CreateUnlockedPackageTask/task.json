@@ -1,0 +1,113 @@
+{
+  "id": "243a2f4e-c997-42f1-9ac8-5f8a18915c86",
+  "name": "sfpwowerscripts-createunlockedpackage-task",
+  "friendlyName": "Creates a new package version of  Unlocked Package",
+  "description": "Creates a new package version ,This task is part of DX@Scale/SFPowerscripts",
+  "helpMarkDown": "Creates a new package version , Utilize this task in a package build for DX Unlocked Package",
+  "category": "Build",
+  "author": "azlam.abdulsalam",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 1
+  },
+  "instanceNameFormat": "Creates a new version of  $(package)",
+  "inputs": [
+    {
+      "name": "package",
+      "type": "string",
+      "label": "ID or alias of the package",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "ID (starts with 0Ho) or alias of the package to create a version of"
+    },
+    {
+      "name": "autoincrement_version_number",
+      "type": "boolean",
+      "label": "ID or alias of the package",
+      "defaultValue": "true",
+      "required": true,
+      "helpMarkDown": "Automaticallly increments the build number of the package based on the build number"
+    },
+    {
+      "name": "version_number",
+      "type": "string",
+      "label": "the version number of the package to be crated",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Automaticallly increments the build number of the package based on the build number",
+      "visibleRule": "autoincrement_version_number = false"
+    },
+    {
+      "name": "tag",
+      "type": "string",
+      "label": "Tag of the package version",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The Tag og the package version to be created"
+    },
+    {
+      "name": "config_file_path",
+      "type": "string",
+      "label": "Config File Path",
+      "defaultValue": "config/project-scratch-def.json",
+      "required": true,
+      "helpMarkDown": "Path in the current project directory containing  config file for the scratch org"
+    },
+
+    {
+      "name": "installationkeybypass",
+      "type": "boolean",
+      "label": "Bypass Installation Key",
+      "defaultValue": true,
+      "required": true,
+      "helpMarkDown": "Bypass the requirement for having an installation key for this version of the package"
+    },
+    {
+      "name": "installationkey",
+      "type": "string",
+      "label": "Bypass Installation Key",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Installation key for this package",
+      "visibleRule": "installationkeybypass = false"
+    },
+    {
+      "name": "project_directory",
+      "type": "string",
+      "label": "Project Directory",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The project directory should contain a sfdx-project.json for this command to succeed"
+    },
+    {
+      "name": "config_file_path",
+      "type": "string",
+      "label": "Config File Path",
+      "defaultValue": "config/project-scratch-def.json",
+      "required": true,
+      "helpMarkDown": "Path in the current project directory containing  config file for the scratch org"
+    },
+    {
+      "name": "devhub_alias",
+      "type": "string",
+      "label": "Alias/Username of the devhub",
+      "defaultValue": "HubOrg",
+      "required": true,
+      "helpMarkDown": "Provide the alias of the devhub previously authenticated, default value is HubOrg if using the Authenticate Devhub task"
+    },
+    {
+      "name": "wait_time",
+      "type": "string",
+      "label": "Wait Time",
+      "defaultValue": "120",
+      "required": true,
+      "helpMarkDown": "wait time for command to finish in minutes"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "CreateUnlockedPackage.js"
+    }
+  }
+}

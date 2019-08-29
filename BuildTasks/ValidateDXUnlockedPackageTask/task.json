@@ -11,7 +11,7 @@
     "Minor": 0,
     "Patch": 1
   },
-  "instanceNameFormat": "Validates An Unlocked Package  $(package) for MetadataCoverage",
+  "instanceNameFormat": "Validates $(package) for MetadataCoverage",
   "inputs": [
     {
       "name": "package",
