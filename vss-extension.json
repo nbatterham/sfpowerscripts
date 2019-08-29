@@ -95,6 +95,9 @@
         },
         {
             "path": "BuildTasks/DeleteScratchOrgTask"
+        },
+        {
+            "path": "BuildTasks/ValidateApexCoverageTask"
         }
     ],
     "contributions": [
@@ -186,6 +189,16 @@
             ],
             "properties": {
                 "name": "BuildTasks/DeleteScratchOrgTask"
+            }
+        },
+        {
+            "id": "sfpwowerscript-validatedxunlockedpackage-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/ValidateDXUnlockedPackageTask"
             }
         }
     ]
