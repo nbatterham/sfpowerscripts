@@ -2,6 +2,7 @@ import child_process = require("child_process");
 import tl = require("azure-pipelines-task-lib/task");
 import { delay } from "../Common/Delay";
 import rimraf = require("rimraf");
+import { copyFile, copyFileSync } from "fs";
 
 export default class MDAPIDeploy {
   public constructor(
@@ -18,6 +19,9 @@ export default class MDAPIDeploy {
 
     tl.debug("Converting source to mdapi");
     await this.convertSourceToMDAPI();
+
+    if(this.deployment_options["checkonly"])
+     copyFileSync(this.deployment_options["validation_ignore"],this.project_directory);
 
     let command = await this.buildExecCommand();
     let result = child_process.execSync(command, {

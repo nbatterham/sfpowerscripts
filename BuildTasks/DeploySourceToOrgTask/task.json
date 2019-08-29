@@ -9,7 +9,7 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 2
+    "Patch": 3
   },
   "instanceNameFormat": "Deploy $(source_directory) to $(target_org)",
   "inputs": [
@@ -52,6 +52,15 @@
       "defaultValue": true,
       "required": true,
       "helpMarkDown": "Validate a deployment, but don't save to the org, Use this for Stage 1/2 CI Run's",
+    },
+    {
+      "name": "validation_ignore",
+      "type": "string",
+      "label": "Override ignore file with a different file",
+      "defaultValue": ".forceignore",
+      "required": false,
+      "helpMarkDown": "Validation only deployment has issues with certain metadata such as apexttestsuite, create a different file similar to .forceignore and use it during validate only deployment",
+      "visibleRule": "checkonly = true"
     },
     {
       "name": "testlevel",

@@ -17,6 +17,9 @@ async function run() {
     mdapi_options["wait_time"] = tl.getInput("wait_time", true);
     mdapi_options["checkonly"] = tl.getBoolInput("checkonly", true);
     
+   if(mdapi_options["checkonly"])
+   mdapi_options["validation_ignore"]=tl.getInput("validation_ignore",false);
+
     mdapi_options["testlevel"] = tl.getInput("testlevel", true);
 
     if (mdapi_options["testlevel"] == "RunSpecifiedTests")
@@ -24,6 +27,7 @@ async function run() {
     if (mdapi_options["testlevel"] == "RunApexTestSuite")
       mdapi_options["apextestsuite"] = tl.getInput("apextestsuite", true);
 
+    
    
    
     mdapiDeploy = new MDAPIDeploy(
