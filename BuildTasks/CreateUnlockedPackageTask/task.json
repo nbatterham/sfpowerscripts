@@ -25,7 +25,7 @@
       "name": "autoincrement_version_number",
       "type": "boolean",
       "label": "ID or alias of the package",
-      "defaultValue": "true",
+      "defaultValue": true,
       "required": true,
       "helpMarkDown": "Automaticallly increments the build number of the package based on the build number"
     },
@@ -36,7 +36,7 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "Automaticallly increments the build number of the package based on the build number",
-      "visibleRule": "autoincrement_version_number = false"
+      "visibleRule": "autoincrement_version_number == false"
     },
     {
       "name": "tag",
