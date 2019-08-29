@@ -22,7 +22,7 @@
       "helpMarkDown": "ID (starts with 0Ho) or alias of the package to create a version of"
     },
     {
-      "name": "autoincrement_version_number",
+      "name": "autoincrement",
       "type": "boolean",
       "label": "ID or alias of the package",
       "defaultValue": true,
@@ -36,7 +36,7 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "Automaticallly increments the build number of the package based on the build number",
-      "visibleRule": "autoincrement_version_number == false"
+      "visibleRule": "autoincrement = true"
     },
     {
       "name": "tag",
