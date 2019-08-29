@@ -11,7 +11,7 @@
     "Minor": 0,
     "Patch": 2
   },
-  "instanceNameFormat": "Deploy Source to $(target_org)",
+  "instanceNameFormat": "Deploy $(source_directory) to $(target_org)",
   "inputs": [
     {
       "name": "target_org",
