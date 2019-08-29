@@ -98,6 +98,9 @@
         },
         {
             "path": "BuildTasks/ValidateDXUnlockedPackageTask"
+        },
+        {
+            "path": "BuildTasks/CreateUnlockedPackageTask"
         }
     ],
     "contributions": [
@@ -199,6 +202,16 @@
             ],
             "properties": {
                 "name": "BuildTasks/ValidateDXUnlockedPackageTask"
+            }
+        },
+        {
+            "id": "sfpwowerscripts-createunlockedpackage-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/CreateUnlockedPackageTask"
             }
         }
     ]

@@ -1,6 +1,6 @@
 {
-  "name": "sfpwowerscript-validatedxunlockedpackage-task",
-  "description": "sfpwowerscript-validatedxunlockedpackage-task",
+  "name": "sfpwowerscripts-createunlockedpackage-task",
+  "description": "sfpwowerscripts-createunlockedpackage-task",
   "repository": {
     "type": "git",
     "url": "https://github.com/Microsoft/azure-devops-extension-tasks.git"
