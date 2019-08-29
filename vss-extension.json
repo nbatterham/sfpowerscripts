@@ -3,7 +3,7 @@
     "id": "sfpowerscripts",
     "publisher": "AzlamSalam",
     "name": "sfpowerscripts",
-    "version": "1.0.14",
+    "version": "1.0.19",
     "description": "Azure Pipelines tasks for working with SFDX",
     "tags": [
         "Extension",
@@ -97,7 +97,7 @@
             "path": "BuildTasks/DeleteScratchOrgTask"
         },
         {
-            "path": "BuildTasks/ValidateApexCoverageTask"
+            "path": "BuildTasks/ValidateDXUnlockedPackageTask"
         }
     ],
     "contributions": [
