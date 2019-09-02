@@ -18,6 +18,7 @@ async function run() {
 
     if (set_build_number) {
       console.log("Updating build number");
+      tl.updateBuildNumber(version_number);
       tl.setVariable("Build.BuildNumber", version_number, false);
       tl.setVariable("Build.UpdateBuildNumber", version_number, false);
     }
