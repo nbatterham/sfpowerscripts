@@ -10,7 +10,14 @@ export default class IncrementProjectBuildNumberImpl {
 
   public async exec(): Promise<string> {
    
-    var project_config_path = path.join(this.project_directory, "sfdx-project.json");
+    
+    let project_config_path;
+    
+    if(isNullOrUndefined(this.project_directory))
+    project_config_path= path.join(this.project_directory, "sfdx-project.json");
+    else
+    project_config_path="sfdx-project.json";
+
     let project_json = JSON.parse(fs.readFileSync(project_config_path));
 
     if( isNullOrUndefined(this.sfdx_package))
@@ -42,6 +49,12 @@ export default class IncrementProjectBuildNumberImpl {
     segments[1]+=String((Number(segments[1])+1));
     if(this.segment=='Patch')
     segments[2]=String((Number(segments[2])+1));
+
+    if(segments[3]=="NEXT")
+    {
+    throw new Error("NEXT not supported for build number");
+    }
+
     if(this.segment=='BuildNumber')
     segments[3]= String((Number(segments[3])+1));
 
