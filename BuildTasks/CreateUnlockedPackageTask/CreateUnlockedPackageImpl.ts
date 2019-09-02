@@ -29,10 +29,12 @@ export default class CreateUnlockedPackageImpl {
       output+=data.toString();
     });
 
-   let result = JSON.parse(output);
+   
 
     await onExit(child);
 
+    let result = JSON.parse(output);
+    
     return result.result.SubscriberPackageVersionId;
 
   }
