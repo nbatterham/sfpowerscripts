@@ -11,7 +11,7 @@ async function run() {
 
     let installationkey;
 
-    if (installationkeybypass)
+    if (!installationkeybypass)
       installationkey = tl.getBoolInput("installationkey", true);
 
     let project_directory = tl.getInput("project_directory", false);
