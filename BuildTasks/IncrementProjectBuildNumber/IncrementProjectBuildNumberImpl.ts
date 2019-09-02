@@ -1,7 +1,7 @@
 import child_process = require("child_process");
 import { isNullOrUndefined } from "util";
 const fs = require("fs");
-var path = require("path");
+const path = require("path");
 
 
 export default class IncrementProjectBuildNumberImpl {
@@ -10,17 +10,22 @@ export default class IncrementProjectBuildNumberImpl {
 
   public async exec(): Promise<string> {
    
+
+ 
     
-    let project_config_path;
+    let project_config_path:string;
     
-    if(isNullOrUndefined(this.project_directory))
+    if(!isNullOrUndefined(this.project_directory))
     project_config_path= path.join(this.project_directory, "sfdx-project.json");
     else
     project_config_path="sfdx-project.json";
 
+
+ 
+
     let project_json = JSON.parse(fs.readFileSync(project_config_path));
 
-    if( isNullOrUndefined(this.sfdx_package))
+    if(!isNullOrUndefined(this.sfdx_package))
       this.sfdx_package='default';
 
     let selected_package;
