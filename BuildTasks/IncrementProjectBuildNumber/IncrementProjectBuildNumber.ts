@@ -17,11 +17,13 @@ async function run() {
     let version_number: string = await incrementProjectBuildNumberImpl.exec();
 
     if (set_build_number) {
-      console.log("Updating build number");
+      console.log("Updating build number to ${}");
       tl.updateBuildNumber(version_number);
-      tl.setVariable("Build.BuildNumber", version_number, false);
-      tl.setVariable("Build.UpdateBuildNumber", version_number, false);
     }
+
+    tl.setVariable("sfpowerscripts_incremented_project_version", version_number,false);
+
+    
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);
   }

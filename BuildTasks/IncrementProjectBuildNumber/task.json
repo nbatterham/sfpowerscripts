@@ -9,7 +9,7 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 6
+    "Patch": 7
   },
   "instanceNameFormat": "Increments the $(versioncounter) version number ",
   "inputs": [
@@ -50,6 +50,12 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "The  directory should contain a sfdx-project.json for this command to succeed"
+    }
+  ],
+  "OutputVariables": [
+    {
+      "name": "sfpowerscripts_incremented_project_version",
+      "description": "The version of the project that is incremetned as a result of the task"
     }
   ],
   "execution": {
