@@ -6,6 +6,6 @@
     },
     "files": [
         "CreateUnlockedPackage.ts",
-        "CreatedUnlockedPackageImpl.ts"
+        "CreateUnlockedPackageImpl.ts"
     ]
   }

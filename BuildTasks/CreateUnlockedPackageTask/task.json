@@ -27,7 +27,7 @@
       "label": "the version number of the package to be crated",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "The format is major.minor.patch.buildnumber . This will override the build number mentioned in the sfdx-project.json"
+      "helpMarkDown": "The format is major.minor.patch.buildnumber . This will override the build number mentioned in the sfdx-project.json, Try considering the use of Increment Version Number task before this task"
     },
     {
       "name": "tag",
@@ -43,7 +43,7 @@
       "label": "Config File Path",
       "defaultValue": "config/project-scratch-def.json",
       "required": true,
-      "helpMarkDown": "Path in the current project directory containing  config file for the scratch org"
+      "helpMarkDown": "Path in the current project directory containing  config file for the packaging org"
     },
 
     {
@@ -72,14 +72,6 @@
       "helpMarkDown": "The project directory should contain a sfdx-project.json for this command to succeed"
     },
     {
-      "name": "config_file_path",
-      "type": "string",
-      "label": "Config File Path",
-      "defaultValue": "config/project-scratch-def.json",
-      "required": true,
-      "helpMarkDown": "Path in the current project directory containing  config file for the scratch org"
-    },
-    {
       "name": "devhub_alias",
       "type": "string",
       "label": "Alias/Username of the devhub",
@@ -96,9 +88,15 @@
       "helpMarkDown": "wait time for command to finish in minutes"
     }
   ],
+  "OutputVariables": [
+    {
+      "name": "sfpowerscripts_package_version_id",
+      "description": "The id of the package version that was created "
+    }
+  ],
   "execution": {
     "Node": {
-      "target": "CreateUnlockedPackage.js"
+      "target": "CreateUnlockedPackageTask/CreateUnlockedPackage.js"
     }
   }
 }
