@@ -1,6 +1,6 @@
 {
   "id": "f67abc38-a5b8-4196-946e-ba81df4cd57c",
-  "name": "sfpwowerscript-incrementcersionnumber-task",
+  "name": "sfpwowerscript-incrementversionnumber-task",
   "friendlyName": "Increments the Version Number",
   "description": "Increment the selected version number mentioned in the sfdx-project.json",
   "helpMarkDown": "Increment the selected version counter by one and adds a commit to  to your repository, it doesnt push the change to the repository, have a step after the package is created to push this commit to the repository ",
@@ -34,7 +34,7 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "The name of the package of which the version need to be incremented,If not specified the default package is utilized"
-    }
+    },
     {
       "name": "project_directory",
       "type": "string",

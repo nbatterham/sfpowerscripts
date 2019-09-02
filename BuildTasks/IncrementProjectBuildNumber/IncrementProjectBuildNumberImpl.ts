@@ -52,6 +52,8 @@ export default class IncrementProjectBuildNumberImpl {
    
     fs.writeFileSync(project_config_path, JSON.stringify(project_json, null, 4));
 
+    
+
   }
 
   public async buildExecCommand(): Promise<void> {
