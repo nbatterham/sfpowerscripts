@@ -8,7 +8,7 @@ export default class IncrementProjectBuildNumberImpl {
   
   public constructor(private project_directory:string, private sfdx_package:string, private segment) {}
 
-  public async exec(): Promise<void> {
+  public async exec(): Promise<string> {
    
     var project_config_path = path.join(this.project_directory, "sfdx-project.json");
     let project_json = JSON.parse(fs.readFileSync(project_config_path));
@@ -52,7 +52,8 @@ export default class IncrementProjectBuildNumberImpl {
    
     fs.writeFileSync(project_config_path, JSON.stringify(project_json, null, 4));
 
-    
+
+    return selected_package['versionNumber'] ;
 
   }
 

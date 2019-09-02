@@ -28,6 +28,14 @@
       "helpMarkDown": "Select the segment of the version"
     },
     {
+      "name": "set_build_number",
+      "type": "boolean",
+      "label": "Set the pipeline's build number to the the project's incremented version number",
+      "defaultValue": true,
+      "required": false,
+      "helpMarkDown": "Set the pipeline's build number to the the project's incremented version number"
+    },
+    {
       "name": "package",
       "type": "string",
       "label": "SFDX Package ",

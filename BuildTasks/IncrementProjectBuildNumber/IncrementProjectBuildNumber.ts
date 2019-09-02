@@ -6,12 +6,20 @@ async function run() {
     const segment: string = tl.getInput("segment", true);
     const sfdx_package: string = tl.getInput("package", false);
     const project_directory: string = tl.getInput("project_directory", false);
-    
-    
-    let incrementProjectBuildNumberImpl:IncrementProjectBuildNumberImpl = new IncrementProjectBuildNumberImpl(project_directory,sfdx_package,segment);
- 
-    await incrementProjectBuildNumberImpl.exec();
+    const set_build_number: boolean = tl.getBoolInput("set_build_number");
 
+    let incrementProjectBuildNumberImpl: IncrementProjectBuildNumberImpl = new IncrementProjectBuildNumberImpl(
+      project_directory,
+      sfdx_package,
+      segment
+    );
+
+    let version_number: string = await incrementProjectBuildNumberImpl.exec();
+
+    if (set_build_number) {
+      tl.setVariable("Build.BuildNumber", version_number, false);
+      tl.setVariable("Build.UpdateBuildNumber", version_number, false);
+    }
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);
   }
