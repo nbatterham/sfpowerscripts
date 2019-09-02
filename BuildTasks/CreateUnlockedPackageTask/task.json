@@ -22,21 +22,12 @@
       "helpMarkDown": "ID (starts with 0Ho) or alias of the package to create a version of"
     },
     {
-      "name": "autoincrement",
-      "type": "boolean",
-      "label": "ID or alias of the package",
-      "defaultValue": true,
-      "required": true,
-      "helpMarkDown": "Automaticallly increments the build number of the package based on the build number"
-    },
-    {
       "name": "version_number",
       "type": "string",
       "label": "the version number of the package to be crated",
       "defaultValue": "",
-      "required": true,
-      "helpMarkDown": "Automaticallly increments the build number of the package based on the build number",
-      "visibleRule": "autoincrement = true"
+      "required": false,
+      "helpMarkDown": "The format is major.minor.patch.buildnumber . This will override the build number mentioned in the sfdx-project.json"
     },
     {
       "name": "tag",
