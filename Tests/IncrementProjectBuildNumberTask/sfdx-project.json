@@ -1,29 +1,39 @@
 {
     "packageDirectories": [
         {
-            "path": "src/core",
+            "path": "force-di",
             "default": true,
-            "package": "core",
-            "versionName": "core_2.12.0",
-            "versionNumber": "2.12.1.1",
+            "package": "force-di",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.1.10",
             "dependencies": [
                 {
-                    "package": "force-di"
+                    "package": "flowmagic"
                 }
             ]
         },
         {
-            "path": "src/unpackaged"
+            "path": "force-di-trigger-demo",
+            "default": false
+        },
+        {
+            "path": "force-app-1",
+            "default": false
+        },
+        {
+            "path": "force-app-2",
+            "default": false
+        },
+        {
+            "path": "force-app-3",
+            "default": false
         }
     ],
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "44.0",
     "packageAliases": {
-        "apttus_CPQ_Core": "04t2K00000083viQAA",
-        "apttus_Contract_Management": "04t1T000000cTKOQA2",
-        "utils": "04t0o000001y8J7AAI",
-        "core": "0Ho2P000000001TSAQ",
-        "force-di": "04t5L0000000Rs0QAE"
+        "force-di": "0Ho1P000000000GSAQ",
+        "flowmagic": "04t6F000001D6LOQA0"
     }
 }

@@ -9,7 +9,7 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 4
+    "Patch": 5
   },
   "instanceNameFormat": "Increments the $(versioncounter) version number ",
   "inputs": [
@@ -32,7 +32,7 @@
       "type": "boolean",
       "label": "Set the pipeline's build number to the the project's incremented version number",
       "defaultValue": true,
-      "required": false,
+      "required": true,
       "helpMarkDown": "Set the pipeline's build number to the the project's incremented version number"
     },
     {

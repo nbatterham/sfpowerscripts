@@ -25,7 +25,7 @@ export default class IncrementProjectBuildNumberImpl {
 
     let project_json = JSON.parse(fs.readFileSync(project_config_path));
 
-    if(!isNullOrUndefined(this.sfdx_package))
+    if(isNullOrUndefined(this.sfdx_package))
       this.sfdx_package='default';
 
     let selected_package;
