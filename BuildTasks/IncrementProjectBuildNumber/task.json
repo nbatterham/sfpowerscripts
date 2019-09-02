@@ -1,0 +1,52 @@
+{
+  "id": "f67abc38-a5b8-4196-946e-ba81df4cd57c",
+  "name": "sfpwowerscript-incrementcersionnumber-task",
+  "friendlyName": "Increments the Version Number",
+  "description": "Increment the selected version number mentioned in the sfdx-project.json",
+  "helpMarkDown": "Increment the selected version counter by one and adds a commit to  to your repository, it doesnt push the change to the repository, have a step after the package is created to push this commit to the repository ",
+  "category": "Build",
+  "author": "azlam.abdulsalam",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "instanceNameFormat": "Increments the $(versioncounter) version number ",
+  "inputs": [
+    {
+      "name": "segment",
+      "type": "pickList",
+      "label": "Increment which segment of the version",
+      "defaultValue": "BuildNumber",
+      "options": {
+        "BuildNumber": "BuildNumber",
+        "Patch": "Patch",
+        "Minor": "Minor",
+        "Major": "Major"
+      },
+      "required": true,
+      "helpMarkDown": "Select the segment of the version"
+    },
+    {
+      "name": "package",
+      "type": "string",
+      "label": "SFDX Package ",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The name of the package of which the version need to be incremented,If not specified the default package is utilized"
+    }
+    {
+      "name": "project_directory",
+      "type": "string",
+      "label": "SFDX Project Directory ",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The  directory should contain a sfdx-project.json for this command to succeed"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "IncrementProjectBuildNumber.js"
+    }
+  }
+}

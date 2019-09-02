@@ -101,6 +101,9 @@
         },
         {
             "path": "BuildTasks/CreateUnlockedPackageTask"
+        },
+        {
+            "path": "BuildTasks/IncrementProjectBuildNumber"
         }
     ],
     "contributions": [
@@ -212,6 +215,16 @@
             ],
             "properties": {
                 "name": "BuildTasks/CreateUnlockedPackageTask"
+            }
+        },
+        {
+            "id": "sfpwowerscript-incrementcersionnumber-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/IncrementProjectBuildNumber"
             }
         }
     ]
