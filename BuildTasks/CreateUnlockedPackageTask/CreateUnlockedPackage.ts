@@ -50,7 +50,13 @@ async function run() {
 
 
       fs.writeFileSync(__dirname+"/package_version_id",package_version_id);
-    
+
+     let  id:String = fs.readFileSync(__dirname+"/package_version_id");
+      
+      console.log(id);
+
+     console.log( __dirname+"/package_version_id");
+
       let data = {
           artifacttype: 'container',
           artifactname: 'package_version_id'
