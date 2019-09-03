@@ -17,7 +17,7 @@ export default class CreateUnlockedPackageImpl {
 
   public async exec(command: string): Promise<string> {
 
-    let child=child_process.exec(command,  { encoding: "utf8" },(error,stdout,stderr)=>{
+    let child=child_process.exec(command,  {cwd:this.project_directory, encoding: "utf8" },(error,stdout,stderr)=>{
 
       if(error)
          throw error;
@@ -34,13 +34,18 @@ export default class CreateUnlockedPackageImpl {
     await onExit(child);
 
     let result = JSON.parse(output);
-    
+
+    console.debug(result);
+
     return result.result.SubscriberPackageVersionId;
 
   }
 
   public async buildExecCommand(): Promise<string> {
-    let command = `npx sfdx force:package:version:create -p ${this.sfdx_package}  -w ${this.wait_time} --definitionfile ${this.config_file_path} --versionnumber ${this.version_number }`
+    let command = `npx sfdx force:package:version:create -p ${this.sfdx_package}  -w ${this.wait_time} --definitionfile ${this.config_file_path} --json`
+
+    if(!isNullOrUndefined(this.version_number))
+    command+=`  --versionnumber ${this.version_number }`;
 
     if(this.installationkeybypass)
      command+=` -x`

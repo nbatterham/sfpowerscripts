@@ -1,5 +1,7 @@
 import tl = require("azure-pipelines-task-lib/task");
 import CreateUnlockedPackageImpl from "./CreateUnlockedPackageImpl";
+const fs = require("fs");
+
 
 async function run() {
   try {
@@ -17,6 +19,9 @@ async function run() {
     let project_directory = tl.getInput("project_directory", false);
     let devhub_alias = tl.getInput("devhub_alias", true);
     let wait_time = tl.getInput("wait_time", true);
+
+    let build_artifact_enabled = tl.getBoolInput("build_artifact_enabled", true);
+
 
     let createUnlockedPackageImpl: CreateUnlockedPackageImpl = new CreateUnlockedPackageImpl(
       sfdx_package,
@@ -37,6 +42,28 @@ async function run() {
     );
 
     tl.setVariable("sfpowerscripts_package_version_id", package_version_id);
+
+    if(build_artifact_enabled)
+     {
+
+
+      fs.writeFile("package_version_id",package_version_id);
+    
+      let data = {
+          artifacttype: 'container',
+          artifactname: 'package_version_id'
+      };
+
+      // upload or copy
+      data["containerfolder"] = "package_version_id";
+
+      // add localpath to ##vso command's properties for back compat of old Xplat agent
+      data["localpath"] = "package_version_id";
+      tl.command("artifact.upload", data, "package_version_id");
+
+
+     }
+
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);
   }
