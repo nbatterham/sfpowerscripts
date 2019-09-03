@@ -30,12 +30,9 @@ export default class CreateUnlockedPackageImpl {
     });
 
    
-
     await onExit(child);
 
     let result = JSON.parse(output);
-
-    console.debug(result);
 
     return result.result.SubscriberPackageVersionId;
 
