@@ -2,7 +2,6 @@ import tl = require("azure-pipelines-task-lib/task");
 import CreateUnlockedPackageImpl from "./CreateUnlockedPackageImpl";
 const fs = require("fs");
 
-
 async function run() {
   try {
     let sfdx_package: string = tl.getInput("package", true);
@@ -20,8 +19,10 @@ async function run() {
     let devhub_alias = tl.getInput("devhub_alias", true);
     let wait_time = tl.getInput("wait_time", true);
 
-    let build_artifact_enabled = tl.getBoolInput("build_artifact_enabled", true);
-
+    let build_artifact_enabled = tl.getBoolInput(
+      "build_artifact_enabled",
+      true
+    );
 
     let createUnlockedPackageImpl: CreateUnlockedPackageImpl = new CreateUnlockedPackageImpl(
       sfdx_package,
@@ -37,37 +38,27 @@ async function run() {
 
     let command: string = await createUnlockedPackageImpl.buildExecCommand();
 
-    //let package_version_id: string = await createUnlockedPackageImpl.exec(
-   //   command
-   // );
-
-   let package_version_id = "04t1P000000VXMJQA4";
+    let package_version_id: string = await createUnlockedPackageImpl.exec(
+      command
+    );
 
     tl.setVariable("sfpowerscripts_package_version_id", package_version_id);
 
-    if(build_artifact_enabled)
-     {
-
-
-      fs.writeFileSync(__dirname+"/package_version_id",package_version_id);
-
-  
+    if (build_artifact_enabled) {
+      fs.writeFileSync(__dirname + "/package_version_id", package_version_id);
 
       let data = {
-          artifacttype: 'container',
-          artifactname: 'package_version_id'
+        artifacttype: "container",
+        artifactname: "sfdx_unlocked_package_version_id"
       };
 
       // upload or copy
-      data["containerfolder"] = "package_version_id";
+      data["containerfolder"] = "sfdx_unlocked_package_version_id";
 
       // add localpath to ##vso command's properties for back compat of old Xplat agent
-      data["localpath"] =__dirname+"/package_version_id";
-      tl.command("artifact.upload", data, __dirname+"/package_version_id");
-
-
-     }
-
+      data["localpath"] = __dirname + "/package_version_id";
+      tl.command("artifact.upload", data, __dirname + "/package_version_id");
+    }
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);
   }
