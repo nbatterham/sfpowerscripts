@@ -37,9 +37,11 @@ async function run() {
 
     let command: string = await createUnlockedPackageImpl.buildExecCommand();
 
-    let package_version_id: string = await createUnlockedPackageImpl.exec(
-      command
-    );
+    //let package_version_id: string = await createUnlockedPackageImpl.exec(
+   //   command
+   // );
+
+   let package_version_id = "04t1P000000VXMJQA4";
 
     tl.setVariable("sfpowerscripts_package_version_id", package_version_id);
 
@@ -47,7 +49,7 @@ async function run() {
      {
 
 
-      fs.writeFile("package_version_id",package_version_id);
+      fs.writeFileSync(__dirname+"/package_version_id",package_version_id);
     
       let data = {
           artifacttype: 'container',
@@ -58,7 +60,7 @@ async function run() {
       data["containerfolder"] = "package_version_id";
 
       // add localpath to ##vso command's properties for back compat of old Xplat agent
-      data["localpath"] = "package_version_id";
+      data["localpath"] =__dirname+"/package_version_id";
       tl.command("artifact.upload", data, "package_version_id");
 
 
