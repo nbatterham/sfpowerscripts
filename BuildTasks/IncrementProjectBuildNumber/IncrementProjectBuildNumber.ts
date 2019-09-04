@@ -15,7 +15,7 @@ async function run() {
     let  taskVariables:tl.VariableInfo[] = tl.getVariables();
 
     console.log(taskVariables);
-    .//for (let taskVariable of taskVariables) { console.log(taskVariable.name); console.log(taskVariable.value); }
+    //for (let taskVariable of taskVariables) { console.log(taskVariable.name); console.log(taskVariable.value); }
 
     if(isNullOrUndefined(project_directory))
     project_directory =tl.getVariable("");
