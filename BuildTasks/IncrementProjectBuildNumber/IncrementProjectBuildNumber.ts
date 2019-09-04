@@ -12,6 +12,11 @@ async function run() {
 
     const commit_changes: boolean = tl.getBoolInput("commit_changes",false);
 
+    let  taskVariables:tl.VariableInfo[] = tl.getVariables();
+
+    console.log(taskVariables);
+    .//for (let taskVariable of taskVariables) { console.log(taskVariable.name); console.log(taskVariable.value); }
+
     if(isNullOrUndefined(project_directory))
     project_directory =tl.getVariable("");
 
@@ -31,7 +36,7 @@ async function run() {
 
     tl.setVariable("sfpowerscripts_incremented_project_version", version_number,false);
 
-    var taskVariables = tl.getVariables(); for (var taskVariable of taskVariables) { console.log(taskVariable.name); console.log(taskVariable.value); }
+  
 
     if(commit_changes)
     {
