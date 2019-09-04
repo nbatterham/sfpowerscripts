@@ -3,7 +3,7 @@
     "id": "sfpowerscripts",
     "publisher": "AzlamSalam",
     "name": "sfpowerscripts",
-    "version": "1.0.53",
+    "version": "1.0.54",
     "description": "Azure Pipelines tasks for working with SFDX",
     "tags": [
         "Extension",
