@@ -40,8 +40,8 @@ async function run() {
     
       console.log("Committing to Git");
       let exec_result = child_process.execSync("git add sfdx-project.json", {
-        cwd: project_directory
-      });
+        cwd: repo_localpath}
+      );
      
       console.log(exec_result.toString());
   
