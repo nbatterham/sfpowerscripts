@@ -15,11 +15,7 @@ async function run() {
     let  taskVariables:tl.VariableInfo[] = tl.getVariables();
 
     console.log(taskVariables);
-    //for (let taskVariable of taskVariables) { console.log(taskVariable.name); console.log(taskVariable.value); }
-
-    if(isNullOrUndefined(project_directory))
-    project_directory =tl.getVariable("");
-
+   
 
     let incrementProjectBuildNumberImpl: IncrementProjectBuildNumberImpl = new IncrementProjectBuildNumberImpl(
       project_directory,
@@ -35,7 +31,8 @@ async function run() {
     }
 
     tl.setVariable("sfpowerscripts_incremented_project_version", version_number,false);
-
+   
+    let repo_localpath = tl.getVariable("build.repository.localpath");
   
 
     if(commit_changes)
@@ -50,7 +47,7 @@ async function run() {
   
       exec_result = child_process.execSync(
         `git commit  -m "[skip ci] Updated Version "`,
-        { cwd: project_directory }
+        { cwd: repo_localpath }
       );
       console.log(exec_result.toString());
     }
