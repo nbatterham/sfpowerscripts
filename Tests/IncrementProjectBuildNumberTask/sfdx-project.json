@@ -5,7 +5,7 @@
             "default": true,
             "package": "force-di",
             "versionName": "ver 0.1",
-            "versionNumber": "0.1.1.10",
+            "versionNumber": "0.1.2.10",
             "dependencies": [
                 {
                     "package": "flowmagic"

@@ -1,15 +1,19 @@
 import tl = require("azure-pipelines-task-lib/task");
 import IncrementProjectBuildNumberImpl from "./IncrementProjectBuildNumberImpl";
 import child_process = require("child_process");
+import { isNullOrUndefined } from "util";
 
 async function run() {
   try {
     const segment: string = tl.getInput("segment", true);
     const sfdx_package: string = tl.getInput("package", false);
-    const project_directory: string = tl.getInput("project_directory", false);
+    let project_directory: string = tl.getInput("project_directory", false);
     const set_build_number: boolean = tl.getBoolInput("set_build_number",true);
 
     const commit_changes: boolean = tl.getBoolInput("commit_changes",false);
+
+    if(isNullOrUndefined(project_directory))
+    project_directory =__dirname;
 
 
     let incrementProjectBuildNumberImpl: IncrementProjectBuildNumberImpl = new IncrementProjectBuildNumberImpl(
@@ -30,18 +34,18 @@ async function run() {
     if(commit_changes)
     {
     
+      console.log("Committing to Git");
       let exec_result = child_process.execSync("git add sfdx-project.json", {
-        cwd: this.project_directory
+        cwd: project_directory
       });
-      console.log("Test");
-      console.log(exec_result);
+     
+      console.log(exec_result.toString());
   
       exec_result = child_process.execSync(
         `git commit  -m "[skip ci] Updated Version "`,
-        { cwd: this.project_directory }
+        { cwd: project_directory }
       );
-      console.log("Test2");
-      console.log(exec_result);
+      console.log(exec_result.toString());
     }
     
 
