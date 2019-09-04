@@ -1,6 +1,5 @@
 import child_process = require("child_process");
 import { isNullOrUndefined } from "util";
-import { execSync } from "azure-pipelines-task-lib";
 const fs = require("fs");
 const path = require("path");
 
@@ -63,16 +62,6 @@ export default class IncrementProjectBuildNumberImpl {
       JSON.stringify(project_json, null, 4)
     );
 
-    let exec_result = child_process.execSync("git add sfdx-project.json", {
-      cwd: this.project_directory
-    });
-    console.log(exec_result);
-
-    exec_result = child_process.execSync(
-      `git commit  -m "[skip ci] Updated Version "`,
-      { cwd: this.project_directory }
-    );
-    console.log(exec_result);
 
     return selected_package["versionNumber"];
   }
