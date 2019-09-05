@@ -2,6 +2,9 @@ import tl = require("azure-pipelines-task-lib/task");
 import InstallUnlockedPackageImpl from "./InstallUnlockedPackageImpl";
 import child_process = require("child_process");
 import { isNullOrUndefined } from "util";
+var fs = require("fs");
+const path = require("path");
+
 
 async function run() {
   try {
@@ -18,13 +21,17 @@ async function run() {
 
       const artifact = tl.getInput("artifact",true);
       
-      let variables = tl.getVariables();
+      let artifact_directory = tl.getVariable("system.artifactsDirectory");
 
-
-      console.log(variables);
-
-
-
+      let package_version_id_file_path = path.join(
+        artifact_directory,
+        artifact,
+        "sfdx_unlocked_package_version_id",
+        "package_version_id"
+      );
+      
+      package_version_id=fs.readFileSync(package_version_id_file_path).toString();
+      console.log(package_version_id);
     }
     else
     {
