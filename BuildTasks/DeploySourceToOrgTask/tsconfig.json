@@ -6,6 +6,6 @@
     },
     "files": [
         "DeploySourceToOrg.ts",
-        "MDAPIDeploy.ts"
+        "DeploySourceToOrgImpl.ts"
     ]
   }

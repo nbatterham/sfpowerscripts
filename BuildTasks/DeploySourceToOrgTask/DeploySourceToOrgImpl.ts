@@ -4,7 +4,7 @@ import { delay } from "../Common/Delay";
 import rimraf = require("rimraf");
 import { copyFile, copyFileSync } from "fs";
 
-export default class MDAPIDeploy {
+export default class DeploySourceToOrgImpl {
   public constructor(
     private target_org: string,
     private project_directory: string,
@@ -12,7 +12,7 @@ export default class MDAPIDeploy {
     private deployment_options: any
   ) {}
 
-  public async deploy() {
+  public async exec() {
 
     //Clean mdapi directory
     rimraf.sync('mdapi');

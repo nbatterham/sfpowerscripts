@@ -8,8 +8,8 @@
   "author": "azlam.abdulsalam",
   "version": {
     "Major": 1,
-    "Minor": 0,
-    "Patch": 3
+    "Minor": 1,
+    "Patch": 0
   },
   "instanceNameFormat": "Deploy $(source_directory) to $(target_org)",
   "inputs": [

@@ -1,6 +1,6 @@
 import tl = require("azure-pipelines-task-lib/task");
 import child_process = require("child_process");
-import MDAPIDeploy from "./MDAPIDeploy";
+import DeploySourceToOrgImpl from "./DeploySourceToOrgImpl";
 
 async function run() {
   try {
@@ -11,7 +11,7 @@ async function run() {
     const source_directory: string = tl.getInput("source_directory", true);
 
 
-    let mdapiDeploy: MDAPIDeploy;
+    let deploySourceToOrgImpl: DeploySourceToOrgImpl;
     let mdapi_options = {};
 
     mdapi_options["wait_time"] = tl.getInput("wait_time", true);
@@ -30,13 +30,13 @@ async function run() {
     
    
    
-    mdapiDeploy = new MDAPIDeploy(
+      deploySourceToOrgImpl = new DeploySourceToOrgImpl(
       target_org,
       project_directory,
       source_directory,
       mdapi_options
     );
-    await mdapiDeploy.deploy();
+    await deploySourceToOrgImpl.exec();
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);
   }

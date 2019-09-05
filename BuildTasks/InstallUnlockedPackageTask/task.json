@@ -7,8 +7,8 @@
   "category": "Deploy",
   "author": "azlam.abdulsalam",
   "version": {
-    "Major": 1,
-    "Minor": 2,
+    "Major": 2,
+    "Minor": 0,
     "Patch": 0
   },
   "instanceNameFormat": "Install a version of  $(package) to $(envname) ",
@@ -16,17 +16,17 @@
     {
       "name": "envname",
       "type": "string",
-      "label": "Environment name",
+      "label": "Alias/Target User Name of the environment",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Alias/Name of the environment"
+      "helpMarkDown": "Alias/Target User Name of the environment"
     },
     {
       "name": "package",
       "type": "string",
       "label": "Name of the package to be installed",
       "required": true,
-      "helpMarkDown": "Set the pipeline's build number to the the project's incremented version number"
+      "helpMarkDown": "Name of the package to be installed"
     },
     {
       "name": "packageinstalledfrom",
@@ -43,7 +43,7 @@
     {
       "name": "package_version_id",
       "type": "string",
-      "label": "Name of the package to be installed",
+      "label": "Package Version ID",
       "required": false,
       "helpMarkDown": "Set the pipeline's build number to the the project's incremented version number",
       "visibleRule": "packageinstalledfrom = Custom"
@@ -53,7 +53,7 @@
       "type": "string",
       "label": "Name of the artifact that is attached to this release pipeline",
       "required": false,
-      "helpMarkDown": "Provide the name of the artifact which is the p",
+      "helpMarkDown": "Provide the name of the artifact which is the input to this pipeline. Please note only sfpowerkit based build artifact will work with this command",
       "visibleRule": "packageinstalledfrom = BuildArtifact"
     },
     {
@@ -101,21 +101,21 @@
       "type": "string",
       "label": "Wait Time",
       "defaultValue": "120",
-      "required": true,
+      "required": false,
       "helpMarkDown": "wait time for command to finish in minutes"
     },
     {
       "name": "publish_wait_time",
       "type": "string",
       "label": "Wait Time",
-      "defaultValue": "120",
-      "required": true,
+      "defaultValue": "10",
+      "required": false,
       "helpMarkDown": "number of minutes to wait for subscriber package version ID to become available in the target org"
     }
   ],
   "execution": {
     "Node": {
-      "target": "InstallUnlockedPackage.js"
+      "target": "InstallUnlockedPackageTask/InstallUnlockedPackage.js"
     }
   }
 }
