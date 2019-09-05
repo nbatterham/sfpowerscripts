@@ -3,7 +3,7 @@
   "description": "sfpwowerscript-validatedxunlockedpackage-task",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/azure-devops-extension-tasks.git"
+    "url": "https://github.com/azlamsalam/sfpowerscripts.git"
   },
   "license": "MIT",
   "dependencies": {
