@@ -8,10 +8,10 @@
   "author": "azlam.abdulsalam",
   "version": {
     "Major": 1,
-    "Minor": 0,
+    "Minor": 1,
     "Patch": 0
   },
-  "instanceNameFormat": "Installs the $(package) to $(envname) ",
+  "instanceNameFormat": "Install a version of  $(package) to $(envname) ",
   "inputs": [
     {
       "name": "envname",
@@ -111,15 +111,7 @@
       "defaultValue": "120",
       "required": true,
       "helpMarkDown": "number of minutes to wait for subscriber package version ID to become available in the target org"
-    },
-    {
-      "name": "working_directory",
-      "type": "string",
-      "label": "Project Directory",
-      "defaultValue": "",
-      "required": false,
-      "helpMarkDown": "The working directory should contain a sfdx-project.json for this command to succeed"
-  }
+    }
   ],
   "execution": {
     "Node": {

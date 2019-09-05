@@ -18,7 +18,7 @@ async function run() {
 
       const artifact = tl.getInput("artifact",true);
       
-      let variables = tl.getVariables;
+      let variables = tl.getVariables();
 
 
       console.log(variables);
@@ -37,7 +37,7 @@ async function run() {
     const upgrade_type = tl.getInput("upgrade_type",false);
     const wait_time = tl.getInput("wait_time",false);
     const publish_wait_time = tl.getInput("publish_wait_time",false);
-    const working_directory = tl.getInput("working_directory",false);
+
    
 
     
