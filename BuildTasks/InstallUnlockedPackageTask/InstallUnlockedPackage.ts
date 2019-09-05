@@ -8,7 +8,7 @@ async function run() {
     const envname: string = tl.getInput("envname", true);
     const sfdx_package:string = tl.getInput("package",true);
 
-    const package_installedfrom = tl.getInput("package_installedfrom",true);
+    const package_installedfrom = tl.getInput("packageinstalledfrom",true);
 
     let package_version_id;
 

@@ -29,7 +29,7 @@
       "helpMarkDown": "Set the pipeline's build number to the the project's incremented version number"
     },
     {
-      "name": "package_installedfrom",
+      "name": "packageinstalledfrom",
       "type": "pickList",
       "label": "Package to be installed From",
       "defaultValue": "BuildArtifact",
@@ -46,7 +46,7 @@
       "label": "Name of the package to be installed",
       "required": false,
       "helpMarkDown": "Set the pipeline's build number to the the project's incremented version number",
-      "visibleRule": "package_installedfrom = Custom"
+      "visibleRule": "packageinstalledfrom = Custom"
     },
     {
       "name": "artifact",
@@ -54,7 +54,7 @@
       "label": "Name of the artifact that is attached to this release pipeline",
       "required": false,
       "helpMarkDown": "Provide the name of the artifact which is the p",
-      "visibleRule": "package_installedfrom = BuildArtifact"
+      "visibleRule": "packageinstalledfrom = BuildArtifact"
     },
     {
       "name": "installationkey",
