@@ -1,16 +1,23 @@
-SFPowerscripts
+
+**
+
+# SFPowerscripts
+
+**
 
 SFPowerscripts is an Azure Pipelines Extension that converts Azure Pipelines into a CI/CD platform for Salesforce. The extension features the following the tasks
 
-Authentication Related Tasks
-- 
+## Authentication Related Tasks
+
+ 
  - Authenticate a DevHub using JWT
  - Authenticate a Sandbox using JWT
  - Create a Scratch Org
  - Delete a Scratch Org
 
-Build/ Deployment Related Tasks
-- 
+## Build/ Deployment Related Tasks
+
+ 
  -  Install SFDX along with SFPowerkit Plugin
  -  Deploy a source format based repo to an org (scratch org/sandbox/prod)
  -  Create an unlocked package 
@@ -20,8 +27,12 @@ Build/ Deployment Related Tasks
  -  Validate a Unlocked package for metadata coverage 
  -   Install all the dependencies of an unlocked package
 
-The extension is designed with granularity in mind, which means all the above tasks has to be orchestrated in a valid order required to reach the required objective. 
+The extension is designed with tasks which are granular,  which means all the above tasks has to be orchestrated in a valid order required to reach the required objective.  This allows one to utilise other commands or extensions between the tasks and be highly effective.  Sample orchestration pipelines will be published shortly in the repo.
+
 For eg: a Pull Request validation for an unlocked package  should feature the tasks in this order
+
+![PR Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/images/pr_pipeline.PNG)
+
 
  1. Install the SFDX CLI
  2. Validate the unlocked package for metadata coverage
@@ -30,5 +41,6 @@ For eg: a Pull Request validation for an unlocked package  should feature the ta
  5. Install Package Dependencies in the target scratch org
  6. Deploy source to the target scratch org
  7. Delete the scratch org
+
 
 
