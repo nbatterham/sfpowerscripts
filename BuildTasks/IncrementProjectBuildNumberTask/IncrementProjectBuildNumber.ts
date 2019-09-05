@@ -12,9 +12,7 @@ async function run() {
 
     const commit_changes: boolean = tl.getBoolInput("commit_changes",false);
 
-    let  taskVariables:tl.VariableInfo[] = tl.getVariables();
-
-    console.log(taskVariables);
+  
    
 
     let incrementProjectBuildNumberImpl: IncrementProjectBuildNumberImpl = new IncrementProjectBuildNumberImpl(
@@ -37,6 +35,11 @@ async function run() {
 
     if(commit_changes)
     {
+
+
+      child_process.execSync(" git config user.email sfpowerscripts@dxscale");
+      child_process.execSync(" git config user.name sfpowerscripts");
+      
     
       console.log("Committing to Git");
       let exec_result = child_process.execSync("git add sfdx-project.json", {
