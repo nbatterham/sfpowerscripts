@@ -103,7 +103,10 @@
             "path": "BuildTasks/CreateUnlockedPackageTask"
         },
         {
-            "path": "BuildTasks/IncrementProjectBuildNumber"
+            "path": "BuildTasks/IncrementProjectBuildNumberTask"
+        },
+        {
+            "path": "BuildTasks/InstallUnlockedPackageTask"
         }
     ],
     "contributions": [
@@ -224,7 +227,17 @@
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "BuildTasks/IncrementProjectBuildNumber"
+                "name": "BuildTasks/IncrementProjectBuildNumberTask"
+            }
+        },
+        {
+            "id": "sfpwowerscript-installunlockedpackage-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/InstallUnlockedPackageTask"
             }
         }
     ]
