@@ -1,0 +1,46 @@
+pool:
+  name: Hosted Ubuntu 1604
+#Your build pipeline references an undefined variable named ‘prod.user’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ‘prod.consumerkey’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+
+steps:
+- task: AzlamSalam.sfpowerscripts.sfpwowerkit-installsfdx-task.sfpwowerkit-installsfdx-task@1
+  displayName: 'Install SFDX'
+
+- task: AzlamSalam.sfpowerscripts.sfpwowerscript-validatedxunlockedpackage-task.sfpwowerscript-validatedxunlockedpackage-task@1
+  displayName: 'Validates An Unlocked Package for force-di'
+  inputs:
+    package: 'force-di'
+
+- task: AzlamSalam.sfpowerscripts.sfpwowerkit-authenticatedevhub-task.sfpwowerkit-authenticatedevhub-task@0
+  displayName: 'Authenticate DevHub'
+  inputs:
+    jwt_key_file: 'ba6ca248-d551-4b0d-9c60-19ddc1351a85'
+    username: '$(prod.user)'
+    clientid: '$(prod.consumerkey)'
+
+- task: AzlamSalam.sfpowerscripts.sfpwowerkit-createscratchorg-task.sfpwowerkit-createscratchorg-task@1
+  displayName: 'Create a Scratch Org'
+
+- task: AzlamSalam.sfpowerscripts.sfpowerscript-installpackagedependencies-task.sfpowerscript-installpackagedependencies-task@1
+  displayName: 'Install Package Dependencies to a target org'
+  inputs:
+    apexcompileonlypackage: true
+
+- task: AzlamSalam.sfpowerscripts.sfpowerscript-deploysourcetoorg-task.sfpowerscript-deploysourcetoorg-task@1
+  displayName: 'Deploy Source to scratchorg'
+  inputs:
+    source_directory: 'force-di'
+    checkonly: false
+
+- task: AzlamSalam.sfpowerscripts.sfpwowerscript-triggerapextest-task.sfpwowerscript-triggerapextest-task@1
+  displayName: 'Trigger Apex Tests in scratchorg'
+
+- task: AzlamSalam.sfpowerscripts.sfpwowerscript-validateapextestcoverage-task.sfpwowerscript-validateapextestcoverage-task@1
+  displayName: 'Validate  Apex Tests  Coverage for  36 % in scratchorg'
+  inputs:
+    test_coverage: 80
+
+- task: AzlamSalam.sfpowerscripts.sfpwowerscript-deletescratchorg-task.sfpwowerscript-deletescratchorg-task@1
+  displayName: 'Deletes scratch org scratchorg'
+  condition: always()
