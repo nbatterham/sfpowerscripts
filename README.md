@@ -39,6 +39,10 @@ For eg: a Pull Request validation for an unlocked package  should feature the ta
  5. Install Package Dependencies in the target scratch org
  6. Deploy source to the target scratch org
  7. Delete the scratch org
+ 
+ The sample pipelines are available at 
+ (https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Pull%20Request%20in%20Scratch%20Orgs)
+ (https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Unlocked%20Packaging%20Build%20Pipeline)
 
 
 
