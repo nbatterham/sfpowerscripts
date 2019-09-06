@@ -138,7 +138,7 @@ updateExtensionManifest = function(dir, options, isOriginalFile) {
 
   if (options.stage == "dev" && !isOriginalFile) {
     manifest.id = "sfpowerscripts" + "-" + "dev";
-    manifest.name = sfpowerscripts + " (" + "dev" + ")";
+    manifest.name = "sfpowerscripts" + " (" + "dev" + ")";
   }
 
   manifest.public = options.public;
