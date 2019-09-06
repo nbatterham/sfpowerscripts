@@ -92,12 +92,16 @@ target.incrementversion = function() {
   switch (options.stage) {
     case "dev":
       options.public = false;
+      updateExtensionManifest(__dirname, options, false);
+      updateTaskManifest(__dirname, options, false);
+      
       break;
+    default:
+        updateExtensionManifest(__dirname, options, true);
   }
 
  
-  updateExtensionManifest(__dirname, options, true);
-
+  
 };
 
 target.publish = function() {
@@ -141,25 +145,10 @@ updateTaskManifest = function(dir, options, isOriginalFile) {
     var manifestPath = path.join(tasksPath, task, "task.json");
 
     if (fs.existsSync(manifestPath)) {
+      console.log(manifestPath);
       var manifest = JSON.parse(fs.readFileSync(manifestPath));
 
-      if (options.version) {
-        manifest.version.Major = semver.major(options.version);
-        manifest.version.Minor = semver.minor(options.version);
-        manifest.version.Patch = semver.patch(options.version);
-      }
-
-      if (!isOriginalFile) {
-        manifest.helpMarkDown =
-          "v" +
-          manifest.version.Major +
-          "." +
-          manifest.version.Minor +
-          "." +
-          manifest.version.Patch +
-          " - " +
-          manifest.helpMarkDown;
-      }
+  
 
       if (options.stage && !isOriginalFile) {
         manifest.friendlyName = manifest.friendlyName + " (" + options.stage;
@@ -173,6 +162,9 @@ updateTaskManifest = function(dir, options, isOriginalFile) {
 
       fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 4));
     }
+    
+
+
   });
 };
 
