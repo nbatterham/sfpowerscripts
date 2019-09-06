@@ -109,7 +109,7 @@ target.publish = function() {
     shell.exec(
       'tfx extension publish --vsix "' +
         packagesPath +
-        "/AzlamSalam.sfpowerscripts-dev" +
+        "/AzlamSalam.sfpowerscripts-dev-" +
         options.version +
         '.vsix"' +
         " --share-with azlamsalam --token " +
