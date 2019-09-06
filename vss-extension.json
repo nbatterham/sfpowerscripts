@@ -1,9 +1,9 @@
 {
     "manifestVersion": 1,
-    "id": "sfpowerscripts",
+    "id": "sfpowerscripts-dev",
     "publisher": "AzlamSalam",
-    "name": "sfpowerscripts",
-    "version": "1.0.76",
+    "name": "sfpowerscripts (dev)",
+    "version": "1.0.81",
     "description": "Azure Pipelines tasks for working with SFDX",
     "tags": [
         "Extension",
