@@ -31,7 +31,7 @@ async function run() {
     tl.setVariable("sfpowerscripts_incremented_project_version", version_number,false);
    
     let repo_localpath = tl.getVariable("build.repository.localpath");
-  
+  c
 
     if(commit_changes)
     {

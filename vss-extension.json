@@ -58,14 +58,9 @@
     },
     "badges": [
         {
-            "href": "https://almrangers.visualstudio.com/ALM/_build?definitionId=127",
-            "uri": "https://almrangers.visualstudio.com/ALM/_apis/build/status/Extensions/Azure%20DevOps%20Extension%20Tasks",
+            "href": "https://dev.azure.com/azlamsalam/sfpowerscripts/_build?definitionId=3",
+            "uri": "https://dev.azure.com/azlamsalam/sfpowerscripts/_apis/build/status/sfpowerscripts-CI?branchName=master",
             "description": "Build"
-        },
-        {
-            "href": "https://almrangers.visualstudio.com/ALM/_releaseDefinition?definitionId=25",
-            "uri": "https://almrangers.vsrm.visualstudio.com/_apis/public/Release/badge/7f3cfb9a-d1cb-4e66-9d36-1af87b906fe9/25/70",
-            "description": "Release"
         }
     ],
     "files": [
@@ -107,6 +102,9 @@
         },
         {
             "path": "BuildTasks/InstallUnlockedPackageTask"
+        },
+        {
+            "path": "BuildTasks/CreateSourcePackageTask"
         }
     ],
     "contributions": [
@@ -238,6 +236,16 @@
             ],
             "properties": {
                 "name": "BuildTasks/InstallUnlockedPackageTask"
+            }
+        },
+        {
+            "id": "sfpwowerscripts-createsourcepackage-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/CreateSourcePackageTask"
             }
         }
     ]

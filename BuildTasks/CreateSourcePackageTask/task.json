@@ -16,10 +16,10 @@
     {
       "name": "package",
       "type": "string",
-      "label": "Alias of the package",
+      "label": "Name of the package",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "ID (starts with 0Ho) or alias of the package to create a version of"
+      "helpMarkDown": "The name of the package"
     },
     {
       "name": "version_number",
