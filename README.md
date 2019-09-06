@@ -25,7 +25,7 @@ SFPowerscripts is an Azure Pipelines Extension that converts Azure Pipelines int
  -  Validate a Unlocked package for metadata coverage 
  -   Install all the dependencies of an unlocked package
 
-The extension is designed with tasks which are granular,  which means all the above tasks has to be orchestrated in a valid order required to reach the required objective.  This allows one to utilise other commands or extensions between the tasks and be highly effective.  Sample orchestration pipelines will be published shortly in the repo.
+The extension is designed with tasks which are granular,  which means all the above tasks has to be orchestrated in a valid order required to reach the required objective.  This allows one to utilise other commands or extensions between the tasks and be highly effective.  Sample orchestration pipelines are available in the Sample Pipelines Folder. Import these pipelines (in JSON Format) to your Azure  Pipelines instance , set the variables and other parameters and you will be ready to utilize a highly customizable pipeline in the shortest time.
 
 For eg: a Pull Request validation for an unlocked package  should feature the tasks in this order
 

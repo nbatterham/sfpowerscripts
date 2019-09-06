@@ -2,7 +2,7 @@
   "id": "a81064ca-c1cc-4ebf-892f-6299fa36b151",
   "name": "sfpwowerscripts-createunlockedpackage-task",
   "friendlyName": "Creates a new package version of  Unlocked Package",
-  "description": "Creates a new package version ,This task is part of DX@Scale/SFPowerscripts",
+  "description": "Creates a new package version ,This task is part of SFPowerscripts",
   "helpMarkDown": "Creates a new package version , Utilize this task in a package build for DX Unlocked Package",
   "category": "Build",
   "author": "azlam.abdulsalam",

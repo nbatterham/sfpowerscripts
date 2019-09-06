@@ -1,0 +1,280 @@
+{
+  "options": [
+    {
+      "enabled": false,
+      "definition": { "id": "5d58cc01-7c75-450c-be18-a388ddb129ec" },
+      "inputs": {
+        "branchFilters": "[\"+refs/heads/*\"]",
+        "additionalFields": "{}"
+      }
+    },
+    {
+      "enabled": false,
+      "definition": { "id": "a9db38f9-9fdc-478c-b0f9-464221e58316" },
+      "inputs": {
+        "workItemType": "Issue",
+        "assignToRequestor": "true",
+        "additionalFields": "{}"
+      }
+    }
+  ],
+  "triggers": [
+    {
+      "branchFilters": ["+master"],
+      "forks": { "enabled": true, "allowSecrets": false },
+      "pathFilters": [],
+      "requireCommentsForNonTeamMembersOnly": false,
+      "isCommentRequiredForPullRequest": false,
+      "triggerType": 64
+    }
+  ],
+  "variables": {
+    "packageName": { "value": "force-di" },
+    "system.debug": { "value": "false", "allowOverride": true },
+    "working_directory": { "value": "" },
+    "prod.consumerkey": { "value": "", "isSecret": true },
+    "prod.user": { "value": "" }
+  },
+  "properties": {},
+  "tags": [],
+  "jobAuthorizationScope": 1,
+  "jobTimeoutInMinutes": 60,
+  "jobCancelTimeoutInMinutes": 5,
+  "process": {
+    "phases": [
+      {
+        "steps": [
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "Install SFDX",
+            "timeoutInMinutes": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "037eed85-ad5a-4f7f-9228-69c8e685b36a",
+              "versionSpec": "1.*",
+              "definitionType": "task"
+            },
+            "inputs": {
+              "sfdx_cli_version": "latest",
+              "sfpowerkit_version": "latest"
+            }
+          },
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "Validates An Unlocked Package for force-di",
+            "timeoutInMinutes": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "243a2f4e-c997-42f1-9ac8-5f8a18915c86",
+              "versionSpec": "1.*",
+              "definitionType": "task"
+            },
+            "inputs": { "package": "force-di", "working_directory": "" }
+          },
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "Authenticate DevHub",
+            "timeoutInMinutes": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "5de4147a-a8b0-43f4-b349-09dfcfef9843",
+              "versionSpec": "0.*",
+              "definitionType": "task"
+            },
+            "inputs": {
+              "jwt_key_file": null,
+              "username": "$(prod.user)",
+              "alias": "HubOrg",
+              "clientid": "$(prod.consumerkey)",
+              "working_directory": ""
+            }
+          },
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "Create a Scratch Org",
+            "timeoutInMinutes": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "1a91bbf7-1139-4e59-bd81-9b815cceedfb",
+              "versionSpec": "1.*",
+              "definitionType": "task"
+            },
+            "inputs": {
+              "config_file_path": "config/project-scratch-def.json",
+              "devhub_alias": "HubOrg",
+              "working_directory": ""
+            }
+          },
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "Install Package Dependencies to a target org",
+            "timeoutInMinutes": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "3516c9d5-1102-40d9-96e2-ab8a8c8620a4",
+              "versionSpec": "1.*",
+              "definitionType": "task"
+            },
+            "inputs": {
+              "target_org": "scratchorg",
+              "devhub_alias": "HubOrg",
+              "keys": "",
+              "apexcompileonlypackage": "true",
+              "forceinstall": "false",
+              "working_directory": ""
+            }
+          },
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "Deploy Source to scratchorg",
+            "timeoutInMinutes": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "dea3a185-c3f5-44a8-841b-1e5044864778",
+              "versionSpec": "1.*",
+              "definitionType": "task"
+            },
+            "inputs": {
+              "target_org": "scratchorg",
+              "project_directory": "",
+              "source_directory": "force-di",
+              "wait_time": "20",
+              "checkonly": "false",
+              "testlevel": "NoTestRun",
+              "specified_tests": "",
+              "apextestsuite": ""
+            }
+          },
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "Trigger Apex Tests in scratchorg",
+            "timeoutInMinutes": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "2f57114d-c08b-4014-96d7-a8981a2dae9b",
+              "versionSpec": "1.*",
+              "definitionType": "task"
+            },
+            "inputs": {
+              "target_org": "scratchorg",
+              "testlevel": "RunLocalTests",
+              "specified_tests": "",
+              "apextestsuite": "",
+              "wait_time": "60"
+            }
+          },
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "Validate  Apex Tests  Coverage for  36 % in scratchorg",
+            "timeoutInMinutes": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "b8c4c0f6-7a50-4dc1-b1cd-495914fc1384",
+              "versionSpec": "1.*",
+              "definitionType": "task"
+            },
+            "inputs": { "target_org": "scratchorg", "test_coverage": "36" }
+          },
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "Deletes scratch org scratchorg",
+            "timeoutInMinutes": 0,
+            "condition": "always()",
+            "task": {
+              "id": "cff610c3-22ed-43fe-967e-67a5947982ef",
+              "versionSpec": "1.*",
+              "definitionType": "task"
+            },
+            "inputs": { "target_org": "scratchorg", "devhub_alias": "HubOrg" }
+          }
+        ],
+        "name": "Agent job 1",
+        "refName": "Job_1",
+        "condition": "succeeded()",
+        "target": {
+          "executionOptions": { "type": 0 },
+          "allowScriptsAuthAccessOption": false,
+          "type": 1
+        },
+        "jobAuthorizationScope": 1
+      }
+    ],
+    "type": 1
+  },
+  "repository": {
+    "properties": {
+      "apiUrl": "https://api.github.com/repos/azlamsalam/force-di",
+      "branchesUrl": "https://api.github.com/repos/azlamsalam/force-di/branches",
+      "cloneUrl": "https://github.com/azlamsalam/force-di.git",
+      "connectedServiceId": "066f515f-5492-4711-bee8-02769af0296f",
+      "defaultBranch": "master",
+      "fullName": "azlamsalam/force-di",
+      "hasAdminPermissions": "False",
+      "isFork": "True",
+      "isPrivate": "False",
+      "lastUpdated": "09/06/2019 01:20:04",
+      "manageUrl": "https://github.com/azlamsalam/force-di",
+      "nodeId": "MDEwOlJlcG9zaXRvcnkyMDY2ODYzODk=",
+      "ownerId": "15088656",
+      "orgName": "azlamsalam",
+      "refsUrl": "https://api.github.com/repos/azlamsalam/force-di/git/refs",
+      "safeRepository": "azlamsalam/force-di",
+      "shortName": "force-di",
+      "ownerAvatarUrl": "https://avatars1.githubusercontent.com/u/15088656?v=4",
+      "archived": "False",
+      "externalId": "206686389",
+      "ownerIsAUser": "True",
+      "checkoutNestedSubmodules": "false",
+      "cleanOptions": "0",
+      "fetchDepth": "0",
+      "gitLfsSupport": "false",
+      "reportBuildStatus": "true",
+      "skipSyncSource": "false",
+      "labelSourcesFormat": "$(build.buildNumber)",
+      "labelSources": "0"
+    },
+    "id": "azlamsalam/force-di",
+    "type": "GitHub",
+    "name": "azlamsalam/force-di",
+    "url": "https://github.com/azlamsalam/force-di.git",
+    "defaultBranch": "master",
+    "clean": "false",
+    "checkoutSubmodules": false
+  },
+  "processParameters": {},
+  "quality": 1,
+  "authoredBy": {
+    "displayName": "Azlam Abdulsalam"
+  },
+  "drafts": [],
+  "id": 12,
+  "path": "\\PR",
+  "name": "PR Source Format [Scratch Orgs] using sfpowerscripts"
+}

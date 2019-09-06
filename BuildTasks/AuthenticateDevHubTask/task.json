@@ -2,7 +2,7 @@
     "id": "5de4147a-a8b0-43f4-b349-09dfcfef9843",
     "name": "sfpwowerkit-authenticatedevhub-task",
     "friendlyName": "Authenticate DevHub using JWT",
-    "description": "Authorizes a Salesforce org using a private key file that has been uploaded to a personal connected app, This task is part of DX@Scale/SFPowerscripts",
+    "description": "Authorizes a Salesforce org using a private key file that has been uploaded to a personal connected app, This task is part of SFPowerscripts",
     "helpMarkDown": "Authorizes a Salesforce org using a private key file that has been uploaded to a personal connected app",
     "category": "Utility",
     "author": "azlam.abdulsalam",

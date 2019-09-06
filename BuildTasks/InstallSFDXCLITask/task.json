@@ -2,7 +2,7 @@
     "id": "037eed85-ad5a-4f7f-9228-69c8e685b36a",
     "name": "sfpwowerkit-installsfdx-task",
     "friendlyName": "Install SFDX and SFPowerkit",
-    "description": "This plugin installs SFDX CLI, SFPowerkit plugin, This task is part of DX@Scale/SFPowerscripts",
+    "description": "This plugin installs SFDX CLI, SFPowerkit plugin, This task is part of SFPowerscripts",
     "helpMarkDown": "Install SFDX - Use this task to install sfdx pluging and sfpowerkit version",
     "category": "Utility",
     "author": "azlam.abdulsalam",
