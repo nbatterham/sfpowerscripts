@@ -1,110 +1,110 @@
 {
-  "id": "dea3a185-c3f5-44a8-841b-1e5044864778",
-  "name": "sfpowerscript-deploysourcetoorg-task",
-  "friendlyName": "Deploy Source To the provided org using metadata api",
-  "description": "Deploy source to any org using a selected mechanism, This task is part of SFPowerscripts",
-  "helpMarkDown": "Deploy source to org using either  source tracking (works only scratch org) or mdapi based deploy (converts source to mdapi and use mdapi deployment) ",
-  "category": "Build",
-  "author": "azlam.abdulsalam",
-  "version": {
-    "Major": 1,
-    "Minor": 1,
-    "Patch": 0
-  },
-  "instanceNameFormat": "Deploy $(source_directory) to $(target_org)",
-  "inputs": [
-    {
-      "name": "target_org",
-      "type": "string",
-      "label": "Alias or username of the target org",
-      "defaultValue": "scratchorg",
-      "required": true,
-      "helpMarkDown": "Alias or username of the target org where the code should be deployed"
+    "id": "dea3a185-c3f5-44a8-841b-1e5044864778",
+    "name": "sfpowerscript-deploysourcetoorg-task",
+    "friendlyName": "Deploy Source To the provided org using metadata api",
+    "description": "Deploy source to any org using a selected mechanism, This task is part of SFPowerscripts",
+    "helpMarkDown": "Deploy source to org using either  source tracking (works only scratch org) or mdapi based deploy (converts source to mdapi and use mdapi deployment) ",
+    "category": "Build",
+    "author": "azlam.abdulsalam",
+    "version": {
+        "Major": 1,
+        "Minor": 1,
+        "Patch": 0
     },
-    {
-      "name": "project_directory",
-      "type": "string",
-      "label": "SFDX Project Directory that needs to be deployed",
-      "defaultValue": "",
-      "required": false,
-      "helpMarkDown": "The  directory should contain a sfdx-project.json for this command to succeed"
-    },
-    {
-      "name": "source_directory",
-      "type": "string",
-      "label": "Source Directory to be deployed",
-      "defaultValue": "force-app",
-      "required": true,
-      "helpMarkDown": "wait time for command to finish in minutes"
-    },
-    {
-      "name": "wait_time",
-      "type": "string",
-      "label": "Wait Time",
-      "defaultValue": "20",
-      "required": true,
-      "helpMarkDown": "wait time for command to finish in minutes",
-    },
-    {
-      "name": "checkonly",
-      "type": "boolean",
-      "label": "Validate Deployment, Do not Deploy",
-      "defaultValue": true,
-      "required": true,
-      "helpMarkDown": "Validate a deployment, but don't save to the org, Use this for Stage 1/2 CI Run's",
-    },
-    {
-      "name": "validation_ignore",
-      "type": "string",
-      "label": "Override ignore file with a different file",
-      "defaultValue": ".forceignore",
-      "required": false,
-      "helpMarkDown": "Validation only deployment has issues with certain metadata such as apexttestsuite, create a different file similar to .forceignore and use it during validate only deployment",
-      "visibleRule": "checkonly = true"
-    },
-    {
-      "name": "testlevel",
-      "type": "pickList",
-      "label": "Test Level",
-      "defaultValue": "NoTestRun",
-      "options": {
-        "NoTestRun": "NoTestRun",
-        "RunSpecifiedTests": "RunSpecifiedTests",
-        "RunApexTestSuite": "RunApexTestSuite",
-        "RunLocalTests": "RunLocalTests",
-        "RunAllTestsInOrg": "RunAllTestsInOrg"
-      },
-      "required": true,
-      "helpMarkDown": "The test level of the test that need to be executed when the code is to be deployed",
-    },
-    {
-      "name": "specified_tests",
-      "type": "string",
-      "label": "Tests to be executed",
-      "defaultValue": "",
-      "helpMarkDown": "Specify a comma seperated values of Apex Test that need to be executed during this deployment",
-      "required": true,
-      "visibleRule": "testlevel = RunSpecifiedTests"
-    },
-    {
-      "name": "apextestsuite",
-      "type": "string",
-      "label": "Apex Test Suite",
-      "defaultValue": "",
-      "helpMarkDown": "Name of the Apex Test  that need to be executed during this deployment",
-      "required": true,
-      "visibleRule": "testlevel = RunApexTestSuite"
+    "instanceNameFormat": "Deploy $(source_directory) to $(target_org)",
+    "inputs": [
+        {
+            "name": "target_org",
+            "type": "string",
+            "label": "Alias or username of the target org",
+            "defaultValue": "scratchorg",
+            "required": true,
+            "helpMarkDown": "Alias or username of the target org where the code should be deployed"
+        },
+        {
+            "name": "project_directory",
+            "type": "string",
+            "label": "SFDX Project Directory that needs to be deployed",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "The  directory should contain a sfdx-project.json for this command to succeed"
+        },
+        {
+            "name": "source_directory",
+            "type": "string",
+            "label": "Source Directory to be deployed",
+            "defaultValue": "force-app",
+            "required": true,
+            "helpMarkDown": "wait time for command to finish in minutes"
+        },
+        {
+            "name": "wait_time",
+            "type": "string",
+            "label": "Wait Time",
+            "defaultValue": "20",
+            "required": true,
+            "helpMarkDown": "wait time for command to finish in minutes"
+        },
+        {
+            "name": "checkonly",
+            "type": "boolean",
+            "label": "Validate Deployment, Do not Deploy",
+            "defaultValue": true,
+            "required": true,
+            "helpMarkDown": "Validate a deployment, but don't save to the org, Use this for Stage 1/2 CI Run's"
+        },
+        {
+            "name": "validation_ignore",
+            "type": "string",
+            "label": "Override ignore file with a different file",
+            "defaultValue": ".forceignore",
+            "required": false,
+            "helpMarkDown": "Validation only deployment has issues with certain metadata such as apexttestsuite, create a different file similar to .forceignore and use it during validate only deployment",
+            "visibleRule": "checkonly = true"
+        },
+        {
+            "name": "testlevel",
+            "type": "pickList",
+            "label": "Test Level",
+            "defaultValue": "NoTestRun",
+            "options": {
+                "NoTestRun": "NoTestRun",
+                "RunSpecifiedTests": "RunSpecifiedTests",
+                "RunApexTestSuite": "RunApexTestSuite",
+                "RunLocalTests": "RunLocalTests",
+                "RunAllTestsInOrg": "RunAllTestsInOrg"
+            },
+            "required": true,
+            "helpMarkDown": "The test level of the test that need to be executed when the code is to be deployed"
+        },
+        {
+            "name": "specified_tests",
+            "type": "string",
+            "label": "Tests to be executed",
+            "defaultValue": "",
+            "helpMarkDown": "Specify a comma seperated values of Apex Test that need to be executed during this deployment",
+            "required": true,
+            "visibleRule": "testlevel = RunSpecifiedTests"
+        },
+        {
+            "name": "apextestsuite",
+            "type": "string",
+            "label": "Apex Test Suite",
+            "defaultValue": "",
+            "helpMarkDown": "Name of the Apex Test  that need to be executed during this deployment",
+            "required": true,
+            "visibleRule": "testlevel = RunApexTestSuite"
+        }
+    ],
+    "OutputVariables": [
+        {
+            "name": "sfpowerkit_deploysource_id",
+            "description": "The ID of the deployment"
+        }
+    ],
+    "execution": {
+        "Node": {
+            "target": "DeploySourceToOrgTask/DeploySourceToOrg.js"
+        }
     }
-  ],
-  "OutputVariables": [
-    {
-      "name": "sfpowerkit_deploysource_id",
-      "description": "The ID of the deployment"
-    }
-  ],
-  "execution": {
-    "Node": {
-      "target": "DeploySourceToOrgTask/DeploySourceToOrg.js"
-    }
-  }
 }

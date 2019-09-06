@@ -93,7 +93,7 @@ target.incrementversion = function() {
     case "dev":
       options.public = false;
       updateExtensionManifest(__dirname, options, false);
-      updateTaskManifest(__dirname, options, false);
+     
       
       break;
     default:
@@ -109,6 +109,19 @@ target.publish = function() {
 
   console.log(options);
 
+  if(options.stage=='dev')
+  {
+
+    shell.exec(
+      'tfx extension publish --vsix "' +
+        packagesPath +
+        "/AzlamSalam.sfpowerscripts-dev" +
+        options.version +
+        '.vsix"' +
+        " --share-with azlamsalam --token "+options.token
+  }
+  else
+  {
   shell.exec(
     'tfx extension publish --vsix "' +
       packagesPath +
@@ -117,6 +130,7 @@ target.publish = function() {
       '.vsix"' +
       " --share-with azlamsalam --token "+options.token
   );
+  }
 };
 
 updateExtensionManifest = function(dir, options, isOriginalFile) {
@@ -127,9 +141,9 @@ updateExtensionManifest = function(dir, options, isOriginalFile) {
     manifest.version = options.version;
   }
 
-  if (options.stage && !isOriginalFile) {
-    manifest.id = manifest.id + "-" + options.stage;
-    manifest.name = manifest.name + " (" + options.stage + ")";
+  if (options.stage == "dev" && !isOriginalFile) {
+    manifest.id = 'sfpowerscripts'+ "-" +'dev';
+    manifest.name = sfpowerscripts + " (" + 'dev' + ")";
   }
 
   manifest.public = options.public;

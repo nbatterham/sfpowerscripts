@@ -38,14 +38,16 @@
             "helpMarkDown": "Keep it blank in the build pipeline, pass the repo directory in the release pipeline"
         }
     ],
-    "OutputVariables": [{
-        "name" : "sfpowerscripts_scratch_org_url",
-        "description" : "The URL of the scratch org that was created"
-    }, 
-    {
-        "name" : "sfpowerscripts_scratch_org_username",
-        "description" : "The username of the scratch org that was created"
-    }],
+    "OutputVariables": [
+        {
+            "name": "sfpowerscripts_scratch_org_url",
+            "description": "The URL of the scratch org that was created"
+        },
+        {
+            "name": "sfpowerscripts_scratch_org_username",
+            "description": "The username of the scratch org that was created"
+        }
+    ],
     "execution": {
         "Node": {
             "target": "CreateScratchOrg.js"
