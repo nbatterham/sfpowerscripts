@@ -41,8 +41,8 @@ For eg: a Pull Request validation for an unlocked package  should feature the ta
  7. Delete the scratch org
  
  The sample pipelines are available at 
- (https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Pull%20Request%20in%20Scratch%20Orgs)
- (https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Unlocked%20Packaging%20Build%20Pipeline)
+ ![PR Pipeline using a Scratch Org](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/PR%20Source%20Format%20%5BScratch%20Orgs%5D%20using%20sfpowerscripts.json)
+  ![Unlocked Package Build Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Unlocked%20Package%20Build%20using%20sfpowerscript.json)
 
 
 
