@@ -93,7 +93,6 @@ target.incrementversion = function() {
     case "dev":
       options.public = false;
       updateExtensionManifest(__dirname, options, false);
-
       break;
     default:
       updateExtensionManifest(__dirname, options, true);
@@ -139,9 +138,16 @@ updateExtensionManifest = function(dir, options, isOriginalFile) {
   if (options.stage == "dev" && !isOriginalFile) {
     manifest.id = "sfpowerscripts" + "-" + "dev";
     manifest.name = "sfpowerscripts" + " (" + "dev" + ")";
+    manifest.public = false;
+  }
+  else
+  {
+    manifest.id = "sfpowerscripts";
+    manifest.name = "sfpowerscripts";
+    manifest.public = true;
   }
 
-  manifest.public = options.public;
+ 
 
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 4));
 };
