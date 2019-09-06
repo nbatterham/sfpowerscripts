@@ -25,6 +25,8 @@ var sourcePath = path.join(__dirname, "BuildTasks");
 var binariesPath = path.join(__dirname, "build");
 var packagesPath = path.join(__dirname, "dist");
 
+var version;
+
 // make targets
 target.clean = function() {
   console.log("clean: cleaning binaries");
@@ -119,7 +121,7 @@ target.publish = function() {
       'tfx extension publish --vsix "' +
         packagesPath +
         "/AzlamSalam.sfpowerscripts-" +
-        options.version +
+        version +
         '.vsix"' +
         " --share-with azlamsalam --token " +
         options.token
@@ -144,7 +146,7 @@ updateExtensionManifest = function(dir, options, isOriginalFile) {
     manifest.id = "sfpowerscripts";
     manifest.name = "sfpowerscripts";
     manifest.public = true;
-    options.version = manifest.version;
+    version = manifest.version;
   }
 
  
