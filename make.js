@@ -93,15 +93,11 @@ target.incrementversion = function() {
     case "dev":
       options.public = false;
       updateExtensionManifest(__dirname, options, false);
-     
-      
+
       break;
     default:
-        updateExtensionManifest(__dirname, options, true);
+      updateExtensionManifest(__dirname, options, true);
   }
-
- 
-  
 };
 
 target.publish = function() {
@@ -109,27 +105,26 @@ target.publish = function() {
 
   console.log(options);
 
-  if(options.stage=='dev')
-  {
-
+  if (options.stage == "dev") {
     shell.exec(
       'tfx extension publish --vsix "' +
         packagesPath +
         "/AzlamSalam.sfpowerscripts-dev" +
         options.version +
         '.vsix"' +
-        " --share-with azlamsalam --token "+options.token
-  }
-  else
-  {
-  shell.exec(
-    'tfx extension publish --vsix "' +
-      packagesPath +
-      "/AzlamSalam.sfpowerscripts-" +
-      options.version +
-      '.vsix"' +
-      " --share-with azlamsalam --token "+options.token
-  );
+        " --share-with azlamsalam --token " +
+        options.token
+    );
+  } else {
+    shell.exec(
+      'tfx extension publish --vsix "' +
+        packagesPath +
+        "/AzlamSalam.sfpowerscripts-" +
+        options.version +
+        '.vsix"' +
+        " --share-with azlamsalam --token " +
+        options.token
+    );
   }
 };
 
@@ -142,8 +137,8 @@ updateExtensionManifest = function(dir, options, isOriginalFile) {
   }
 
   if (options.stage == "dev" && !isOriginalFile) {
-    manifest.id = 'sfpowerscripts'+ "-" +'dev';
-    manifest.name = sfpowerscripts + " (" + 'dev' + ")";
+    manifest.id = "sfpowerscripts" + "-" + "dev";
+    manifest.name = sfpowerscripts + " (" + "dev" + ")";
   }
 
   manifest.public = options.public;
@@ -162,8 +157,6 @@ updateTaskManifest = function(dir, options, isOriginalFile) {
       console.log(manifestPath);
       var manifest = JSON.parse(fs.readFileSync(manifestPath));
 
-  
-
       if (options.stage && !isOriginalFile) {
         manifest.friendlyName = manifest.friendlyName + " (" + options.stage;
 
@@ -176,9 +169,6 @@ updateTaskManifest = function(dir, options, isOriginalFile) {
 
       fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 4));
     }
-    
-
-
   });
 };
 
