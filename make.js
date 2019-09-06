@@ -131,11 +131,10 @@ updateExtensionManifest = function(dir, options, isOriginalFile) {
   var manifestPath = path.join(dir, "vss-extension.json");
   var manifest = JSON.parse(fs.readFileSync(manifestPath));
 
-  if (options.version) {
-    manifest.version = options.version;
-  }
+
 
   if (options.stage == "dev" && !isOriginalFile) {
+    manifest.version = options.version;
     manifest.id = "sfpowerscripts" + "-" + "dev";
     manifest.name = "sfpowerscripts" + " (" + "dev" + ")";
     manifest.public = false;
@@ -145,6 +144,7 @@ updateExtensionManifest = function(dir, options, isOriginalFile) {
     manifest.id = "sfpowerscripts";
     manifest.name = "sfpowerscripts";
     manifest.public = true;
+    options.version = manifest.version;
   }
 
  
