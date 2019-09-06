@@ -117,6 +117,7 @@ target.publish = function() {
         options.token
     );
   } else {
+    updateExtensionManifest(__dirname, options, true);
     shell.exec(
       'tfx extension publish --vsix "' +
         packagesPath +
