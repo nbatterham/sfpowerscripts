@@ -42,9 +42,14 @@ For eg: a Pull Request validation for an unlocked package  should feature the ta
  
  The sample pipelines are available at 
  
- [PR Pipeline using a Scratch Org](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/PR%20Source%20Format%20%5BScratch%20Orgs%5D%20using%20sfpowerscripts.json)
+[PR Pipeline using a Scratch Org](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/PR%20Source%20Format%20%5BScratch%20Orgs%5D%20using%20sfpowerscripts.json)
  
-  [Unlocked Package Build Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Unlocked%20Package%20Build%20using%20sfpowerscript.json)
+[Unlocked Package Build Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Unlocked%20Package%20Build%20using%20sfpowerscript.json)
+
+[Unlocked Package Deployment Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines\Unlocked%20Packaged%20Deployment%20Pipeline using%20sfpowerscripts.json)
+
+
+  
 
 
 
