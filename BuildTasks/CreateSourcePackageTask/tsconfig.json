@@ -5,7 +5,6 @@
         "sourceRoot": "./"
     },
     "files": [
-        "CreateSourcePackage.ts",
-        "CreateSourcePackageImpl.ts"
+        "CreateSourcePackage.ts"
     ]
   }
