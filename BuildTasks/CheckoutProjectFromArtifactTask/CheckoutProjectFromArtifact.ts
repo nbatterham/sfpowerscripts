@@ -2,6 +2,9 @@ import tl = require("azure-pipelines-task-lib/task");
 import child_process = require("child_process");
 var fs = require("fs");
 const path = require("path");
+import * as simplegit from 'simple-git/promise';
+const git = simplegit();
+
 
 async function run() {
   try {
@@ -17,7 +20,7 @@ async function run() {
       let package_version_id_file_path = path.join(
         artifact_directory,
         artifact,
-        "sfdx_unlocked_package_version_id",
+        "sfdx_source_package_version_id",
         "package_version_id"
       );
 
@@ -27,8 +30,20 @@ async function run() {
 
 
    let package_metadata = JSON.parse(package_metadata_json);
+   let local_source_directory=path.join(
+    artifact_directory,
+    artifact,
+    "source"
+  );
 
    console.log(package_metadata);
+  
+   const remote = `https://${this.username}:${this.password}@${package_metadata.repository_url}`;
+   status = await git.silent(true).clone(remote,local_source_directory);
+   console.log(status);
+
+   await git.checkout(package_metadata.sourceVersion);
+
 
    
   } catch (err) {
