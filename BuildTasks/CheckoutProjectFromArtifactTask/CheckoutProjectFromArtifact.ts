@@ -48,7 +48,7 @@ async function run() {
    console.log(remote);
 
 
-   status = await git.silent(true).clone(remote,local_source_directory);
+   let status = await git.silent(false).clone(remote,local_source_directory);
    console.log(status);
 
    await git.checkout(package_metadata.sourceVersion);
