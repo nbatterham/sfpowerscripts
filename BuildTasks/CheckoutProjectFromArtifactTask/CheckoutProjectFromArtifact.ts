@@ -20,7 +20,7 @@ async function run() {
       let package_version_id_file_path = path.join(
         artifact_directory,
         artifact,
-        "sfdx_source_package_version_id",
+        "sfdx_source_package_commit_id",
         "package_version_id"
       );
 

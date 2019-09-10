@@ -24,11 +24,11 @@ async function run() {
 
       let data = {
         artifacttype: "container",
-        artifactname: "sfdx_source_package_commit_id"
+        artifactname: "sfdx_source_package"
     
       }
       // upload or copy
-      data["containerfolder"] = "sfdx_source_package_commit_id";
+      data["containerfolder"] = "sfdx_source_package";
 
       // add localpath to ##vso command's properties for back compat of old Xplat agent
       data["localpath"] = __dirname + "/package_version_id";
