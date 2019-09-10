@@ -105,6 +105,9 @@
         },
         {
             "path": "BuildTasks/CreateSourcePackageTask"
+        },
+        {
+            "path": "BuildTasks/CheckoutProjectFromArtifactTask"
         }
     ],
     "contributions": [
@@ -246,6 +249,16 @@
             ],
             "properties": {
                 "name": "BuildTasks/CreateSourcePackageTask"
+            }
+        },
+        {
+            "id": "sfpwowerscript-checkoutprojectfromartifact-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/CheckoutProjectFromArtifactTask"
             }
         }
     ]
