@@ -8,7 +8,7 @@
     "author": "azlam.abdulsalam",
     "version": {
         "Major": 1,
-        "Minor": 0,
+        "Minor": 1,
         "Patch": 0
     },
     "instanceNameFormat": "Checkout $(artifactname) from $(provider)",
@@ -16,10 +16,10 @@
         {
             "name": "artifactname",
             "type": "string",
-            "label": "Alias or username of the target org",
-            "defaultValue": "scratchorg",
+            "label": "Name of the source artifact that needs to be checked out",
+            "defaultValue": "_source",
             "required": true,
-            "helpMarkDown": "Name of the artifact that is generated from the build pipeline  for a source format deployment"
+            "helpMarkDown": "Name of the artifact that is generated from the build pipeline  for a source format deployment, Please note this is not a generic utility and will only work for artifacts created by SFPowerkit"
         },
         {
             "name": "username",
@@ -40,7 +40,7 @@
     ],
     "execution": {
         "Node": {
-            "target": "CheckoutProjectFromArtifactTask/CheckoutProjectFromArtifact.js"
+            "target": "CheckoutProjectFromArtifact.js"
         }
     }
 }
