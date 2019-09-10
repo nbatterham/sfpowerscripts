@@ -123,9 +123,7 @@ target.publish = function() {
         packagesPath +
         "/AzlamSalam.sfpowerscripts-" +
         version +
-        '.vsix"' +
-        " --share-with azlamsalam --token " +
-        options.token
+        '.vsix"'
     );
   }
 };
