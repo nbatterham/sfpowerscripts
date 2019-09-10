@@ -36,9 +36,18 @@ async function run() {
     "source"
   );
 
+  //Strinp https
+  const removeHttps = input => input.replace(/^https?:\/\//, '');
+
+  package_metadata.repository_url = removeHttps( package_metadata.repository_url);
+
    console.log(package_metadata);
   
    const remote = `https://${username}:${password}@${package_metadata.repository_url}`;
+
+   console.log(remote);
+
+
    status = await git.silent(true).clone(remote,local_source_directory);
    console.log(status);
 
