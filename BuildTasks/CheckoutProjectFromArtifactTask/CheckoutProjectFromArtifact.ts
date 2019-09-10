@@ -38,7 +38,7 @@ async function run() {
 
    console.log(package_metadata);
   
-   const remote = `https://${this.username}:${this.password}@${package_metadata.repository_url}`;
+   const remote = `https://${username}:${password}@${package_metadata.repository_url}`;
    status = await git.silent(true).clone(remote,local_source_directory);
    console.log(status);
 
