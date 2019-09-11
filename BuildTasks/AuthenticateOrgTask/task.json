@@ -11,7 +11,7 @@
         "Minor": 0,
         "Patch": 46
     },
-    "instanceNameFormat": "Authenticate DevHub",
+    "instanceNameFormat": "Authenticate to $(alias)",
     "inputs": [
         {
             "name": "jwt_key_file",

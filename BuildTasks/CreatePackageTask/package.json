@@ -1,0 +1,15 @@
+{
+  "name": "sfpwowerscripts-createunlockedpackage-task",
+  "description": "sfpwowerscripts-createunlockedpackage-task",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azlamsalam/sfpowerscripts.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^2.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.2"
+  }
+}
