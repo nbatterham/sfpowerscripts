@@ -50,6 +50,8 @@ async function run() {
   
    const remote = `https://${username}:${password}@${package_metadata.repository_url}.git`;
 
+   console.log(remote);
+   
    const git =  simplegit(local_source_directory);
    await git.silent(false).clone(remote,local_source_directory);  
    await git.checkout(package_metadata.sourceVersion);

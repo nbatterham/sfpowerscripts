@@ -8,7 +8,7 @@
     "author": "azlam.abdulsalam",
     "version": {
         "Major": 2,
-        "Minor": 4,
+        "Minor": 5,
         "Patch": 0
     },
     "instanceNameFormat": "Checkout $(artifactname) from $(provider)",
