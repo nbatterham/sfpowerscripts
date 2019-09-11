@@ -3,12 +3,12 @@
     "name": "sfpowerscript-deploysourcetoorg-task",
     "friendlyName": "Deploy Source To the provided org using metadata api",
     "description": "Deploy source to any org using a selected mechanism, This task is part of SFPowerscripts",
-    "helpMarkDown": "Deploy source to org using either  source tracking (works only scratch org) or mdapi based deploy (converts source to mdapi and use mdapi deployment) ",
+    "helpMarkDown": "Deploy source to org using mdapi based deploy (converts source to mdapi and use mdapi deployment) ",
     "category": "Build",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 1,
-        "Minor": 1,
+        "Major": 2,
+        "Minor": 0,
         "Patch": 0
     },
     "instanceNameFormat": "Deploy $(source_directory) to $(target_org)",
@@ -56,7 +56,7 @@
         {
             "name": "validation_ignore",
             "type": "string",
-            "label": "Override ignore file with a different file",
+            "label": "Path to the .validationignore to use during validate only deployment",
             "defaultValue": ".forceignore",
             "required": false,
             "helpMarkDown": "Validation only deployment has issues with certain metadata such as apexttestsuite, create a different file similar to .forceignore and use it during validate only deployment",

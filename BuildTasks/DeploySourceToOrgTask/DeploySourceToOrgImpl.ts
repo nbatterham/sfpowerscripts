@@ -20,8 +20,15 @@ export default class DeploySourceToOrgImpl {
     tl.debug("Converting source to mdapi");
     await this.convertSourceToMDAPI();
 
+    try
+    {
     if(this.deployment_options["checkonly"])
      copyFileSync(this.deployment_options["validation_ignore"],this.project_directory);
+    }
+    catch(err)
+    {
+     
+    }
 
     let command = await this.buildExecCommand();
     let result = child_process.execSync(command, {
@@ -132,5 +139,6 @@ export default class DeploySourceToOrgImpl {
       `npx sfdx force:source:convert -r ${this.source_directory}  -d  mdapi`,
       { cwd: this.project_directory, encoding: "utf8" }
     );
+    console.log("Converting to Source Format Completed");
   }
 }
