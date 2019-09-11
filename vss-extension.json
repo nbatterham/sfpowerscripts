@@ -133,7 +133,7 @@
             "properties": {
                 "name": "BuildTasks/AuthenticateOrgTask"
             }
-        }
+        },
         {
             "id": "sfpwowerkit-authenticatedevhub-task",
             "type": "ms.vss-distributed-task.task",
