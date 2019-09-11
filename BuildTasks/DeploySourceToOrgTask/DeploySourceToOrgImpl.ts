@@ -134,11 +134,19 @@ export default class DeploySourceToOrgImpl {
   }
 
   private async convertSourceToMDAPI(): Promise<void> {
+    try
+    {
     console.log(`Converting to Source Format ${this.source_directory} in project directory  ${this.project_directory}`);
     child_process.execSync(
       `npx sfdx force:source:convert -r ${this.source_directory}  -d  mdapi`,
       { cwd: this.project_directory, encoding: "utf8" }
     );
     console.log("Converting to Source Format Completed");
+    }
+    catch(error)
+    {
+      console.log("Unable to convert source, exiting"+error.code);
+      throw error;
+    }
   }
 }

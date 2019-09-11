@@ -8,10 +8,10 @@
     "author": "azlam.abdulsalam",
     "version": {
         "Major": 3,
-        "Minor": 0,
+        "Minor": 2,
         "Patch": 0
     },
-    "instanceNameFormat": "Checkout $(artifactname) from $(provider)",
+    "instanceNameFormat": "Checkout $(artifactname) from Git",
     "inputs": [
         {
             "name": "artifact",
