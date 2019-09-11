@@ -3,7 +3,8 @@ import child_process = require("child_process");
 var fs = require("fs");
 const path = require("path");
 import * as simplegit from 'simple-git/promise';
-const git = simplegit();
+
+import rimraf = require("rimraf");
 
 
 async function run() {
@@ -13,7 +14,7 @@ async function run() {
     const username = tl.getInput("username",true);
     const password = tl.getInput("password",true);
 
-    const artifact =tl.getInput("artifactname",true);
+    const artifact =tl.getInput("artifact",true);
 
     let artifact_directory = tl.getVariable("system.artifactsDirectory");
 
@@ -29,12 +30,16 @@ async function run() {
         .toString();
 
 
+
    let package_metadata = JSON.parse(package_metadata_json);
    let local_source_directory=path.join(
     artifact_directory,
     artifact,
     "source"
   );
+
+
+  fs.mkdirSync(local_source_directory,{ recursive: true });
 
   //Strinp https
   const removeHttps = input => input.replace(/^https?:\/\//, '');
@@ -43,17 +48,17 @@ async function run() {
 
    console.log(package_metadata);
   
-   const remote = `https://${username}:${password}@${package_metadata.repository_url}`;
+   const remote = `https://${username}:${password}@${package_metadata.repository_url}.git`;
 
-   console.log(remote);
-
-
-   let status = await git.silent(false).clone(remote,local_source_directory);
-   console.log(status);
-
+   const git =  simplegit(local_source_directory);
+   await git.silent(false).clone(remote,local_source_directory);  
    await git.checkout(package_metadata.sourceVersion);
 
+   console.log(`Checked Out ${package_metadata.sourceVersion} sucessfully`);
 
+   fs.readdirSync(local_source_directory).forEach(file => {
+    console.log(file);
+  });
    
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);
