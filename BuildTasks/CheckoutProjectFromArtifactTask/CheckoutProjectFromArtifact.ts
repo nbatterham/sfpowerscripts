@@ -50,8 +50,7 @@ async function run() {
   
    const remote = `https://${username}:${password}@${package_metadata.repository_url}.git`;
 
-   console.log(remote);
-   
+
    const git =  simplegit(local_source_directory);
    await git.silent(false).clone(remote,local_source_directory);  
    await git.checkout(package_metadata.sourceVersion);
@@ -61,6 +60,9 @@ async function run() {
    fs.readdirSync(local_source_directory).forEach(file => {
     console.log(file);
   });
+
+ 
+  tl.setVariable("sfpowerscripts_checked_out_path", local_source_directory);
    
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);
