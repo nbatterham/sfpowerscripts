@@ -4,11 +4,17 @@ import child_process = require("child_process");
 
 async function run() {
   try {
-    console.log("SFPowerScript.. Create a scratch org");
+   
 
     const devhub_alias: string = tl.getInput("devhub_alias", true);
-    const config_file_path: string = tl.getInput("config_file_path", true);
+   
     const working_directory: string = tl.getInput("working_directory", false);
+
+
+
+    const config_file_path: string = tl.getInput("config_file_path", false);
+    console.log("SFPowerScript.. Create a scratch org");
+
 
     let result = child_process.execSync(
       `npx sfdx force:org:create -v ${devhub_alias} -s -f ${config_file_path} --json -a scratchorg -d 1`,

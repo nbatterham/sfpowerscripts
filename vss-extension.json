@@ -80,6 +80,9 @@
             "path": "BuildTasks/CreateScratchOrgTask"
         },
         {
+            "path": "BuildTasks/ManageScratchOrgTask"
+        },
+        {
             "path": "BuildTasks/InstallPackageDependenciesTask"
         },
         {
@@ -162,6 +165,16 @@
             ],
             "properties": {
                 "name": "BuildTasks/CreateScratchOrgTask"
+            }
+        },
+        {
+            "id": "sfpower-managescratchorg",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/ManageScratchOrgTask"
             }
         },
         {

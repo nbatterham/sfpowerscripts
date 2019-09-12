@@ -1,0 +1,12 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./", 
+        "sourceRoot": "./"
+    },
+    "files": [
+        "ManageScratchOrg.ts",
+        "DeleteScratchOrgImpl.ts",
+        "CreateScratchOrgImpl.ts"
+    ]
+  }
