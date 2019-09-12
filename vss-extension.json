@@ -1,9 +1,9 @@
 {
     "manifestVersion": 1,
-    "id": "sfpowerscripts",
+    "id": "sfpowerscripts-dev",
     "publisher": "AzlamSalam",
-    "name": "sfpowerscripts",
-    "version": "1.0.116",
+    "name": "sfpowerscripts (dev)",
+    "version": "1.0.117",
     "description": "Azure Pipelines tasks for working with SFDX",
     "tags": [
         "Extension",
@@ -23,7 +23,7 @@
     "icons": {
         "default": "tools-icon.png"
     },
-    "public": true,
+    "public": false,
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services.Cloud"
