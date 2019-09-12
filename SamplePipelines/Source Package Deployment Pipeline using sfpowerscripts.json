@@ -1,6 +1,6 @@
 {
   "source": 2,
-  "revision": 3,
+  "revision": 1,
   "description": null,
   "createdBy": {
     "displayName": "Azlam Abdulsalam",
@@ -15,7 +15,7 @@
     "imageUrl": "https://dev.azure.com/azlamsalam/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
     "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
   },
-  "createdOn": "2019-09-06T02:29:57.990Z",
+  "createdOn": "2019-09-12T06:47:15.387Z",
   "modifiedBy": {
     "displayName": "Azlam Abdulsalam",
     "url": "https://spsprodeau1.vssps.visualstudio.com/Ae0441372-c9a7-4801-896d-2a360fe1f97e/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
@@ -29,20 +29,17 @@
     "imageUrl": "https://dev.azure.com/azlamsalam/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
     "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
   },
-  "modifiedOn": "2019-09-12T06:36:42.440Z",
+  "modifiedOn": "2019-09-12T06:47:15.387Z",
   "isDeleted": false,
   "variables": {
-    "deprecate_mode": { "value": "false", "allowOverride": true },
-    "key": { "value": "" },
-    "package_install_publishwait": { "value": "30" },
-    "package_install_wait": { "value": "60" },
-    "package_name": { "value": "force-di" },
-    "repo_name": { "value": "_artifact" }
+    "github_org": { "value": "azlamsalam" },
+    "github_pat": { "value": null, "isSecret": true },
+    "package_name": { "value": "force-di" }
   },
   "variableGroups": [],
   "environments": [
     {
-      "id": 2,
+      "id": 3,
       "name": "ST",
       "rank": 1,
       "owner": {
@@ -62,7 +59,7 @@
       "variableGroups": [],
       "preDeployApprovals": {
         "approvals": [
-          { "rank": 1, "isAutomated": true, "isNotificationOn": false, "id": 4 }
+          { "rank": 1, "isAutomated": true, "isNotificationOn": false, "id": 7 }
         ],
         "approvalOptions": {
           "requiredApproverCount": null,
@@ -73,10 +70,10 @@
           "executionOrder": 1
         }
       },
-      "deployStep": { "id": 5 },
+      "deployStep": { "id": 8 },
       "postDeployApprovals": {
         "approvals": [
-          { "rank": 1, "isAutomated": true, "isNotificationOn": false, "id": 6 }
+          { "rank": 1, "isAutomated": true, "isNotificationOn": false, "id": 9 }
         ],
         "approvalOptions": {
           "requiredApproverCount": null,
@@ -93,7 +90,16 @@
             "parallelExecution": { "parallelExecutionType": 0 },
             "agentSpecification": { "identifier": "ubuntu-16.04" },
             "skipArtifactsDownload": false,
-            "artifactsDownloadInput": { "downloadInputs": [] },
+            "artifactsDownloadInput": {
+              "downloadInputs": [
+                {
+                  "alias": "force-di",
+                  "artifactType": "Build",
+                  "artifactDownloadMode": "All",
+                  "artifactItems": []
+                }
+              ]
+            },
             "queueId": 18,
             "demands": [],
             "enableAccessToken": false,
@@ -104,9 +110,28 @@
           },
           "rank": 1,
           "phaseType": 1,
-          "name": "Agent job",
+          "name": "Run Automated Installation",
           "refName": null,
           "workflowTasks": [
+            {
+              "environment": {},
+              "taskId": "7915fcdb-f02a-43ae-92bd-494993a31e5d",
+              "version": "3.*",
+              "name": "Checkout  from git",
+              "refName": "forcedi",
+              "enabled": true,
+              "alwaysRun": false,
+              "continueOnError": false,
+              "timeoutInMinutes": 0,
+              "definitionType": "task",
+              "overrideInputs": {},
+              "condition": "succeeded()",
+              "inputs": {
+                "artifact": "force-di",
+                "username": "azlam-abdulsalam",
+                "password": "$(github_pat)"
+              }
+            },
             {
               "environment": {},
               "taskId": "037eed85-ad5a-4f7f-9228-69c8e685b36a",
@@ -129,28 +154,7 @@
               "environment": {},
               "taskId": "5c1fd528-ce06-42e2-855b-cfa9e07dc6b9",
               "version": "1.*",
-              "name": "Authenticate DevHub",
-              "refName": "",
-              "enabled": true,
-              "alwaysRun": false,
-              "continueOnError": false,
-              "timeoutInMinutes": 0,
-              "definitionType": "task",
-              "overrideInputs": {},
-              "condition": "succeeded()",
-              "inputs": {
-                "jwt_key_file": "8265dc6c-946c-46e4-8dbc-8d627c23bb0e",
-                "username": "$(prod.user)",
-                "alias": "HubOrg",
-                "isdevhub": "true",
-                "clientid": "$(prod.consumerkey)"
-              }
-            },
-            {
-              "environment": {},
-              "taskId": "5c1fd528-ce06-42e2-855b-cfa9e07dc6b9",
-              "version": "1.*",
-              "name": "Authenticate Sandbox",
+              "name": "Authenticate  $(env.name)",
               "refName": "",
               "enabled": true,
               "alwaysRun": false,
@@ -163,15 +167,15 @@
                 "jwt_key_file": "8265dc6c-946c-46e4-8dbc-8d627c23bb0e",
                 "username": "$(env.user)",
                 "alias": "$(env.name)",
-                "isdevhub": "true",
+                "isdevhub": "false",
                 "clientid": "$(env.consumerkey)"
               }
             },
             {
               "environment": {},
-              "taskId": "7af1df5d-8a5a-4eaa-9df1-968393c43397",
+              "taskId": "dea3a185-c3f5-44a8-841b-1e5044864778",
               "version": "2.*",
-              "name": "Install a version of  force-di to $(env.name) ",
+              "name": "Deploy force-di to $(env.name)",
               "refName": "",
               "enabled": true,
               "alwaysRun": false,
@@ -181,17 +185,15 @@
               "overrideInputs": {},
               "condition": "succeeded()",
               "inputs": {
-                "envname": "$(env.name)",
-                "package": "force-di",
-                "packageinstalledfrom": "BuildArtifact",
-                "package_version_id": "",
-                "artifact": "_unlocked_package",
-                "installationkey": "",
-                "apexcompileonlypackage": "true",
-                "security_type": "AllUsers",
-                "upgrade_type": "Mixed",
-                "wait_time": "120",
-                "publish_wait_time": "10"
+                "target_org": "$(env.name)",
+                "project_directory": "$(forcedi.sfpowerscripts_checked_out_path) ",
+                "source_directory": "force-di",
+                "wait_time": "20",
+                "checkonly": "false",
+                "validation_ignore": ".forceignore",
+                "testlevel": "NoTestRun",
+                "specified_tests": "",
+                "apextestsuite": ""
               }
             }
           ]
@@ -229,19 +231,15 @@
       "preDeploymentGates": { "id": 0, "gatesOptions": null, "gates": [] },
       "postDeploymentGates": { "id": 0, "gatesOptions": null, "gates": [] },
       "environmentTriggers": [],
-      "badgeUrl": "https://vsrm.dev.azure.com/azlamsalam/_apis/public/Release/badge/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/2/2"
+      "badgeUrl": "https://vsrm.dev.azure.com/azlamsalam/_apis/public/Release/badge/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/3/3"
     }
   ],
   "artifacts": [
     {
       "sourceId": "7df994b0-1cd8-4080-866f-5c1dcc5e9e2b:7",
       "type": "Build",
-      "alias": "_Unlocked Package Build using sfpowerscript",
+      "alias": "force-di",
       "definitionReference": {
-        "artifactSourceDefinitionUrl": {
-          "id": "https://dev.azure.com/azlamsalam/_permalink/_build/index?collectionId=7fb26f9e-a31d-412f-8cf0-bfe53f2e3869&projectId=7df994b0-1cd8-4080-866f-5c1dcc5e9e2b&definitionId=7",
-          "name": ""
-        },
         "defaultVersionBranch": { "id": "", "name": "" },
         "defaultVersionSpecific": { "id": "", "name": "" },
         "defaultVersionTags": { "id": "", "name": "" },
@@ -256,7 +254,11 @@
           "id": "7df994b0-1cd8-4080-866f-5c1dcc5e9e2b",
           "name": "sfpowerscripts"
         },
-        "repository": { "id": "", "name": "" }
+        "repository": { "id": "", "name": "" },
+        "artifactSourceDefinitionUrl": {
+          "id": "https://dev.azure.com/azlamsalam/_permalink/_build/index?collectionId=7fb26f9e-a31d-412f-8cf0-bfe53f2e3869&projectId=7df994b0-1cd8-4080-866f-5c1dcc5e9e2b&definitionId=7",
+          "name": ""
+        }
       },
       "isPrimary": true,
       "isRetained": false
@@ -272,17 +274,17 @@
     },
     "IntegrateJiraWorkItems": { "$type": "System.String", "$value": "false" }
   },
-  "id": 2,
-  "name": "Unlocked Packaged Deployment Pipeline using sfpowerscripts",
+  "id": 3,
+  "name": "Source based Package Deployment using SFPowerscripts",
   "path": "\\",
   "projectReference": null,
-  "url": "https://vsrm.dev.azure.com/azlamsalam/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/_apis/Release/definitions/2",
+  "url": "https://vsrm.dev.azure.com/azlamsalam/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/_apis/Release/definitions/3",
   "_links": {
     "self": {
-      "href": "https://vsrm.dev.azure.com/azlamsalam/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/_apis/Release/definitions/2"
+      "href": "https://vsrm.dev.azure.com/azlamsalam/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/_apis/Release/definitions/3"
     },
     "web": {
-      "href": "https://dev.azure.com/azlamsalam/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/_release?definitionId=2"
+      "href": "https://dev.azure.com/azlamsalam/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/_release?definitionId=3"
     }
   }
 }

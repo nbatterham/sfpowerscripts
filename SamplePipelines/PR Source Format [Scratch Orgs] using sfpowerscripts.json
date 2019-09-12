@@ -30,16 +30,17 @@
   ],
   "variables": {
     "packageName": { "value": "force-di" },
-    "system.debug": { "value": "false", "allowOverride": true },
-    "working_directory": { "value": "" },
     "prod.consumerkey": { "value": "", "isSecret": true },
-    "prod.user": { "value": "" }
+    "prod.user": { "value": "test" },
+    "system.debug": { "value": "false", "allowOverride": true },
+    "working_directory": { "value": "" }
   },
   "properties": {},
   "tags": [],
   "jobAuthorizationScope": 1,
   "jobTimeoutInMinutes": 60,
   "jobCancelTimeoutInMinutes": 5,
+  "badgeEnabled": true,
   "process": {
     "phases": [
       {
@@ -82,20 +83,20 @@
             "enabled": true,
             "continueOnError": false,
             "alwaysRun": false,
-            "displayName": "Authenticate DevHub",
+            "displayName": "Authenticate  HubOrg",
             "timeoutInMinutes": 0,
             "condition": "succeeded()",
             "task": {
-              "id": "5de4147a-a8b0-43f4-b349-09dfcfef9843",
-              "versionSpec": "0.*",
+              "id": "5c1fd528-ce06-42e2-855b-cfa9e07dc6b9",
+              "versionSpec": "1.*",
               "definitionType": "task"
             },
             "inputs": {
-              "jwt_key_file": null,
-              "username": "$(prod.user)",
+              "jwt_key_file": "8265dc6c-946c-46e4-8dbc-8d627c23bb0e",
+              "username": "prod_user",
               "alias": "HubOrg",
-              "clientid": "$(prod.consumerkey)",
-              "working_directory": ""
+              "isdevhub": "true",
+              "clientid": "prod_consumerkey"
             }
           },
           {
@@ -107,12 +108,15 @@
             "timeoutInMinutes": 0,
             "condition": "succeeded()",
             "task": {
-              "id": "1a91bbf7-1139-4e59-bd81-9b815cceedfb",
-              "versionSpec": "1.*",
+              "id": "6e90f9bd-f53a-45ce-9a9c-1b8a6ed797c0",
+              "versionSpec": "2.*",
               "definitionType": "task"
             },
             "inputs": {
+              "action": "Create",
               "config_file_path": "config/project-scratch-def.json",
+              "alias": "scratchorg",
+              "target_org": "scratchorg",
               "devhub_alias": "HubOrg",
               "working_directory": ""
             }
@@ -149,7 +153,7 @@
             "condition": "succeeded()",
             "task": {
               "id": "dea3a185-c3f5-44a8-841b-1e5044864778",
-              "versionSpec": "1.*",
+              "versionSpec": "2.*",
               "definitionType": "task"
             },
             "inputs": {
@@ -158,6 +162,7 @@
               "source_directory": "force-di",
               "wait_time": "20",
               "checkonly": "false",
+              "validation_ignore": ".forceignore",
               "testlevel": "NoTestRun",
               "specified_tests": "",
               "apextestsuite": ""
@@ -204,15 +209,22 @@
             "enabled": true,
             "continueOnError": false,
             "alwaysRun": false,
-            "displayName": "Deletes scratch org scratchorg",
+            "displayName": "Create a Scratch Org",
             "timeoutInMinutes": 0,
-            "condition": "always()",
+            "condition": "succeeded()",
             "task": {
-              "id": "cff610c3-22ed-43fe-967e-67a5947982ef",
-              "versionSpec": "1.*",
+              "id": "6e90f9bd-f53a-45ce-9a9c-1b8a6ed797c0",
+              "versionSpec": "2.*",
               "definitionType": "task"
             },
-            "inputs": { "target_org": "scratchorg", "devhub_alias": "HubOrg" }
+            "inputs": {
+              "action": "Create",
+              "config_file_path": "config/project-scratch-def.json",
+              "alias": "scratchorg",
+              "target_org": "scratchorg",
+              "devhub_alias": "HubOrg",
+              "working_directory": ""
+            }
           }
         ],
         "name": "Agent job 1",
@@ -226,6 +238,7 @@
         "jobAuthorizationScope": 1
       }
     ],
+    "target": { "agentSpecification": { "identifier": "ubuntu-16.04" } },
     "type": 1
   },
   "repository": {
@@ -233,7 +246,7 @@
       "apiUrl": "https://api.github.com/repos/azlamsalam/force-di",
       "branchesUrl": "https://api.github.com/repos/azlamsalam/force-di/branches",
       "cloneUrl": "https://github.com/azlamsalam/force-di.git",
-      "connectedServiceId": "066f515f-5492-4711-bee8-02769af0296f",
+      "connectedServiceId": "d8dd44ae-1ef5-4de7-9f1b-e128d5e2bb86",
       "defaultBranch": "master",
       "fullName": "azlamsalam/force-di",
       "hasAdminPermissions": "False",
@@ -271,10 +284,10 @@
   "processParameters": {},
   "quality": 1,
   "authoredBy": {
-    "displayName": "Azlam Abdulsalam"
+    "displayName": "Azlam Abdulsalam",
   },
   "drafts": [],
-  "id": 12,
-  "path": "\\PR",
+  "id": 5,
   "name": "PR Source Format [Scratch Orgs] using sfpowerscripts"
+  }
 }

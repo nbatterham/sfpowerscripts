@@ -118,12 +118,17 @@ target.publish = function() {
     );
   } else {
     updateExtensionManifest(__dirname, options, true);
+    console.log(`version found ${version}`);
+    console.log(`Package Path found ${packagesPath}`);
+
     shell.exec(
       'tfx extension publish --vsix "' +
         packagesPath +
         "/AzlamSalam.sfpowerscripts-" +
         version +
-        '.vsix"'
+        '.vsix"'+
+        " --token " +
+        options.token
     );
   }
 };
