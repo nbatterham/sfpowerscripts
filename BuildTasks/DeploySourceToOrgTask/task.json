@@ -8,9 +8,12 @@
     "author": "azlam.abdulsalam",
     "version": {
         "Major": 2,
-        "Minor": 2,
+        "Minor": 3,
         "Patch": 0
     },
+    "runsOn": [
+        "Agent"
+    ],
     "instanceNameFormat": "Deploy $(source_directory) to $(target_org)",
     "inputs": [
         {

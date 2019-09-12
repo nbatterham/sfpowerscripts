@@ -8,9 +8,12 @@
     "author": "azlam.abdulsalam",
     "version": {
         "Major": 1,
-        "Minor": 0,
+        "Minor": 1,
         "Patch": 0
     },
+    "runsOn": [
+        "Agent"
+    ],
     "instanceNameFormat": "Creates a new version of  $(package)",
     "inputs": [
         {

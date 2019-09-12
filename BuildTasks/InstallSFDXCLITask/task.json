@@ -8,9 +8,12 @@
     "author": "azlam.abdulsalam",
     "version": {
         "Major": 1,
-        "Minor": 1,
+        "Minor": 2,
         "Patch": 0
     },
+    "runsOn": [
+        "Agent"
+    ],
     "instanceNameFormat": "Install SFDX",
     "inputs": [
         {
