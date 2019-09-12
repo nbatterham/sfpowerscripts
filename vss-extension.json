@@ -4,7 +4,7 @@
     "publisher": "AzlamSalam",
     "name": "sfpowerscripts (dev)",
     "version": "1.0.117",
-    "description": "Azure Pipelines tasks for working with SFDX",
+    "description": "Azure Pipelines tasks for working with Salesforce",
     "tags": [
         "Extension",
         "Salesforce",
