@@ -20,19 +20,19 @@ async function run() {
    };
 
 
-      fs.writeFileSync(__dirname + "/package_version_id", JSON.stringify(metadata));
+      fs.writeFileSync(__dirname + "/artifact_metadata", JSON.stringify(metadata));
 
       let data = {
         artifacttype: "container",
-        artifactname: "sfdx_source_package"
+        artifactname: "sfpowerkit_artifact"
     
       }
       // upload or copy
-      data["containerfolder"] = "sfdx_source_package";
+      data["containerfolder"] = "sfpowerkit_artifact";
 
       // add localpath to ##vso command's properties for back compat of old Xplat agent
-      data["localpath"] = __dirname + "/package_version_id";
-      tl.command("artifact.upload", data, __dirname + "/package_version_id");
+      data["localpath"] = __dirname + "/artifact_metadata";
+      tl.command("artifact.upload", data, __dirname + "/artifact_metadata");
     }
    catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);

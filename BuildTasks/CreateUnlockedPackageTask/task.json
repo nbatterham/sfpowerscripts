@@ -7,8 +7,8 @@
     "category": "Build",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 2,
-        "Minor": 6,
+        "Major": 3,
+        "Minor": 0,
         "Patch": 0
     },
     "runsOn": [
