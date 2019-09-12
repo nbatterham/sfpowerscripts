@@ -7,7 +7,7 @@
     "category": "Utility",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 1,
+        "Major": 2,
         "Minor": 0,
         "Patch": 0
     },
@@ -33,6 +33,15 @@
             "defaultValue": "config/project-scratch-def.json",
             "required": true,
             "helpMarkDown": "Path in the current working directory containing  config file for the scratch org",
+            "visibleRule": "action = Create"
+        },
+        {
+            "name": "alias",
+            "type": "string",
+            "label": "Alias of the scratch org to be created",
+            "defaultValue": "scratchorg",
+            "required": true,
+            "helpMarkDown": "Alias of the scratch org to be created",
             "visibleRule": "action = Create"
         },
         {

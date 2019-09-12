@@ -11,16 +11,17 @@ async function run() {
 
     const action:string = tl.getInput("action",true);
     const devhub_alias: string = tl.getInput("devhub_alias", true);
+   
 
     if(action == "Create")
     {
     console.log("SFPowerScript.. Create a scratch org");
-    
+    const alias: string = tl.getInput("alias", true);
     const config_file_path: string = tl.getInput("config_file_path", true);
     const working_directory: string = tl.getInput("working_directory", false);
 
 
-    let createScratchOrg:CreateScratchOrgImpl = new CreateScratchOrgImpl(working_directory,config_file_path,devhub_alias);
+    let createScratchOrg:CreateScratchOrgImpl = new CreateScratchOrgImpl(working_directory,config_file_path,devhub_alias,alias);
     console.log("Generating Create Scratch Org command");
     let createCommand = await createScratchOrg.buildExecCommand();
     tl.debug(createCommand);
