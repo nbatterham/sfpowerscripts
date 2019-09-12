@@ -68,16 +68,7 @@
             "path": "BuildTasks/InstallSFDXCLITask"
         },
         {
-            "path": "BuildTasks/AuthenticateDevHubTask"
-        },
-        {
             "path": "BuildTasks/AuthenticateOrgTask"
-        },
-        {
-            "path": "BuildTasks/AuthenticateSandboxTask"
-        },
-        {
-            "path": "BuildTasks/CreateScratchOrgTask"
         },
         {
             "path": "BuildTasks/ManageScratchOrgTask"
@@ -93,9 +84,6 @@
         },
         {
             "path": "BuildTasks/ValidateApexCoverageTask"
-        },
-        {
-            "path": "BuildTasks/DeleteScratchOrgTask"
         },
         {
             "path": "BuildTasks/ValidateDXUnlockedPackageTask"
@@ -135,36 +123,6 @@
             ],
             "properties": {
                 "name": "BuildTasks/AuthenticateOrgTask"
-            }
-        },
-        {
-            "id": "sfpwowerkit-authenticatedevhub-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/AuthenticateDevHubTask"
-            }
-        },
-        {
-            "id": "sfpwowerkit-authenticatesandbox-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/AuthenticateSandboxTask"
-            }
-        },
-        {
-            "id": "sfpwowerkit-createscratchorg-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/CreateScratchOrgTask"
             }
         },
         {
@@ -215,16 +173,6 @@
             ],
             "properties": {
                 "name": "BuildTasks/ValidateApexCoverageTask"
-            }
-        },
-        {
-            "id": "sfpwowerscript-deletescratchorg-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/DeleteScratchOrgTask"
             }
         },
         {
