@@ -7,9 +7,9 @@
     "category": "Utility",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 0,
+        "Major": 1,
         "Minor": 0,
-        "Patch": 46
+        "Patch": 0
     },
     "instanceNameFormat": "Authenticate to $(alias)",
     "inputs": [
