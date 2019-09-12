@@ -5,6 +5,7 @@
         "sourceRoot": "./"
     },
     "files": [
-        "AuthenticateSandbox.ts"
+        "CreatePackage.ts",
+        "CreateUnlockedPackageImpl.ts"
     ]
   }

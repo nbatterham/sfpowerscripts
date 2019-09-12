@@ -1,6 +1,6 @@
 {
-  "name": "sfpwowerscript-deletescratchorg-task",
-  "description": "sfpwowerscript-deletescratchorg-task",
+  "name": "sfpower-managescratchorg",
+  "description": "Creates/Deletes a Scratch Org",
   "repository": {
     "type": "git",
     "url": "https://github.com/azlamsalam/sfpowerscripts.git"

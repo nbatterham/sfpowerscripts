@@ -8,16 +8,27 @@ async function run() {
     //let project_directory = tl.getInput("project_directory", false);
     
 
-      let commit_id = tl.getVariable("build.sourceVersion")
-      fs.writeFileSync(__dirname + "/package_version_id", commit_id);
+
+      let commit_id = tl.getVariable("build.sourceVersion");
+      let repository_url = tl.getVariable("build.repository.uri")
+
+
+      
+     let metadata = {
+      sourceVersion: commit_id,
+      repository_url:repository_url
+   };
+
+
+      fs.writeFileSync(__dirname + "/package_version_id", JSON.stringify(metadata));
 
       let data = {
         artifacttype: "container",
-        artifactname: "sfdx_source_package_commit_id"
+        artifactname: "sfdx_source_package"
     
       }
       // upload or copy
-      data["containerfolder"] = "sfdx_source_package_commit_id";
+      data["containerfolder"] = "sfdx_source_package";
 
       // add localpath to ##vso command's properties for back compat of old Xplat agent
       data["localpath"] = __dirname + "/package_version_id";

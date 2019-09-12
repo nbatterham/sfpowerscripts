@@ -1,17 +1,17 @@
 {
-    "id": "5de4147a-a8b0-43f4-b349-09dfcfef9843",
-    "name": "sfpwowerkit-authenticatedevhub-task",
-    "friendlyName": "Authenticate DevHub using JWT",
+    "id": "5c1fd528-ce06-42e2-855b-cfa9e07dc6b9",
+    "name": "sfpower-authenticateorg",
+    "friendlyName": "Authenticate an org using JWT",
     "description": "Authorizes a Salesforce org using a private key file that has been uploaded to a personal connected app, This task is part of SFPowerscripts",
     "helpMarkDown": "Authorizes a Salesforce org using a private key file that has been uploaded to a personal connected app",
     "category": "Utility",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 0,
-        "Minor": 0,
-        "Patch": 46
+        "Major": 1,
+        "Minor": 2,
+        "Patch": 0
     },
-    "instanceNameFormat": "Authenticate DevHub",
+    "instanceNameFormat": "Authenticate  $(alias)",
     "inputs": [
         {
             "name": "jwt_key_file",
@@ -33,9 +33,17 @@
             "name": "alias",
             "type": "string",
             "label": "Alias",
-            "defaultValue": "HubOrg",
+            "defaultValue": "",
             "required": true,
-            "helpMarkDown": "Alias for the devhub"
+            "helpMarkDown": "Alias for the org to be used in the subsequent scripts"
+        },
+        {
+            "name": "isdevhub",
+            "type": "boolean",
+            "label": "Enable this, if the org is a devhub",
+            "defaultValue": false,
+            "required": true,
+            "helpMarkDown": "Enable this option if a devhub is to be authenticated"
         },
         {
             "name": "clientid",
@@ -44,19 +52,11 @@
             "defaultValue": "",
             "required": true,
             "helpMarkDown": "OAuth client ID (sometimes called the consumer key)"
-        },
-        {
-            "name": "working_directory",
-            "type": "string",
-            "label": "Working directory to be installed",
-            "defaultValue": "",
-            "required": false,
-            "helpMarkDown": "Keep it blank in the build pipeline, pass the repo directory in the release pipeline"
         }
     ],
     "execution": {
         "Node": {
-            "target": "AuthenticateDevHubTask/AuthenticateDevHub.js"
+            "target": "AuthenticateOrgTask/AuthenticateOrg.js"
         }
     }
 }

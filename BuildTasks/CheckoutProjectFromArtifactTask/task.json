@@ -1,0 +1,52 @@
+{
+    "id": "7915fcdb-f02a-43ae-92bd-494993a31e5d",
+    "name": "sfpwowerscript-checkoutprojectfromartifact-task",
+    "friendlyName": "Checkout the project from Git mentioned in the artifact",
+    "description": "Use this utility task to checkout the mentioned commit from the build artifact, This task is part of DX@Scale/SFPowerscripts",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "azlam.abdulsalam",
+    "version": {
+        "Major": 3,
+        "Minor": 2,
+        "Patch": 0
+    },
+    "instanceNameFormat": "Checkout $(artifactname) from Git",
+    "inputs": [
+        {
+            "name": "artifact",
+            "type": "string",
+            "label": "Name of the source artifact that needs to be checked out",
+            "defaultValue": "_source",
+            "required": true,
+            "helpMarkDown": "Name of the artifact that is generated from the build pipeline  for a source format deployment, Please note this is not a generic utility and will only work for artifacts created by SFPowerkit"
+        },
+        {
+            "name": "username",
+            "type": "string",
+            "label": "Username",
+            "defaultValue": "",
+            "helpMarkDown": "Username for the Version Control Provider",
+            "required": true
+        },
+        {
+            "name": "password",
+            "type": "string",
+            "label": "Password",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "App Password/PAT for the Version Control Provider"
+        }
+    ],
+    "OutputVariables": [
+        {
+            "name": "sfpowerscripts_checked_out_path",
+            "description": "The path to the directory where the source code is checked out"
+        }
+    ],
+    "execution": {
+        "Node": {
+            "target": "CheckoutProjectFromArtifact.js"
+        }
+    }
+}

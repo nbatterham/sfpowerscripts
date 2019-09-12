@@ -7,7 +7,7 @@
     "category": "Build",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 1,
+        "Major": 3,
         "Minor": 0,
         "Patch": 0
     },
@@ -40,7 +40,7 @@
     ],
     "execution": {
         "Node": {
-            "target": "CreateSourcePackageTask/CreateSourcePackage.js"
+            "target": "CreateSourcePackage.js"
         }
     }
 }

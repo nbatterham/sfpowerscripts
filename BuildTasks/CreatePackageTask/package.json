@@ -1,6 +1,6 @@
 {
-  "name": "sfpwowerkit-createscratchorg-task",
-  "description": "Creates a Scratch Org",
+  "name": "sfpwowerscripts-createunlockedpackage-task",
+  "description": "sfpwowerscripts-createunlockedpackage-task",
   "repository": {
     "type": "git",
     "url": "https://github.com/azlamsalam/sfpowerscripts.git"

@@ -5,6 +5,6 @@
         "sourceRoot": "./"
     },
     "files": [
-        "AuthenticateDevHub.ts"
+        "AuthenticateOrg.ts"
     ]
   }

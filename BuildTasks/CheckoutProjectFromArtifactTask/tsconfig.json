@@ -5,6 +5,6 @@
         "sourceRoot": "./"
     },
     "files": [
-        "CreateScratchOrg.ts"
+        "CheckoutProjectFromArtifact.ts"
     ]
   }

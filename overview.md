@@ -18,11 +18,11 @@ SFPowerscripts is an Azure Pipelines Extension that converts Azure Pipelines int
  
  -  Install SFDX along with SFPowerkit Plugin
  -  Deploy a source format based repo to an org (scratch org/sandbox/prod)
- -  Create an unlocked package 
+ -  Create an unlocked package
  -  Deploy an unlocked package to an org
  -  Trigger Apex Test
  -  Validate Apex Test Coverge of an org
- -  Validate a Unlocked package for metadata coverage 
+ -  Validate a Unlocked package for metadata coverage
  -   Install all the dependencies of an unlocked package
  
  
@@ -34,11 +34,10 @@ For eg: a Pull Request validation for an unlocked package  should feature the ta
 
 ![PR Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/images/pr_pipeline.PNG)
 
-
  1. Install the SFDX CLI
  2. Validate the unlocked package for metadata coverage
  3. Authenticate DevHub
- 4.  Create a Scratch Org
+ 4. Create a Scratch Org
  5. Install Package Dependencies in the target scratch org
  6. Deploy source to the target scratch org
  7. Delete the scratch org
@@ -55,9 +54,8 @@ Of course you can, but why waste time, when the plugin nicely wraps scripts into
 
 Please create an issue, and I will try to rectify as soon as possible. Wile it being fixed, you can omit the particular task and resort to command line[c
 
- 
  ## Sample Pipelines
- 
+
  Sample orchestration pipelines are available in the Sample Pipelines Folder. Import these pipelines (in JSON Format) to your Azure  Pipelines instance , set the variables and other parameters and you will be ready to utilize a highly customizable pipeline in the shortest time.
  
  The following sample pipelines are available. 
