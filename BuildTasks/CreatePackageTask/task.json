@@ -11,7 +11,7 @@
         "Minor": 0,
         "Patch": 0
     },
-    "instanceNameFormat": "Authenticate to $(alias)",
+    "instanceNameFormat": "Creates a new version of  $(package)",
     "inputs": [
         {
             "name": "package",

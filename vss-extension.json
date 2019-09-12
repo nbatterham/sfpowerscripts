@@ -125,7 +125,7 @@
             }
         },
         {
-            "id": "sfpwowerkit-authenticateorg-task",
+            "id": "sfpower-authenticateorg",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"

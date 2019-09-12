@@ -1,6 +1,6 @@
 {
-    "id": "3b565cc5-bee0-4be8-a372-13f9ac263c9d",
-    "name": "sfpwowerkit-authenticateorg-task",
+    "id": "b91fb56d-fabe-4c68-a793-05f4d01080e7",
+    "name": "sfpower-authenticateorg",
     "friendlyName": "Authenticate an org using JWT",
     "description": "Authorizes a Salesforce org using a private key file that has been uploaded to a personal connected app, This task is part of SFPowerscripts",
     "helpMarkDown": "Authorizes a Salesforce org using a private key file that has been uploaded to a personal connected app",
