@@ -21,8 +21,8 @@ async function run() {
       let package_version_id_file_path = path.join(
         artifact_directory,
         artifact,
-        "sfdx_source_package",
-        "package_version_id"
+        "sfpowerkit_artifact",
+        "artifact_metadata"
       );
 
      let package_metadata_json = fs

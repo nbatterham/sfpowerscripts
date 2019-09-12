@@ -22,14 +22,22 @@ async function run() {
       let package_version_id_file_path = path.join(
         artifact_directory,
         artifact,
-        "sfdx_unlocked_package_version_id",
-        "package_version_id"
+        "sfpowerkit_artifact",
+        "artifact_metadata"
       );
 
-      package_version_id = fs
+      let package_metadata_json = fs
         .readFileSync(package_version_id_file_path)
         .toString();
+
+      let package_metadata = JSON.parse(package_metadata_json);
+
+      package_version_id = package_metadata.package_version_id
+
+
       console.log(`Found Package Version Id in artifact ${package_version_id}`);
+
+
     } else {
       package_version_id = tl.getInput("package_version_id", false);
     }

@@ -45,19 +45,30 @@ async function run() {
     tl.setVariable("sfpowerscripts_package_version_id", package_version_id);
 
     if (build_artifact_enabled) {
-      fs.writeFileSync(__dirname + "/package_version_id", package_version_id);
+
+      let repository_url = tl.getVariable("build.repository.uri");
+      let commit_id = tl.getVariable("build.sourceVersion");
+
+
+      let metadata = {
+        package_version_id: package_version_id,
+        sourceVersion: commit_id,
+        repository_url:repository_url
+     };
+
+      fs.writeFileSync(__dirname + "/artifact_metadata", JSON.stringify(metadata));
 
       let data = {
         artifacttype: "container",
-        artifactname: "sfdx_unlocked_package_version_id"
+        artifactname: "sfpowerkit_artifact"
       };
 
       // upload or copy
-      data["containerfolder"] = "sfdx_unlocked_package_version_id";
+      data["containerfolder"] = "sfpowerkit_artifact";
 
       // add localpath to ##vso command's properties for back compat of old Xplat agent
-      data["localpath"] = __dirname + "/package_version_id";
-      tl.command("artifact.upload", data, __dirname + "/package_version_id");
+      data["localpath"] = __dirname + "/artifact_metadata";
+      tl.command("artifact.upload", data, __dirname + "/artifact_metadata");
     }
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);

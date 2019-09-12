@@ -27,7 +27,8 @@ export default class DeploySourceToOrgImpl {
     }
     catch(err)
     {
-     
+     //Do something here
+     console.log("Validation Ignore not found, using .forceignore")
     }
 
     let command = await this.buildExecCommand();
@@ -60,7 +61,7 @@ export default class DeploySourceToOrgImpl {
       );
       let resultAsJSON = JSON.parse(result);
 
-      if (resultAsJSON["status"] == "1") {
+      if (resultAsJSON["status"] == 1) {
         console.log("Validation/Deployment Failed");
         break;
       } else if (
