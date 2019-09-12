@@ -8,10 +8,10 @@
     "author": "azlam.abdulsalam",
     "version": {
         "Major": 1,
-        "Minor": 0,
+        "Minor": 2,
         "Patch": 0
     },
-    "instanceNameFormat": "Authenticate to $(alias)",
+    "instanceNameFormat": "Authenticate  $(alias)",
     "inputs": [
         {
             "name": "jwt_key_file",
@@ -33,7 +33,7 @@
             "name": "alias",
             "type": "string",
             "label": "Alias",
-            "defaultValue": "HubOrg",
+            "defaultValue": "",
             "required": true,
             "helpMarkDown": "Alias for the org to be used in the subsequent scripts"
         },
@@ -56,7 +56,7 @@
     ],
     "execution": {
         "Node": {
-            "target": "AuthenticateOrgTask/AuthenticateOrg.ts"
+            "target": "AuthenticateOrgTask/AuthenticateOrg.js"
         }
     }
 }
