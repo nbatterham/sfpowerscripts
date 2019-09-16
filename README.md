@@ -37,7 +37,7 @@ SFPowerscripts is an Azure Pipelines Extension that converts Azure Pipelines int
 
 For eg: a Pull Request validation for an unlocked package  should feature the tasks in this order
 
-![PR Pipeline](https://user-images.githubusercontent.com/15088656/64760201-78bfaf80-d57c-11e9-8dcb-81e6f820633a.PNG)
+![PR Pipeline](https://user-images.githubusercontent.com/15088656/64956434-e990ff80-d8cd-11e9-98fd-44847dc29c42.png)
 
  1. Install the SFDX CLI
  2. Validate the unlocked package for metadata coverage
@@ -56,8 +56,8 @@ For eg: a Pull Request validation for an unlocked package  should feature the ta
 Of course you can, here are some advantages
 
 1. Save time from writing bash scripts in hooking all these tasks, such as ensuring you get the result values from the json output and parsing it to the next command
-2. Encapsulating certain functionalities into one logical task, so that that particular command could be used at ease (For eg: Deploy Source Command)
-3. Open Source, fork it and contribute it back
+2. Eliminate waste, multiple hours are spend on creating these scripts across multiple projects
+3. Open Source, so fork it and contribute it back
 
 ## What if there is an issue with the plugin?
 
@@ -78,5 +78,3 @@ Please create an issue, and I will try to rectify as soon as possible. Wile it b
 [Source based  Package (Org based Development) Packaging Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Source%20Package%20Build%20using%20sfpowerscripts.json)
 
 [Source based  Package (Org based Development) Deployment Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Unlocked%20Packaged%20Deployment%20Pipeline%20using%20sfpowerscripts.json)
-
-
