@@ -3,6 +3,7 @@ import tl = require("azure-pipelines-task-lib/task");
 import { delay } from "../Common/Delay";
 import rimraf = require("rimraf");
 import { copyFile, copyFileSync } from "fs";
+import { isNullOrUndefined } from "util";
 
 export default class DeploySourceToOrgImpl {
   public constructor(
@@ -146,7 +147,11 @@ export default class DeploySourceToOrgImpl {
   private async convertSourceToMDAPI(): Promise<void> {
     try
     {
+
+    if(!isNullOrUndefined(this.project_directory))
     console.log(`Converting to Source Format ${this.source_directory} in project directory  ${this.project_directory}`);
+    else
+    console.log(`Converting to Source Format ${this.source_directory} in project directory`);
     child_process.execSync(
       `npx sfdx force:source:convert -r ${this.source_directory}  -d  mdapi`,
       { cwd: this.project_directory, encoding: "utf8" }
