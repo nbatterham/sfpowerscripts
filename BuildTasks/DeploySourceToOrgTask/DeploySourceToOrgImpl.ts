@@ -57,7 +57,7 @@ export default class DeploySourceToOrgImpl {
         {
           cwd: this.project_directory,
           encoding: "utf8",
-          stdio:['inherit', 'inherit', 'ignore']
+          stdio:['pipe', 'pipe', 'ignore']
         }
       );
       let resultAsJSON = JSON.parse(result);
