@@ -4,6 +4,7 @@ import { delay } from "../Common/Delay";
 import rimraf = require("rimraf");
 import { copyFile, copyFileSync } from "fs";
 import { isNullOrUndefined } from "util";
+import { onExit } from "../Common/OnExit";
 
 export default class DeploySourceToOrgImpl {
   public constructor(
@@ -14,6 +15,8 @@ export default class DeploySourceToOrgImpl {
   ) {}
 
   public async exec() {
+
+    let commandExecStatus:boolean = false;
 
     //Clean mdapi directory
     rimraf.sync('mdapi');
@@ -73,6 +76,7 @@ export default class DeploySourceToOrgImpl {
 
       if (resultAsJSON["status"] == 1) {
         console.log("Validation/Deployment Failed");
+        commandExecStatus = false;
         break;
       } else if (
         resultAsJSON["result"]["status"] == "InProgress" ||
@@ -83,20 +87,32 @@ export default class DeploySourceToOrgImpl {
         );
       } else if (resultAsJSON["result"]["status"] == "Succeeded") {
         console.log("Validation/Deployment Succeeded");
+        commandExecStatus = true;
         break;
       }
 
      await delay(30000);
     }
 
-    result = child_process.execSync(
-      `npx sfdx force:mdapi:deploy:report  -i ${deploy_id} -u ${this.target_org}`,
-      {
-        cwd: this.project_directory,
-        encoding: "utf8"
-      }
-    );
-    console.log(result);
+
+
+
+    
+    let child=child_process.exec(  `npx sfdx force:mdapi:deploy:report  -i ${deploy_id} -u ${this.target_org}`,
+      { cwd: this.project_directory,encoding: "utf8" },(error,stdout,stderr)=>{
+
+    });
+   
+    child.stdout.on("data",data=>{console.log(data.toString()); });
+    child.stderr.on("data",data=>{console.log(data.toString()); });
+
+    await onExit(child);
+
+
+
+
+
+
   }
 
   private async buildExecCommand(): Promise<string> {
