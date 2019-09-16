@@ -56,8 +56,8 @@ For eg: a Pull Request validation for an unlocked package  should feature the ta
 Of course you can, here are some advantages
 
 1. Save time from writing bash scripts in hooking all these tasks, such as ensuring you get the result values from the json output and parsing it to the next command
-2. Eliminate waste, multiple hours are spend on creating these scripts across multiple projects
-3. Open Source, so fork it and contribute it back
+2. Encapsulating certain functionalities into one logical task, so that that particular command could be used at ease (For eg: Deploy Source Command)
+3. Open Source, fork it and contribute it back
 
 ## What if there is an issue with the plugin?
 
