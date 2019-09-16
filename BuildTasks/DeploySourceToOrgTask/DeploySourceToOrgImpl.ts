@@ -52,7 +52,9 @@ export default class DeploySourceToOrgImpl {
       );
 
     while (true) {
-      let result = child_process.execSync(
+      try
+      {
+      result = child_process.execSync(
         `npx sfdx force:mdapi:deploy:report --json -i ${deploy_id} -u ${this.target_org}`,
         {
           cwd: this.project_directory,
@@ -60,6 +62,12 @@ export default class DeploySourceToOrgImpl {
           stdio:['pipe', 'pipe', 'ignore']
         }
       );
+      }
+      catch (err)
+      { 
+        console.log(`Validation/Deployment Failed due to ${err.message}`);
+        break;
+      }
       let resultAsJSON = JSON.parse(result);
 
       if (resultAsJSON["status"] == 1) {
