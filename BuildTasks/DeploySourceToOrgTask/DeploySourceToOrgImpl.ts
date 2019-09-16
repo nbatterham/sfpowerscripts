@@ -65,7 +65,7 @@ export default class DeploySourceToOrgImpl {
       }
       catch (err)
       { 
-        console.log(`Validation/Deployment Failed due to ${err.message}`);
+        console.log(`Validation/Deployment Failed`);
         break;
       }
       let resultAsJSON = JSON.parse(result);
