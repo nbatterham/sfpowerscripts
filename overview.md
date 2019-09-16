@@ -78,5 +78,3 @@ Please create an issue, and I will try to rectify as soon as possible. Wile it b
 [Source based  Package (Org based Development) Packaging Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Source%20Package%20Build%20using%20sfpowerscripts.json)
 
 [Source based  Package (Org based Development) Deployment Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Unlocked%20Packaged%20Deployment%20Pipeline%20using%20sfpowerscripts.json)
-
-
