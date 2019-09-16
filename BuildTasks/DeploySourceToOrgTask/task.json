@@ -41,20 +41,20 @@
             "helpMarkDown": "wait time for command to finish in minutes"
         },
         {
-            "name": "wait_time",
-            "type": "string",
-            "label": "Wait Time",
-            "defaultValue": "20",
-            "required": true,
-            "helpMarkDown": "wait time for command to finish in minutes"
-        },
-        {
             "name": "checkonly",
             "type": "boolean",
             "label": "Validate Deployment, Do not Deploy",
             "defaultValue": true,
             "required": true,
             "helpMarkDown": "Validate a deployment, but don't save to the org, Use this for Stage 1/2 CI Run's"
+        },
+        {
+            "name": "wait_time",
+            "type": "string",
+            "label": "Wait Time",
+            "defaultValue": "20",
+            "required": true,
+            "helpMarkDown": "wait time for command to finish in minutes"
         },
         {
             "name": "validation_ignore",
