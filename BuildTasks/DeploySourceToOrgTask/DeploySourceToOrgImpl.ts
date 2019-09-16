@@ -56,7 +56,8 @@ export default class DeploySourceToOrgImpl {
         `npx sfdx force:mdapi:deploy:report --json -i ${deploy_id} -u ${this.target_org}`,
         {
           cwd: this.project_directory,
-          encoding: "utf8"
+          encoding: "utf8",
+          stdio:['inherit', 'inherit', 'ignore']
         }
       );
       let resultAsJSON = JSON.parse(result);
@@ -69,14 +70,14 @@ export default class DeploySourceToOrgImpl {
         resultAsJSON["result"]["status"] == "Pending"
       ) {
         console.log(
-          `Checking ${resultAsJSON.result.numberComponentsDeployed} out of ${resultAsJSON.result.numberComponentsTotal}`
+          `Processing ${resultAsJSON.result.numberComponentsDeployed} out of ${resultAsJSON.result.numberComponentsTotal}`
         );
       } else if (resultAsJSON["result"]["status"] == "Succeeded") {
         console.log("Validation/Deployment Succeeded");
         break;
       }
 
-      delay(30000);
+     await delay(30000);
     }
 
     result = child_process.execSync(
