@@ -1,27 +1,26 @@
-
-
-
 # SFPowerscripts
 
 SFPowerscripts is an Azure Pipelines Extension that converts Azure Pipelines into a CI/CD platform for Salesforce. The extension features the following tasks
 
-## Authentication Related Tasks
- 
- - Authenticate a DevHub using JWT
- - Authenticate a Sandbox using JWT
- - Create a Scratch Org
- - Delete a Scratch Org
+Please note this extension only works with the newer source format based repositories only.
+
+## Authentication/Org Related Tasks
+
+- Authenticate a DevHub using JWT
+- Authenticate a Sandbox using JWT
+- Authenticate an Org using Username/Password/Security Token
+- Create/Delete a Scratch Org
 
 ## Build/ Deployment Related Tasks
 
- -  Deploy a source format based repo to an org (scratch org/sandbox/prod)
- -  Create an unlocked package
- -  Deploy an unlocked package to an org
- -  Trigger Apex Test
- -  Validate Apex Test Coverge of an org
- -  Validate a Unlocked package for metadata coverage
- -  Install all package dependencies of an unlocked package
- 
+- Deploy a source format based repo to an org (scratch org/sandbox/prod)
+- Create an unlocked package
+- Deploy an unlocked package to an org
+- Trigger Apex Test
+- Validate Apex Test Coverge of an org
+- Validate a Unlocked package for metadata coverage
+- Install all package dependencies of an unlocked package
+
 ## Generic Utilities
 
  
