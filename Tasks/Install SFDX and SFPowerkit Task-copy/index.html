@@ -6,19 +6,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>General fixes and improvements | sfpowerscripts</title>
+<title>Install SFDX CLI and SFPowerkit Extension | sfpowerscripts</title>
 <meta name="generator" content="Jekyll v3.8.4" />
-<meta property="og:title" content="General fixes and improvements" />
+<meta property="og:title" content="Install SFDX CLI and SFPowerkit Extension" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This release fixes a few minor issues reported by users. We’ve also made a few quality of life improvements." />
-<meta property="og:description" content="This release fixes a few minor issues reported by users. We’ve also made a few quality of life improvements." />
-<link rel="canonical" href="https://long-pig.cloudvent.net/2016/02/05/general-fixes-and-improvements/" />
-<meta property="og:url" content="https://long-pig.cloudvent.net/2016/02/05/general-fixes-and-improvements/" />
+<meta name="description" content="This task install the SFDX CLI and SFPowerkit extension. You can read more about sfpowerkit extension here. This task should be the first task while building either a build or release pipeline" />
+<meta property="og:description" content="This task install the SFDX CLI and SFPowerkit extension. You can read more about sfpowerkit extension here. This task should be the first task while building either a build or release pipeline" />
+<link rel="canonical" href="https://long-pig.cloudvent.net/Tasks/Install%20SFDX%20and%20SFPowerkit%20Task-copy/" />
+<meta property="og:url" content="https://long-pig.cloudvent.net/Tasks/Install%20SFDX%20and%20SFPowerkit%20Task-copy/" />
 <meta property="og:site_name" content="sfpowerscripts" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-02-05T00:00:00+00:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://long-pig.cloudvent.net/2016/02/05/general-fixes-and-improvements/"},"url":"https://long-pig.cloudvent.net/2016/02/05/general-fixes-and-improvements/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://long-pig.cloudvent.net/siteicon.png"}},"headline":"General fixes and improvements","datePublished":"2016-02-05T00:00:00+00:00","dateModified":"2016-02-05T00:00:00+00:00","description":"This release fixes a few minor issues reported by users. We’ve also made a few quality of life improvements.","@context":"http://schema.org"}</script>
+{"@type":"Article","url":"https://long-pig.cloudvent.net/Tasks/Install%20SFDX%20and%20SFPowerkit%20Task-copy/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://long-pig.cloudvent.net/siteicon.png"}},"headline":"Install SFDX CLI and SFPowerkit Extension","description":"This task install the SFDX CLI and SFPowerkit extension. You can read more about sfpowerkit extension here. This task should be the first task while building either a build or release pipeline","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 		<link type="application/atom+xml" rel="alternate" href="https://long-pig.cloudvent.net/feed.xml" title="sfpowerscripts" />
@@ -73,12 +71,12 @@
 							</ul>
 						</li>
 					
-						<li class="nav-item top-level ">
+						<li class="nav-item top-level current">
 							
 							<a href="/Tasks/Install%20SFDX%20and%20SFPowerkit%20Task-copy/">Tasks</a>
 							<ul>
 								
-									<li class="nav-item "><a href="/Tasks/Install%20SFDX%20and%20SFPowerkit%20Task-copy/">Install SFDX CLI and SFPowerkit Extension</a></li>
+									<li class="nav-item current"><a href="/Tasks/Install%20SFDX%20and%20SFPowerkit%20Task-copy/">Install SFDX CLI and SFPowerkit Extension</a></li>
 								
 									<li class="nav-item "><a href="/Tasks/Install%20SFDX%20and%20SFPowerkit%20Task/">Install SFDX CLI and SFPowerkit Extension</a></li>
 								
@@ -98,25 +96,25 @@
 
 		<section class="main">
 			<div class="page-header">
-				<h2>sfpowerscripts</h2>
-				<h3>General fixes and improvements</h3>
+				<h2>Tasks</h2>
+				<h3>Install SFDX CLI and SFPowerkit Extension</h3>
 			</div>
 			<article class="content" data-cms-content-wrapper="/_layouts/default.html">
-				<p>This release fixes a few minor issues reported by users. We’ve also made a few quality of life improvements.</p>
+				<p>This task install the SFDX CLI and SFPowerkit extension. You can read more about sfpowerkit extension <a href="https://github.com/Accenture/sfpowerkit">here</a>. This task should be the first task while building either a build or release pipeline</p>
 
-<p><strong>Features:</strong></p>
+<p><img src="/uploads/install-sfdx-cli-task.PNG" alt="" width="800" height="321" /></p>
 
-<ul>
-  <li>Streamlined access to contact details</li>
-  <li>Better sort order for archived messages</li>
-</ul>
+<p>The task takes in the folllowing parameters. </p>
 
-<p><strong>Fixes:</strong></p>
+<p>1. <strong>Display Name</strong> :<br /> Change the name of this task to something that more verbose/</p>
 
-<ul>
-  <li>Input sometimes getting stuck</li>
-  <li>One more memory leak obliterated</li>
-</ul>
+<p>2. <strong>SFDX CLI Version</strong>:</p>
+
+<p>By default this task installs the latest stable version, if you need a specific version to be installed, provide the version details here. Details on SFDX CLI version and release notes can be found <a href="https://developer.salesforce.com/media/salesforce-cli/releasenotes.html">here</a>.</p>
+
+<p>3. <strong>SFPowerkit Version</strong></p>
+
+<p>By default this task installs the latest stable version, if you need a specific version to be installed, provide the version details here. Details on SFPowerkit version and release notes can be found <a href="https://github.com/Accenture/sfpowerkit/releases">here</a>.</p>
 
 			</article>
 		</section>
