@@ -2,11 +2,15 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://long-pig.cloudvent.net/Pipelines/installsfdx/</loc>
-<lastmod>2019-09-20T09:14:37+00:00</lastmod>
+<lastmod>2019-09-20T09:15:02+00:00</lastmod>
 </url>
 <url>
 <loc>https://long-pig.cloudvent.net/Tasks/Install%20SFDX%20and%20SFPowerkit%20Task/</loc>
-<lastmod>2019-09-20T09:14:37+00:00</lastmod>
+<lastmod>2019-09-20T09:15:02+00:00</lastmod>
+</url>
+<url>
+<loc>https://long-pig.cloudvent.net/Tasks/authenticate-an-org/</loc>
+<lastmod>2019-09-20T09:15:02+00:00</lastmod>
 </url>
 <url>
 <loc>https://long-pig.cloudvent.net/2016/01/12/media-support/</loc>
