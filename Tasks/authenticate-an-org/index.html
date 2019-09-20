@@ -114,15 +114,59 @@
 
 <p><img src="/uploads/authenticate-a-salesforce-org.png" alt="" width="800" height="529" /></p>
 
-<p>Using JWT Based Authentication </p>
+<h2 id="using-jwt-based-authentication"><strong>Using JWT Based Authentication </strong></h2>
 
 <p><img src="/uploads/authenticate-a-salesforce-org-using-jwt.png" alt="" width="800" height="528" /></p>
 
+<p>The task has the following variables</p>
+
+<p><strong>1. Secure File for using with JWT Authentication.</strong></p>
+
+<p>Follow the steps mentioned <a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm">here</a> to create the  Private key and test your authentication locally. Once it is done, store the file as a secure file in your library. Click on this <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/library/secure-files?view=azure-devops">link</a> to read more.</p>
+
+<p><strong>2. Username</strong></p>
+
+<p>The username of the user who is authorized to utilize the connected app </p>
+
+<p><strong>3. Alias</strong></p>
+
+<p>The alias of the org to be referenced elsewhere</p>
+
+<p><strong>4.  Authenticate this org as a DevHub</strong></p>
+
+<p>Turning on this variable, enables the the org to be authenticated as a DevHub, which allows scratch org’s to be created</p>
+
+<p><strong>5. ClientId</strong></p>
+
+<p>The client id used for the JWT based authentication</p>
+
+<h2 id="using-credentials-based-authentication"><strong>Using Credentials based Authentication</strong></h2>
+
 <p> </p>
 
-<p>Using Credentials</p>
-
 <p><img src="/uploads/authenticate-a-salesforce-org-using-credentials.png" alt="" width="800" height="501" /></p>
+
+<p>The task has the following variables</p>
+
+<p><strong>1. Username</strong></p>
+
+<p>The username of the user who is authorized to utilize the connected app </p>
+
+<p><strong>2. Pasword</strong></p>
+
+<p>The password of the user. Recommed to utilize as a secure variable from the library</p>
+
+<p><strong>3.  Security Token</strong></p>
+
+<p>This is required, if Azure DevOps Hosted Agents are not whitelisted against the target Salesforce Org</p>
+
+<p><strong>3. Alias</strong></p>
+
+<p>The alias of the org to be referenced elsewhere</p>
+
+<p><strong>4.  Authenticate this org as a DevHub</strong></p>
+
+<p>Turning on this variable, enables the the org to be authenticated as a DevHub, which allows scratch org’s to be created</p>
 
 			</article>
 		</section>
