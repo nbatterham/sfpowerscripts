@@ -102,17 +102,27 @@
 			<article class="content" data-cms-content-wrapper="/_layouts/default.html">
 				<p>This task is used to authenticate a Salesforce Org (Prod/Sandbox) for either the purposes of deploying or doing a particular action on the org. The task features the following authentication mechanisms</p>
 
-<p>1. JWT </p>
+<p><strong>1. JWT </strong></p>
 
 <p>The following link provides details on what a JSON Web Token and how it is used to authorize and org. </p>
 
 <p><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm">https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm</a></p>
 
-<p>2. Credentials</p>
+<p><strong>2. Credentials</strong></p>
+
+<p>This approach utilizes username/password and an optional security token to authenticate to an org. This task utilizes the sfpowerkit auth:login command for enabling this functionality</p>
+
+<p><img src="/uploads/authenticate-a-salesforce-org.png" alt="" width="800" height="529" /></p>
+
+<p>Using JWT Based Authentication </p>
+
+<p><img src="/uploads/authenticate-a-salesforce-org-using-jwt.png" alt="" width="800" height="528" /></p>
 
 <p> </p>
 
-<p><img src="/uploads/authenticate-a-salesforce-org.png" alt="" width="800" height="529" /></p>
+<p>Using Credentials</p>
+
+<p><img src="/uploads/authenticate-a-salesforce-org-using-credentials.png" alt="" width="800" height="501" /></p>
 
 			</article>
 		</section>
