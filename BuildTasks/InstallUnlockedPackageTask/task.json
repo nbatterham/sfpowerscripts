@@ -19,7 +19,7 @@
         {
             "name": "envname",
             "type": "string",
-            "label": "Alias/Target User Name of the environment",
+            "label": "Alias or username of the target environment",
             "defaultValue": "",
             "required": true,
             "helpMarkDown": "Alias/Target User Name of the environment"
@@ -89,7 +89,7 @@
         {
             "name": "upgrade_type",
             "type": "pickList",
-            "label": "Security access type for the installed package",
+            "label": "Upgrade type for the installed package",
             "defaultValue": "Mixed",
             "options": {
                 "Mixed": "Mixed",
