@@ -1,6 +1,6 @@
 # SFPowerscripts
 
-SFPowerscripts is an Azure Pipelines Extension that converts Azure Pipelines into a CI/CD platform for Salesforce. The extension features the following tasks. You can read the documenation [here](https://pedantic-elion-f1de8c.netlify.com/) 
+SFPowerscripts is an Azure Pipelines Extension that converts Azure Pipelines into a CI/CD platform for Salesforce. The extension features the following tasks. You can read the documenation [here](https://www.sfpowerscripts.com) 
 
 Please note this extension only works with the newer source format based repositories only.
 
