@@ -1,44 +1,14 @@
 {
-  "options": [
-    {
-      "enabled": false,
-      "definition": { "id": "5d58cc01-7c75-450c-be18-a388ddb129ec" },
-      "inputs": {
-        "branchFilters": "[\"+refs/heads/*\"]",
-        "additionalFields": "{}"
-      }
-    },
-    {
-      "enabled": false,
-      "definition": { "id": "a9db38f9-9fdc-478c-b0f9-464221e58316" },
-      "inputs": {
-        "workItemType": "Issue",
-        "assignToRequestor": "true",
-        "additionalFields": "{}"
-      }
-    }
-  ],
-  "triggers": [
-    {
-      "branchFilters": ["+master"],
-      "pathFilters": [],
-      "batchChanges": false,
-      "maxConcurrentBuildsPerBranch": 1,
-      "pollingInterval": 0,
-      "triggerType": 2
-    }
-  ],
   "variables": {
-    "packageName": { "value": "force-di" },
-    "system.debug": { "value": "false", "allowOverride": true },
-    "working_directory": { "value": "" },
-    "prod.consumerkey": { "value": "", "isSecret": true },
-    "prod.user": { "value": "" }
+    "system.debug": {
+      "value": "false",
+      "allowOverride": true
+    }
   },
   "properties": {},
   "tags": [],
-  "buildNumberFormat": "$(rev:r)",
-  "jobAuthorizationScope": 1,
+  "_links": "{}",
+  "jobAuthorizationScope": "projectCollection",
   "jobTimeoutInMinutes": 60,
   "jobCancelTimeoutInMinutes": 5,
   "process": {
@@ -68,20 +38,23 @@
             "enabled": true,
             "continueOnError": false,
             "alwaysRun": false,
-            "displayName": "Authenticate  HubOrg",
+            "displayName": "Authenticate  HubOrg using Credentials",
             "timeoutInMinutes": 0,
             "condition": "succeeded()",
             "task": {
               "id": "5c1fd528-ce06-42e2-855b-cfa9e07dc6b9",
-              "versionSpec": "1.*",
+              "versionSpec": "3.*",
               "definitionType": "task"
             },
             "inputs": {
-              "jwt_key_file": "8265dc6c-946c-46e4-8dbc-8d627c23bb0e",
+              "method": "Credentials",
+              "jwt_key_file": "",
               "username": "$(prod.user)",
+              "password": "$(prod.password)",
+              "securitytoken": "$(prod.securitytoken)",
               "alias": "HubOrg",
               "isdevhub": "true",
-              "clientid": "$(prod.consumerkey)"
+              "clientid": ""
             }
           },
           {
@@ -116,7 +89,7 @@
             "condition": "succeeded()",
             "task": {
               "id": "a81064ca-c1cc-4ebf-892f-6299fa36b151",
-              "versionSpec": "2.*",
+              "versionSpec": "3.*",
               "definitionType": "task"
             },
             "inputs": {
@@ -137,14 +110,21 @@
         "refName": "Job_1",
         "condition": "succeeded()",
         "target": {
-          "executionOptions": { "type": 0 },
+          "executionOptions": {
+            "type": 0
+          },
           "allowScriptsAuthAccessOption": false,
-          "type": 1
+          "type": 1,
+          "queue": "{}"
         },
-        "jobAuthorizationScope": 1
+        "jobAuthorizationScope": "projectCollection"
       }
     ],
-    "target": { "agentSpecification": { "identifier": "ubuntu-16.04" } },
+    "target": {
+      "agentSpecification": {
+        "identifier": "ubuntu-16.04"
+      }
+    },
     "type": 1
   },
   "repository": {
@@ -152,10 +132,10 @@
       "apiUrl": "https://api.github.com/repos/azlamsalam/force-di",
       "branchesUrl": "https://api.github.com/repos/azlamsalam/force-di/branches",
       "cloneUrl": "https://github.com/azlamsalam/force-di.git",
-      "connectedServiceId": "066f515f-5492-4711-bee8-02769af0296f",
+      "connectedServiceId": "$GitHub_34ef6d4b$",
       "defaultBranch": "master",
-      "fullName": "azlamsalam/force-di",
-      "hasAdminPermissions": "False",
+      "fullName": "repository",
+      "hasAdminPermissions": "True",
       "isFork": "True",
       "isPrivate": "False",
       "lastUpdated": "09/06/2019 01:20:04",
@@ -180,21 +160,36 @@
       "labelSources": "0"
     },
     "id": "azlamsalam/force-di",
-    "type": "GitHub",
-    "name": "azlamsalam/force-di",
+    "type": "Git",
+    "name": "repository",
     "url": "https://github.com/azlamsalam/force-di.git",
     "defaultBranch": "master",
     "clean": "false",
     "checkoutSubmodules": false
   },
   "processParameters": {},
-  "quality": 1,
-  "authoredBy": {
-    "displayName": "Azlam Abdulsalam"
-  },
+  "quality": "definition",
+  "authoredBy": "{}",
   "drafts": [],
-  "id": 13,
+  "queue": {
+    "_links": "{}",
+    "id": "",
+    "name": "Azure Pipelines",
+    "url": "",
+    "pool": {
+      "id": "",
+      "name": "Azure Pipelines",
+      "isHosted": true
+    }
+  },
+  "id": "",
   "name": "Unlocked Package Build using sfpowerscript",
-  "path": "\\Packaging",
-  "createdDate": "2019-09-05T06:51:54.193Z"
+  "url": "",
+  "uri": "",
+  "path": "\\",
+  "type": "build",
+  "queueStatus": "enabled",
+  "revision": 1,
+  "createdDate": "",
+  "project": "{}"
 }

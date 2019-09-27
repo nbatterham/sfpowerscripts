@@ -1,65 +1,38 @@
 {
-  "source": 2,
-  "revision": 1,
+  "source": "userInterface",
+  "revision": 2,
   "description": null,
-  "createdBy": {
-    "displayName": "Azlam Abdulsalam",
-    "url": "https://spsprodeau1.vssps.visualstudio.com/Ae0441372-c9a7-4801-896d-2a360fe1f97e/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
-    "_links": {
-      "avatar": {
-        "href": "https://dev.azure.com/azlamsalam/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
-      }
-    },
-    "id": "cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
-    "uniqueName": "azlam.salam@outlook.com",
-    "imageUrl": "https://dev.azure.com/azlamsalam/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
-    "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
-  },
-  "createdOn": "2019-09-12T06:47:15.387Z",
-  "modifiedBy": {
-    "displayName": "Azlam Abdulsalam",
-    "url": "https://spsprodeau1.vssps.visualstudio.com/Ae0441372-c9a7-4801-896d-2a360fe1f97e/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
-    "_links": {
-      "avatar": {
-        "href": "https://dev.azure.com/azlamsalam/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
-      }
-    },
-    "id": "cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
-    "uniqueName": "azlam.salam@outlook.com",
-    "imageUrl": "https://dev.azure.com/azlamsalam/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
-    "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
-  },
-  "modifiedOn": "2019-09-12T06:47:15.387Z",
+  "createdBy": "{}",
+  "createdOn": "",
+  "modifiedBy": "{}",
+  "modifiedOn": "",
   "isDeleted": false,
-  "variables": {
-    "github_org": { "value": "azlamsalam" },
-    "github_pat": { "value": null, "isSecret": true },
-    "package_name": { "value": "force-di" }
-  },
+  "variables": {},
   "variableGroups": [],
   "environments": [
     {
-      "id": 3,
+      "id": 2,
       "name": "ST",
       "rank": 1,
       "owner": {
-        "displayName": "Azlam Abdulsalam",
-        "url": "https://spsprodeau1.vssps.visualstudio.com/Ae0441372-c9a7-4801-896d-2a360fe1f97e/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
-        "_links": {
-          "avatar": {
-            "href": "https://dev.azure.com/azlamsalam/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
-          }
-        },
-        "id": "cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
-        "uniqueName": "azlam.salam@outlook.com",
-        "imageUrl": "https://dev.azure.com/azlamsalam/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
-        "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+        "displayName": "$OwnerDisplayName$",
+        "url": "",
+        "_links": "{}",
+        "id": "$OwnerId$",
+        "uniqueName": "$OwnerUniqueName$",
+        "imageUrl": "",
+        "descriptor": ""
       },
       "variables": {},
       "variableGroups": [],
       "preDeployApprovals": {
         "approvals": [
-          { "rank": 1, "isAutomated": true, "isNotificationOn": false, "id": 7 }
+          {
+            "rank": 1,
+            "isAutomated": true,
+            "isNotificationOn": false,
+            "id": 4
+          }
         ],
         "approvalOptions": {
           "requiredApproverCount": null,
@@ -67,13 +40,20 @@
           "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
           "enforceIdentityRevalidation": false,
           "timeoutInMinutes": 0,
-          "executionOrder": 1
+          "executionOrder": "beforeGates"
         }
       },
-      "deployStep": { "id": 8 },
+      "deployStep": {
+        "id": 5
+      },
       "postDeployApprovals": {
         "approvals": [
-          { "rank": 1, "isAutomated": true, "isNotificationOn": false, "id": 9 }
+          {
+            "rank": 1,
+            "isAutomated": true,
+            "isNotificationOn": false,
+            "id": 6
+          }
         ],
         "approvalOptions": {
           "requiredApproverCount": null,
@@ -81,26 +61,23 @@
           "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
           "enforceIdentityRevalidation": false,
           "timeoutInMinutes": 0,
-          "executionOrder": 2
+          "executionOrder": "afterSuccessfulGates"
         }
       },
       "deployPhases": [
         {
           "deploymentInput": {
-            "parallelExecution": { "parallelExecutionType": 0 },
-            "agentSpecification": { "identifier": "ubuntu-16.04" },
+            "parallelExecution": {
+              "parallelExecutionType": "none"
+            },
+            "agentSpecification": {
+              "identifier": "ubuntu-16.04"
+            },
             "skipArtifactsDownload": false,
             "artifactsDownloadInput": {
-              "downloadInputs": [
-                {
-                  "alias": "force-di",
-                  "artifactType": "Build",
-                  "artifactDownloadMode": "All",
-                  "artifactItems": []
-                }
-              ]
+              "downloadInputs": []
             },
-            "queueId": 18,
+            "queueId": "$Azure Pipelines$",
             "demands": [],
             "enableAccessToken": false,
             "timeoutInMinutes": 0,
@@ -109,15 +86,15 @@
             "overrideInputs": {}
           },
           "rank": 1,
-          "phaseType": 1,
-          "name": "Run Automated Installation",
+          "phaseType": "agentBasedDeployment",
+          "name": "Agent job",
           "refName": null,
           "workflowTasks": [
             {
               "environment": {},
               "taskId": "7915fcdb-f02a-43ae-92bd-494993a31e5d",
-              "version": "3.*",
-              "name": "Checkout  from git",
+              "version": "4.*",
+              "name": "Checkout  from Git",
               "refName": "forcedi",
               "enabled": true,
               "alwaysRun": false,
@@ -128,8 +105,8 @@
               "condition": "succeeded()",
               "inputs": {
                 "artifact": "force-di",
-                "username": "azlam-abdulsalam",
-                "password": "$(github_pat)"
+                "username": "$(git.username)",
+                "password": "$(git.password)"
               }
             },
             {
@@ -153,8 +130,8 @@
             {
               "environment": {},
               "taskId": "5c1fd528-ce06-42e2-855b-cfa9e07dc6b9",
-              "version": "1.*",
-              "name": "Authenticate  $(env.name)",
+              "version": "3.*",
+              "name": "Authenticate  $(env.name) using Credentials",
               "refName": "",
               "enabled": true,
               "alwaysRun": false,
@@ -164,11 +141,14 @@
               "overrideInputs": {},
               "condition": "succeeded()",
               "inputs": {
-                "jwt_key_file": "8265dc6c-946c-46e4-8dbc-8d627c23bb0e",
+                "method": "Credentials",
+                "jwt_key_file": "",
                 "username": "$(env.user)",
+                "password": "$(env.password)",
+                "securitytoken": "$(env.token)",
                 "alias": "$(env.name)",
                 "isdevhub": "false",
-                "clientid": "$(env.consumerkey)"
+                "clientid": ""
               }
             },
             {
@@ -188,8 +168,8 @@
                 "target_org": "$(env.name)",
                 "project_directory": "$(forcedi.sfpowerscripts_checked_out_path) ",
                 "source_directory": "force-di",
+                "checkonly": "true",
                 "wait_time": "20",
-                "checkonly": "false",
                 "validation_ignore": ".forceignore",
                 "testlevel": "NoTestRun",
                 "specified_tests": "",
@@ -212,13 +192,20 @@
       },
       "demands": [],
       "conditions": [
-        { "name": "ReleaseStarted", "conditionType": 1, "value": "" }
+        {
+          "name": "ReleaseStarted",
+          "conditionType": "event",
+          "value": ""
+        }
       ],
-      "executionPolicy": { "concurrencyCount": 1, "queueDepthCount": 0 },
+      "executionPolicy": {
+        "concurrencyCount": 1,
+        "queueDepthCount": 0
+      },
       "schedules": [],
       "currentRelease": {
         "id": 0,
-        "url": "https://vsrm.dev.azure.com/azlamsalam/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/_apis/Release/releases/0",
+        "url": "https://vsrm.dev.azure.com/aglideas/84ea38b2-6e6f-44f0-a2fb-fe10f4d41015/_apis/Release/releases/0",
         "_links": {}
       },
       "retentionPolicy": {
@@ -227,64 +214,99 @@
         "retainBuild": true
       },
       "processParameters": {},
-      "properties": {},
-      "preDeploymentGates": { "id": 0, "gatesOptions": null, "gates": [] },
-      "postDeploymentGates": { "id": 0, "gatesOptions": null, "gates": [] },
+      "properties": {
+        "BoardsEnvironmentType": {
+          "$type": "System.String",
+          "$value": "unmapped"
+        },
+        "LinkBoardsWorkItems": {
+          "$type": "System.String",
+          "$value": "False"
+        }
+      },
+      "preDeploymentGates": {
+        "id": 0,
+        "gatesOptions": null,
+        "gates": []
+      },
+      "postDeploymentGates": {
+        "id": 0,
+        "gatesOptions": null,
+        "gates": []
+      },
       "environmentTriggers": [],
-      "badgeUrl": "https://vsrm.dev.azure.com/azlamsalam/_apis/public/Release/badge/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/3/3"
+      "badgeUrl": ""
     }
   ],
   "artifacts": [
     {
-      "sourceId": "7df994b0-1cd8-4080-866f-5c1dcc5e9e2b:7",
+      "sourceId": "$ProjectId$:$Source Package Build using sfpowerscripts-id$",
       "type": "Build",
       "alias": "force-di",
       "definitionReference": {
-        "defaultVersionBranch": { "id": "", "name": "" },
-        "defaultVersionSpecific": { "id": "", "name": "" },
-        "defaultVersionTags": { "id": "", "name": "" },
-        "defaultVersionType": { "id": "latestType", "name": "Latest" },
-        "definition": {
-          "id": "7",
-          "name": "Unlocked Package Build using sfpowerscript"
-        },
-        "definitions": { "id": "", "name": "" },
-        "IsMultiDefinitionType": { "id": "False", "name": "False" },
-        "project": {
-          "id": "7df994b0-1cd8-4080-866f-5c1dcc5e9e2b",
-          "name": "sfpowerscripts"
-        },
-        "repository": { "id": "", "name": "" },
-        "artifactSourceDefinitionUrl": {
-          "id": "https://dev.azure.com/azlamsalam/_permalink/_build/index?collectionId=7fb26f9e-a31d-412f-8cf0-bfe53f2e3869&projectId=7df994b0-1cd8-4080-866f-5c1dcc5e9e2b&definitionId=7",
+        "defaultVersionBranch": {
+          "id": "",
           "name": ""
-        }
+        },
+        "defaultVersionSpecific": {
+          "id": "",
+          "name": ""
+        },
+        "defaultVersionTags": {
+          "id": "",
+          "name": ""
+        },
+        "defaultVersionType": {
+          "id": "latestType",
+          "name": "Latest"
+        },
+        "definition": {
+          "id": "$Source Package Build using sfpowerscripts-id$",
+          "name": "Source Package Build using sfpowerscripts"
+        },
+        "definitions": {
+          "id": "",
+          "name": ""
+        },
+        "IsMultiDefinitionType": {
+          "id": "False",
+          "name": "False"
+        },
+        "project": {
+          "id": "$ProjectId$",
+          "name": "$ProjectName$"
+        },
+        "repository": {
+          "id": "",
+          "name": ""
+        },
+        "artifactSourceDefinitionUrl": "{}"
       },
       "isPrimary": true,
       "isRetained": false
     }
   ],
   "triggers": [],
-  "releaseNameFormat": "$(Build.BuildNumber) - Attempt $(rev:rr)",
+  "releaseNameFormat": "Release-$(rev:r)",
   "tags": [],
   "properties": {
     "DefinitionCreationSource": {
       "$type": "System.String",
-      "$value": "ReleaseImport"
+      "$value": "ReleaseClone"
     },
-    "IntegrateJiraWorkItems": { "$type": "System.String", "$value": "false" }
+    "IntegrateBoardsWorkItems": {
+      "$type": "System.String",
+      "$value": "False"
+    },
+    "IntegrateJiraWorkItems": {
+      "$type": "System.String",
+      "$value": "false"
+    }
   },
-  "id": 3,
-  "name": "Source based Package Deployment using SFPowerscripts",
+  "id": "",
+  "name": "Org  Deployment Pipeline using sfpowerscripts",
   "path": "\\",
   "projectReference": null,
-  "url": "https://vsrm.dev.azure.com/azlamsalam/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/_apis/Release/definitions/3",
-  "_links": {
-    "self": {
-      "href": "https://vsrm.dev.azure.com/azlamsalam/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/_apis/Release/definitions/3"
-    },
-    "web": {
-      "href": "https://dev.azure.com/azlamsalam/7df994b0-1cd8-4080-866f-5c1dcc5e9e2b/_release?definitionId=3"
-    }
-  }
+  "url": "",
+  "_links": "{}"
 }
