@@ -1,41 +1,14 @@
 {
-  "options": [
-    {
-      "enabled": false,
-      "definition": { "id": "5d58cc01-7c75-450c-be18-a388ddb129ec" },
-      "inputs": {
-        "branchFilters": "[\"+refs/heads/*\"]",
-        "additionalFields": "{}"
-      }
-    },
-    {
-      "enabled": false,
-      "definition": { "id": "a9db38f9-9fdc-478c-b0f9-464221e58316" },
-      "inputs": {
-        "workItemType": "Issue",
-        "assignToRequestor": "true",
-        "additionalFields": "{}"
-      }
-    }
-  ],
-  "triggers": [
-    {
-      "branchFilters": ["+master"],
-      "pathFilters": [],
-      "batchChanges": false,
-      "maxConcurrentBuildsPerBranch": 1,
-      "pollingInterval": 0,
-      "triggerType": 2
-    }
-  ],
   "variables": {
-    "system.debug": { "value": "false", "allowOverride": true },
-    "working_directory": { "value": "" }
+    "system.debug": {
+      "value": "false",
+      "allowOverride": true
+    }
   },
   "properties": {},
   "tags": [],
-  "buildNumberFormat": "$(rev:r)",
-  "jobAuthorizationScope": 1,
+  "_links": "{}",
+  "jobAuthorizationScope": "projectCollection",
   "jobTimeoutInMinutes": 60,
   "jobCancelTimeoutInMinutes": 5,
   "process": {
@@ -47,7 +20,7 @@
             "enabled": true,
             "continueOnError": false,
             "alwaysRun": false,
-            "displayName": "Increments the  version number ",
+            "displayName": "Increments the BuildNumber version number ",
             "timeoutInMinutes": 0,
             "condition": "succeeded()",
             "refName": "build",
@@ -74,7 +47,7 @@
             "condition": "succeeded()",
             "task": {
               "id": "50de2eba-73bc-4cd6-82bc-89853925830c",
-              "versionSpec": "3.*",
+              "versionSpec": "4.*",
               "definitionType": "task"
             },
             "inputs": {
@@ -88,13 +61,21 @@
         "refName": "Job_1",
         "condition": "succeeded()",
         "target": {
-          "executionOptions": { "type": 0 },
+          "executionOptions": {
+            "type": 0
+          },
           "allowScriptsAuthAccessOption": false,
-          "type": 1
+          "type": 1,
+          "queue": "{}"
         },
-        "jobAuthorizationScope": 1
+        "jobAuthorizationScope": "projectCollection"
       }
     ],
+    "target": {
+      "agentSpecification": {
+        "identifier": "ubuntu-16.04"
+      }
+    },
     "type": 1
   },
   "repository": {
@@ -102,24 +83,24 @@
       "apiUrl": "https://api.github.com/repos/azlamsalam/force-di",
       "branchesUrl": "https://api.github.com/repos/azlamsalam/force-di/branches",
       "cloneUrl": "https://github.com/azlamsalam/force-di.git",
-      "connectedServiceId": "d8dd44ae-1ef5-4de7-9f1b-e128d5e2bb86",
+      "connectedServiceId": "$GitHub_365093ac$",
       "defaultBranch": "master",
-      "fullName": "azlamsalam/force-di",
+      "fullName": "repository",
       "hasAdminPermissions": "True",
-      "isFork": "False",
-      "isPrivate": "True",
-      "lastUpdated": "09/02/2019 03:18:15",
+      "isFork": "True",
+      "isPrivate": "False",
+      "lastUpdated": "09/06/2019 01:20:04",
       "manageUrl": "https://github.com/azlamsalam/force-di",
       "nodeId": "MDEwOlJlcG9zaXRvcnkyMDY2ODYzODk=",
-      "ownerId": "13125711",
-      "orgName": "Cloudfirst-ANZ",
+      "ownerId": "15088656",
+      "orgName": "azlamsalam",
       "refsUrl": "https://api.github.com/repos/azlamsalam/force-di/git/refs",
       "safeRepository": "azlamsalam/force-di",
       "shortName": "force-di",
       "ownerAvatarUrl": "https://avatars1.githubusercontent.com/u/15088656?v=4",
       "archived": "False",
       "externalId": "206686389",
-      "ownerIsAUser": "False",
+      "ownerIsAUser": "True",
       "checkoutNestedSubmodules": "false",
       "cleanOptions": "0",
       "fetchDepth": "0",
@@ -130,20 +111,36 @@
       "labelSources": "0"
     },
     "id": "azlamsalam/force-di",
-    "type": "GitHub",
-    "name": "azlamsalam/force-di",
+    "type": "Git",
+    "name": "repository",
     "url": "https://github.com/azlamsalam/force-di.git",
     "defaultBranch": "master",
     "clean": "false",
     "checkoutSubmodules": false
   },
   "processParameters": {},
-  "quality": 1,
-  "authoredBy": {
-    "displayName": "Azlam Abdulsalam",
-    },
+  "quality": "definition",
+  "authoredBy": "{}",
   "drafts": [],
-  "id": 14,
+  "queue": {
+    "_links": "{}",
+    "id": "",
+    "name": "Azure Pipelines",
+    "url": "",
+    "pool": {
+      "id": "",
+      "name": "Azure Pipelines",
+      "isHosted": true
+    }
+  },
+  "id": "",
   "name": "Source Package Build using sfpowerscripts",
-  
+  "url": "",
+  "uri": "",
+  "path": "\\",
+  "type": "build",
+  "queueStatus": "enabled",
+  "revision": 1,
+  "createdDate": "",
+  "project": "{}"
 }
