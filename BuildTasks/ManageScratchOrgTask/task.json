@@ -53,7 +53,7 @@
             "label": "Alias or username of the target org",
             "defaultValue": "scratchorg",
             "required": true,
-            "helpMarkDown": "Path in the current working directory containing  config file for the scratch org",
+            "helpMarkDown": "Alias or username of the scratch org to be deleted",
             "visibleRule": "action = Delete"
         },
         {
@@ -67,7 +67,7 @@
         {
             "name": "working_directory",
             "type": "string",
-            "label": "Working directory to be installed",
+            "label": "Project Directory",
             "defaultValue": "",
             "required": false,
             "helpMarkDown": "Keep it blank in the build pipeline, pass the repo directory in the release pipeline",
