@@ -66,12 +66,12 @@ Please create an issue, and I will try to rectify as soon as possible. Wile it b
  
  The following sample pipelines are available. 
  
-[PR Pipeline using a Scratch Org](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/PR%20Source%20Format%20%5BScratch%20Orgs%5D%20using%20sfpowerscripts.json)
+[Pull Request Validation using Scratch  Org](https://raw.githubusercontent.com/azlamsalam/sfpowerscripts/master/SamplePipelines/PR%20Source%20Format%20%5BScratch%20Orgs%5D%20using%20sfpowerscripts.json)
  
-[Unlocked Package Build Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Unlocked%20Package%20Build%20using%20sfpowerscript.json)
+[Continous Integration Pipeline - Unlocked Package](https://raw.githubusercontent.com/azlamsalam/sfpowerscripts/master/SamplePipelines/Unlocked%20Package%20Build%20using%20sfpowerscript.json)
 
-[Unlocked Package Deployment Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Unlocked%20Packaged%20Deployment%20Pipeline%20using%20sfpowerscripts.json)
+[Release Pipeline - Unlocked Package](https://raw.githubusercontent.com/azlamsalam/sfpowerscripts/master/SamplePipelines/Unlocked%20Packaged%20Deployment%20Pipeline%20using%20sfpowerscripts.json)
 
-[Source based  Package (Org based Development) Packaging Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Source%20Package%20Build%20using%20sfpowerscripts.json)
+[Continous Integration Pipeline - Org Based](https://raw.githubusercontent.com/azlamsalam/sfpowerscripts/master/SamplePipelines/Source%20Package%20Build%20using%20sfpowerscripts.json)
 
-[Source based  Package (Org based Development) Deployment Pipeline](https://github.com/azlamsalam/sfpowerscripts/blob/master/SamplePipelines/Unlocked%20Packaged%20Deployment%20Pipeline%20using%20sfpowerscripts.json)
+[Release Pipeline - Org Development](https://raw.githubusercontent.com/azlamsalam/sfpowerscripts/master/SamplePipelines/Source%20Package%20Deployment%20Pipeline%20using%20sfpowerscripts.json)
