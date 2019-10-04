@@ -7,9 +7,9 @@
     "category": "Build",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 1,
+        "Major": 2,
         "Minor": 0,
-        "Patch": 1
+        "Patch": 0
     },
     "instanceNameFormat": "Validates $(package) for MetadataCoverage",
     "inputs": [
@@ -20,6 +20,14 @@
             "defaultValue": "",
             "required": false,
             "helpMarkDown": "The name of the package to be validated, or validate all the packages in the project directory"
+        },
+        {
+            "name": "bypass",
+            "type": "string",
+            "label": "Metadata  types to be bypassed from validation (Comma Seperated) ",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "The type of metadata that needs to be excluded from metadata validation check"
         },
         {
             "name": "working_directory",
