@@ -1,0 +1,52 @@
+{
+    "id": "2d221ae3-0f82-4cac-a269-ffcd98a72d96",
+    "name": "sfpwowerscript-analyzewithpmd-task",
+    "friendlyName": "Run a static analysis with PMD",
+    "description": "This task is used to run a static analysis of the apex classes and triggers using PMD,This task is part of SFPowerscripts",
+    "helpMarkDown": "Utilizes PMD 6.18.0 to run a static analysis and attaches the output to the build artifact",
+    "category": "Build",
+    "author": "azlam.abdulsalam",
+    "version": {
+        "Major": 1,
+        "Minor": 0,
+        "Patch": 0
+    },
+    "instanceNameFormat": "Analyze $(directory) using PMD",
+    "inputs": [
+        {
+            "name": "directory",
+            "type": "string",
+            "label": "Path to the directory to be analyzed",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "The directory that is to be analzed using PMD"
+        },
+        {
+            "name": "ruleset",
+            "type": "pickList",
+            "label": "Select the ruleset to be used for analysis",
+            "defaultValue": "Inbuilt",
+            "options": {
+                "Inbuilt": "Inbuilt",
+                "Custom": "Custom"
+            },
+            "required": true,
+            "helpMarkDown": "Inbuilt is the default ruleset that comes with the task, If you choose custom, please provide the path to the ruleset"
+        },
+        {
+            "name": "rulesetpath",
+            "type": "string",
+            "label": "Path to the ruleset",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "The path to the ruleset if you are utilizing your own ruleset",
+            "visibleRule":"ruleset = Custom"
+        }
+        
+    ],
+    "execution": {
+        "Node": {
+            "target": "AnalyzeWithPMDTask/AnalyzeWithPMD.js"
+        }
+    }
+}
