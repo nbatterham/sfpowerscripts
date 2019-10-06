@@ -3,7 +3,7 @@
     "id": "sfpowerscripts-dev",
     "publisher": "AzlamSalam",
     "name": "sfpowerscripts (dev)",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Azure Pipelines tasks for working with Salesforce",
     "tags": [
         "Extension",
@@ -106,7 +106,6 @@
         {
             "path": "BuildTasks/AnalyzeWithPMDTask"
         }
-        
     ],
     "contributions": [
         {
