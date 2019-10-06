@@ -102,7 +102,11 @@
         },
         {
             "path": "BuildTasks/CheckoutProjectFromArtifactTask"
+        },
+        {
+            "path": "BuildTasks/AnalyzeWithPMDTask"
         }
+        
     ],
     "contributions": [
         {
@@ -233,6 +237,16 @@
             ],
             "properties": {
                 "name": "BuildTasks/CheckoutProjectFromArtifactTask"
+            }
+        },
+        {
+            "id": "sfpwowerscripts-analyzewithpmd-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/AnalyzeWithPMDTask"
             }
         }
     ]

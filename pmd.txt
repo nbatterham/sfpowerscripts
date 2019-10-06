@@ -1,0 +1,4 @@
+wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.18.0/pmd-bin-6.18.0.zip
+unzip pmd-bin-6.18.0.zip
+ls
+pmd-bin-6.18.0/bin/run.sh pmd  -dir force-di -language apex -R category/apex/bestpractices.xml/ApexUnitTestClassShouldHaveAsserts  -f summaryhtml -r output.html
