@@ -31,7 +31,7 @@ async function run() {
 
 
     child_process.execSync("unzip pmd-bin-6.18.0.zip");
-    child_process.execSync("cwd");
+    child_process.execSync("pwd");
     child_process.execSync("pmd-bin-6.18.0/bin/run.sh pmd ");
     
     
