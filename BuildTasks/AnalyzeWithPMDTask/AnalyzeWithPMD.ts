@@ -2,6 +2,7 @@ import tl = require("azure-pipelines-task-lib/task");
 import AnalyzeWithPMDImpl from "./AnalyzeWithPMDImpl";
 import { isNullOrUndefined } from "util";
 import child_process = require("child_process");
+import { onExit } from "../Common/OnExit";
 
 async function run() {
   try {
@@ -16,9 +17,19 @@ async function run() {
     {
      rulesetpath = "";
     }
-    
 
-    child_process.execSync("wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.18.0/pmd-bin-6.18.0.zip");
+
+
+    let child=child_process.exec("wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.18.0/pmd-bin-6.18.0.zip",  { encoding: "utf8", cwd:this.project_directory },(error,stdout,stderr)=>{
+
+      if(error)
+         throw error;
+    });
+    await onExit(child);
+
+    console.log("Downloaded PMD 6.18.0");
+
+
     child_process.execSync("unzip pmd-bin-6.18.0.zip");
     child_process.execSync("cwd");
     child_process.execSync("pmd-bin-6.18.0/bin/run.sh pmd ");
