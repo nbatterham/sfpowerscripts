@@ -20,7 +20,7 @@ async function run() {
 
 
 
-    let child=child_process.exec("wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.18.0/pmd-bin-6.18.0.zip",  { encoding: "utf8", cwd:this.project_directory },(error,stdout,stderr)=>{
+    let child=child_process.exec("wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.18.0/pmd-bin-6.18.0.zip",  { encoding: "utf8" },(error,stdout,stderr)=>{
 
       if(error)
          throw error;
