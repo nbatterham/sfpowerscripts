@@ -6,8 +6,10 @@ import { onExit } from "../Common/OnExit";
 
 async function run() {
   try {
-    const directory: string = tl.getInput("directory", true);
-    const ruleset: string = tl.getInput("ruleset", true);
+
+    const project_directory = tl.getInput("project_directory", false);
+    const directory: string = tl.getInput("directory", false);
+    const ruleset: string = tl.getInput("ruleset", false);
     let rulesetpath:string;
     if(ruleset == "Custom" && isNullOrUndefined(rulesetpath))
     {
@@ -17,23 +19,16 @@ async function run() {
     {
      rulesetpath = "";
     }
+   
+    const format: string = tl.getInput("format", false);
+    const outputPath: string = tl.getInput("outputPath", false);
+    const version: string = tl.getInput("version", false);
 
-
-
-    let child=child_process.exec("wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.18.0/pmd-bin-6.18.0.zip",  { encoding: "utf8" },(error,stdout,stderr)=>{
-
-      if(error)
-         throw error;
-    });
-    await onExit(child);
-
-    console.log("Downloaded PMD 6.18.0");
-
-
-    child_process.execSync("unzip pmd-bin-6.18.0.zip");
-    child_process.execSync("pwd");
-    child_process.execSync("pmd-bin-6.18.0/bin/run.sh pmd ");
     
+    let pmdImpl:AnalyzeWithPMDImpl = new AnalyzeWithPMDImpl(project_directory,directory,rulesetpath,format,outputPath,version);
+    let command = await pmdImpl.buildExecCommand();
+    await pmdImpl.exec(command);
+
     
 
   } catch (err) {

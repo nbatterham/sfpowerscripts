@@ -4,7 +4,9 @@ import { isNullOrUndefined } from "util";
 
 
 export default class AnalyzeWithPMDImpl {
-  public constructor(private validate_package: string,private bypass:string, private project_directory: string) {}
+
+
+  public constructor(private project_directory:string, private directory: string, private ruleset:string, private format:string, private ouputPath: string, private version:string) {}
 
   public async exec(command: string): Promise<void> {
    
@@ -25,14 +27,24 @@ export default class AnalyzeWithPMDImpl {
   public async buildExecCommand(): Promise<string> {
 
     let command;
-        command = `npx sfdx sfpowerkit:package:valid`;
+        command = `npx sfdx sfpowerkit:source:pmd`;
 
 
-    if(!isNullOrUndefined(this.validate_package))
-    command+=` -n  ${this.validate_package}`;
+    if(!isNullOrUndefined(this.directory))
+    command+=` -d  ${this.directory}`;
 
-    if(!isNullOrUndefined(this.bypass))
-    command+=` -b  ${this.bypass}`;
+
+    if(!isNullOrUndefined(this.format))
+    command+=` -f  ${this.format}`;
+
+    if(!isNullOrUndefined(this.ouputPath))
+    command+=` -o  ${this.ouputPath}`;
+
+    if(!isNullOrUndefined(this.ruleset))
+    command+=` -r  ${this.ruleset}`;
+
+    if(!isNullOrUndefined(this.version))
+    command+=` --version  ${this.version}`;
 
 
     return command;

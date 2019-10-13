@@ -9,28 +9,28 @@
     "version": {
         "Major": 1,
         "Minor": 0,
-        "Patch": 4
+        "Patch": 5
     },
     "instanceNameFormat": "Analyze $(directory) using PMD",
     "inputs": [
         {
             "name": "directory",
             "type": "string",
-            "label": "Path to the directory to be analyzed",
+            "label": "Source directory that needs to be analyzed",
             "defaultValue": "",
-            "required": true,
-            "helpMarkDown": "The directory that is to be analzed using PMD"
+            "required": false,
+            "helpMarkDown": "The directory that is to be analzed using PMD, If omitted default project diretory as mentioned in sfdx-project.json will be used"
         },
         {
             "name": "ruleset",
             "type": "pickList",
             "label": "Select the ruleset to be used for analysis",
-            "defaultValue": "Inbuilt",
+            "defaultValue": "sfpowerkit",
             "options": {
-                "Inbuilt": "Inbuilt",
+                "sfpowerkit": "sfpowerkit",
                 "Custom": "Custom"
             },
-            "required": true,
+            "required": false,
             "helpMarkDown": "Inbuilt is the default ruleset that comes with the task, If you choose custom, please provide the path to the ruleset"
         },
         {
@@ -41,7 +41,53 @@
             "required": false,
             "helpMarkDown": "The path to the ruleset if you are utilizing your own ruleset",
             "visibleRule":"ruleset = Custom"
-        }
+        },
+        {
+            "name": "format",
+            "type": "pickList",
+            "label": "Format for the static analysis to be displayed in the console and written to the result file",
+            "defaultValue": "text",
+            "options": {
+                "text": "text",
+                "textcolor": "textcolor",
+                "csv":"csv",
+                "emacs":"emacs",
+                "summaryhtml":"summaryhtml",
+                "html":"html",
+                "xml":"xml",
+                "xslt":"xslt",
+                "yahtml":"yahtml",
+                "vbhtml":"vbhtml",
+                "textpad":"textpad"
+            },
+            "required": false,
+            "helpMarkDown": "https://pmd.github.io/latest/pmd_userdocs_cli_reference.html#available-report-formats",
+        },
+        {
+            "name": "outputPath",
+            "type": "string",
+            "label": "Output file",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "The file to which the output for static analysis will be written"
+        },
+        {
+            "name": "version",
+            "type": "string",
+            "label": "Version of the pmd to be used",
+            "defaultValue": "6.18.0",
+            "required": false,
+            "helpMarkDown": "The version of PMD to be used for static analysis"
+        },
+        {
+            "name": "project_directory",
+            "type": "string",
+            "label": "Project Directory",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "The project directory should contain a sfdx-project.json for this command to succeed"
+        },
+
         
     ],
     "execution": {
