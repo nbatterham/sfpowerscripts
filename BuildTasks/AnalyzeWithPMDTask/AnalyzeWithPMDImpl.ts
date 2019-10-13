@@ -44,7 +44,7 @@ export default class AnalyzeWithPMDImpl {
     command+=` -r  ${this.ruleset}`;
 
     if(!isNullOrUndefined(this.version))
-    command+=` --version  ${this.version}`;
+    command+=` --version=${this.version}`;
 
 
     return command;

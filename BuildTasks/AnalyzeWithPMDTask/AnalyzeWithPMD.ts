@@ -15,10 +15,7 @@ async function run() {
     {
      rulesetpath = tl.getInput("rulesetpath", false);
     }
-    else
-    {
-     rulesetpath = "";
-    }
+   
    
     const format: string = tl.getInput("format", false);
     const outputPath: string = tl.getInput("outputPath", false);
