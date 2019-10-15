@@ -39,17 +39,9 @@ async function run() {
     let command = await pmdImpl.buildExecCommand();
     await pmdImpl.exec(command);
 
-    let artifactFilePath =
-      os.homedir() +
-      path.sep +
-      "sfpowerkit" +
-      path.sep +
-      "pmd" +
-      path.sep +
-      `pmd-bin-${version}` +
-      path.sep +
-      "sf-pmd-output.xml";
+    let artifactFilePath = path.join(os.homedir, "sfpowerkit","pmd",`pmd-bin-${version}`, "sf-pmd-output.xml");
 
+  
     tl.debug(`Artifact File Path : ${artifactFilePath}`);
 
     if (fs.existsSync(artifactFilePath)) {
@@ -76,7 +68,7 @@ async function run() {
 
       tl.command(
         "artifact.upload",
-        { artifactname: tl.loc("codeAnalysisArtifactSummaryTitle") },
+        { artifactname: `Code Analysis Results` },
         artifactFilePath
       );
     }
@@ -122,29 +114,20 @@ function createSummaryLine(analysisreport: [number, number]): string {
   if (violationCount > 1) {
     if (affectedFileCount > 1) {
       // Looks like: 'PMD found 13 violations in 4 files.'
-      return tl.loc(
-        "codeAnalysisBuildSummaryLine_SomeViolationsSomeFiles",
-        toolName,
-        violationCount,
-        affectedFileCount
-      );
+      return `${toolName} found ${violationCount} violations in ${affectedFileCount} files.`;
     }
     if (affectedFileCount === 1) {
       // Looks like: 'PMD found 13 violations in 1 file.'
-      return tl.loc(
-        "codeAnalysisBuildSummaryLine_SomeViolationsOneFile",
-        toolName,
-        violationCount
-      );
+      return `${toolName} found ${violationCount} violations in 1 file.`;
     }
   }
   if (violationCount === 1 && affectedFileCount === 1) {
     // Looks like: 'PMD found 1 violation in 1 file.'
-    return tl.loc("codeAnalysisBuildSummaryLine_OneViolationOneFile", toolName);
+    return `${toolName} found 1 violation in 1 file`;
   }
   if (violationCount === 0) {
     // Looks like: 'PMD found no violations.'
-    return tl.loc("codeAnalysisBuildSummaryLine_NoViolations", toolName);
+    return `${toolName} found no violations.`
   }
 
   // There should be no valid code reason to reach this point - '1 violation in 4 files' is not expected
