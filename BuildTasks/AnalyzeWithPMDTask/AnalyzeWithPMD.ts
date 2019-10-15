@@ -45,7 +45,7 @@ async function run() {
       path.sep +
       "pmd" +
       path.sep +
-      `pmd-bin-${this.version}` +
+      `pmd-bin-${version}` +
       path.sep +
       "sf-pmd-output.xml";
 
