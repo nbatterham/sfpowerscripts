@@ -26,7 +26,7 @@ async function run() {
     const format: string = tl.getInput("format", false);
     const outputPath: string = tl.getInput("outputPath", false);
     const version: string = tl.getInput("version", false);
-    let result: [number, number];
+    let result: [number, number,number];
 
     let pmdImpl: AnalyzeWithPMDImpl = new AnalyzeWithPMDImpl(
       project_directory,
@@ -78,9 +78,10 @@ async function run() {
   }
 }
 
-function parseXmlReport(xmlReport: string): [number, number] {
+function parseXmlReport(xmlReport: string): [number, number,number] {
   let fileCount = 0;
   let violationCount = 0;
+  let criticaldefects = 0;
 
   let reportContent: string = fs.readFileSync(xmlReport, "utf-8");
   xml2js.parseString(reportContent, (err, data) => {
@@ -101,30 +102,42 @@ function parseXmlReport(xmlReport: string): [number, number] {
         violationCount += file.violation.length;
       }
     });
+
+   data.pmd.file[0].violation.forEach(element => {
+      if(element["$"]["priority"]==5)
+       {
+         criticaldefects++;
+       }
+   });
+
+
   });
 
-  return [violationCount, fileCount];
+  
+
+  return [violationCount, fileCount,criticaldefects];
 }
 
 // For a given code analysis tool, create a one-line summary from multiple AnalysisResult objects.
-function createSummaryLine(analysisreport: [number, number]): string {
+function createSummaryLine(analysisreport: [number, number,number]): string {
   let violationCount: number = analysisreport[0];
   let affectedFileCount: number = analysisreport[1];
+  let criticaldefects:number = analysisreport[2];
   let toolName = "PMD";
 
   if (violationCount > 1) {
     if (affectedFileCount > 1) {
       // Looks like: 'PMD found 13 violations in 4 files.'
-      return `${toolName} found ${violationCount} violations in ${affectedFileCount} files.`;
+      return `${toolName} found ${violationCount} violations in ${affectedFileCount} files with ${criticaldefects}`;
     }
     if (affectedFileCount === 1) {
       // Looks like: 'PMD found 13 violations in 1 file.'
-      return `${toolName} found ${violationCount} violations in 1 file.`;
+      return `${toolName} found ${violationCount} violations in 1 file with ${criticaldefects}`;
     }
   }
   if (violationCount === 1 && affectedFileCount === 1) {
     // Looks like: 'PMD found 1 violation in 1 file.'
-    return `${toolName} found 1 violation in 1 file`;
+    return `${toolName} found 1 violation in 1 file with ${criticaldefects}`;
   }
   if (violationCount === 0) {
     // Looks like: 'PMD found no violations.'
