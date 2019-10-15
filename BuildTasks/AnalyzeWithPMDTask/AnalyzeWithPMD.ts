@@ -12,7 +12,7 @@ async function run() {
 
     let stagingDir: string = path.join(tl.getVariable('build.artifactStagingDirectory'), '.codeAnalysis');
 
-    
+
     const project_directory = tl.getInput("project_directory", false);
     const directory: string = tl.getInput("directory", false);
     const ruleset: string = tl.getInput("ruleset", false);
@@ -25,6 +25,7 @@ async function run() {
     const format: string = tl.getInput("format", false);
     const outputPath: string = tl.getInput("outputPath", false);
     const version: string = tl.getInput("version", false);
+    let result: [number, number];
 
     let pmdImpl: AnalyzeWithPMDImpl = new AnalyzeWithPMDImpl(
       project_directory,
@@ -48,7 +49,9 @@ async function run() {
       path.sep +
       "sf-pmd-output.xml";
 
-    let result: [number, number];
+    tl.debug(`Artifact File Path : ${artifactFilePath}`);
+
+  
     if (fs.exist(artifactFilePath)) result = parseXmlReport(artifactFilePath);
 
     if (result != null) {
