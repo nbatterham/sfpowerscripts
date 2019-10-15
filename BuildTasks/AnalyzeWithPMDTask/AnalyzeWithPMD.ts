@@ -62,7 +62,7 @@ async function run() {
         "task.addattachment",
         {
           type: "Distributedtask.Core.Summary",
-          name: tl.loc("codeAnalysisBuildSummaryTitle")
+          name: "Static Analysis with PMD"
         },
         buildSummaryFilePath
       );
@@ -128,16 +128,16 @@ function createSummaryLine(analysisreport: [number, number,number]): string {
   if (violationCount > 1) {
     if (affectedFileCount > 1) {
       // Looks like: 'PMD found 13 violations in 4 files.'
-      return `${toolName} found ${violationCount} violations in ${affectedFileCount} files with ${criticaldefects}`;
+      return `${toolName} found ${violationCount} violations in ${affectedFileCount} files with ${criticaldefects} criticaldefects`;
     }
     if (affectedFileCount === 1) {
       // Looks like: 'PMD found 13 violations in 1 file.'
-      return `${toolName} found ${violationCount} violations in 1 file with ${criticaldefects}`;
+      return `${toolName} found ${violationCount} violations in 1 file with ${criticaldefects} criticaldefects`;
     }
   }
   if (violationCount === 1 && affectedFileCount === 1) {
     // Looks like: 'PMD found 1 violation in 1 file.'
-    return `${toolName} found 1 violation in 1 file with ${criticaldefects}`;
+    return `${toolName} found 1 violation in 1 file with ${criticaldefects} criticaldefects`;
   }
   if (violationCount === 0) {
     // Looks like: 'PMD found no violations.'
