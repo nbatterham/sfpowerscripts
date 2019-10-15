@@ -9,14 +9,15 @@ const fs = require("fs");
 
 async function run() {
   try {
-
-    let stagingDir: string = path.join(tl.getVariable('build.artifactStagingDirectory'), '.codeAnalysis');
-
+    let stagingDir: string = path.join(
+      tl.getVariable("build.artifactStagingDirectory"),
+      ".codeAnalysis"
+    );
 
     const project_directory = tl.getInput("project_directory", false);
     const directory: string = tl.getInput("directory", false);
     const ruleset: string = tl.getInput("ruleset", false);
-  
+
     let rulesetpath: string;
     if (ruleset == "Custom" && isNullOrUndefined(rulesetpath)) {
       rulesetpath = tl.getInput("rulesetpath", false);
@@ -51,8 +52,9 @@ async function run() {
 
     tl.debug(`Artifact File Path : ${artifactFilePath}`);
 
-  
-    if (fs.exist(artifactFilePath)) result = parseXmlReport(artifactFilePath);
+    if (fs.existsSync(artifactFilePath)) {
+      result = parseXmlReport(artifactFilePath);
+    }
 
     if (result != null) {
       let summary = createSummaryLine(result);
