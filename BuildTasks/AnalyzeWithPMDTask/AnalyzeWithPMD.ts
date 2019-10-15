@@ -39,9 +39,10 @@ async function run() {
     let command = await pmdImpl.buildExecCommand();
     await pmdImpl.exec(command);
 
-    let artifactFilePath = path.join(os.homedir, "sfpowerkit","pmd",`pmd-bin-${version}`, "sf-pmd-output.xml");
+    let artifactFilePath = path.join(os.homedir(), "sfpowerkit","pmd",`pmd-bin-${version}`, "sf-pmd-output.xml");
 
-  
+    
+
     tl.debug(`Artifact File Path : ${artifactFilePath}`);
 
     if (fs.existsSync(artifactFilePath)) {
