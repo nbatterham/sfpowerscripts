@@ -9,9 +9,14 @@ const fs = require("fs");
 
 async function run() {
   try {
+
+    let stagingDir: string = path.join(tl.getVariable('build.artifactStagingDirectory'), '.codeAnalysis');
+
+    
     const project_directory = tl.getInput("project_directory", false);
     const directory: string = tl.getInput("directory", false);
     const ruleset: string = tl.getInput("ruleset", false);
+  
     let rulesetpath: string;
     if (ruleset == "Custom" && isNullOrUndefined(rulesetpath)) {
       rulesetpath = tl.getInput("rulesetpath", false);
@@ -49,10 +54,10 @@ async function run() {
     if (result != null) {
       let summary = createSummaryLine(result);
       let buildSummaryFilePath: string = path.join(
-        this.stagingDir,
+        stagingDir,
         "CodeAnalysisBuildSummary.md"
       );
-      FileSystemInteractions.createDirectory(this.stagingDir);
+      FileSystemInteractions.createDirectory(stagingDir);
       fs.writeFileSync(buildSummaryFilePath, summary);
 
       tl.command(
