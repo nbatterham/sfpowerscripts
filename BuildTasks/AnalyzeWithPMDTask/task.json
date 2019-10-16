@@ -7,8 +7,8 @@
     "category": "Build",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 2,
-        "Minor": 7,
+        "Major": 3,
+        "Minor": 0,
         "Patch": 0
     },
     "instanceNameFormat": "Analyze $(directory) using PMD",
@@ -78,6 +78,14 @@
             "defaultValue": "6.18.0",
             "required": false,
             "helpMarkDown": "The version of PMD to be used for static analysis"
+        },
+        {
+            "name": "isToBreakBuild",
+            "type": "boolean",
+            "label": "Report the build as failure if there is critical defects",
+            "defaultValue": false,
+            "required": false,
+            "helpMarkDown": "Enable this option if the build should be reported as failure if 1 or more critical defects are reported during the analysis"
         },
         {
             "name": "project_directory",

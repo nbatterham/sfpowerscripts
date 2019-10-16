@@ -26,6 +26,10 @@ async function run() {
     const format: string = tl.getInput("format", false);
     const outputPath: string = tl.getInput("outputPath", false);
     const version: string = tl.getInput("version", false);
+
+    const isToBreakBuild = tl.getInput("isToBreakBuild",false);
+
+
     let result: [number, number,number];
 
     let pmdImpl: AnalyzeWithPMDImpl = new AnalyzeWithPMDImpl(
@@ -72,6 +76,10 @@ async function run() {
         { artifactname: `Code Analysis Results` },
         artifactFilePath
       );
+
+
+      if(isToBreakBuild && result[2]>0)
+       tl.setResult(tl.TaskResult.Failed,`Build Failed due to ${result[2]} critical defects found`)
     }
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);
