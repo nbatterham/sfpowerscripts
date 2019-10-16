@@ -1,0 +1,11 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./", 
+        "sourceRoot": "./"
+    },
+    "files": [
+        "AnalyzeWithPMD.ts",
+        "AnalyzeWithPMDImpl.ts"
+    ]
+  }

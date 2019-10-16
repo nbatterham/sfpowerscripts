@@ -12,7 +12,7 @@ async function run() {
         
 
         child_process.execSync(`sudo yarn global add sfdx-cli@${cli_version}`);
-        child_process.execSync(`echo 'y' | npx sfdx plugins:install sfpowerkit@@${sfpowerkit_version}`);
+        child_process.execSync(`echo 'y' | npx sfdx plugins:install sfpowerkit@${sfpowerkit_version}`);
 
         console.log("SFDX along with SFPowerkit installed succesfully")
     }
