@@ -27,7 +27,7 @@ async function run() {
     const outputPath: string = tl.getInput("outputPath", false);
     const version: string = tl.getInput("version", false);
 
-    const isToBreakBuild = tl.getInput("isToBreakBuild",false);
+    const isToBreakBuild = tl.getBoolInput("isToBreakBuild",false);
 
 
     let result: [number, number,number];
@@ -79,7 +79,7 @@ async function run() {
 
 
       if(isToBreakBuild && result[2]>0)
-       tl.setResult(tl.TaskResult.Failed,`Build Failed due to ${result[2]} critical defects found`)
+        tl.setResult(tl.TaskResult.Failed,`Build Failed due to ${result[2]} critical defects found`)
     }
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);
