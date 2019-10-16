@@ -1,22 +1,24 @@
 # SFPowerscripts
 
-SFPowerscripts is an Azure Pipelines Extension that converts Azure Pipelines into a CI/CD platform for Salesforce. The extension features the following tasks. You can read the documenation [here](https://www.sfpowerscripts.com) 
+SFPowerscripts is an Azure Pipelines Extension that converts Azure Pipelines into a CI/CD platform for Salesforce. The extension features the following tasks. You can read the documenation at  [sfpowerscripts](https://www.sfpowerscripts.com) website.
 
-Please note this extension only works with the newer source format based repositories only.
+Please note this extension only works with the newer source format based repositories only and only works with Hosted Linux agent.
+
+The changelog is available at [https://sfpowerscripts.com/changelog/](https://sfpowerscripts.com/changelog/)
 
 ## Common/Utility Tasks
 
-- Install SFDX CLI along with SFPowerkit Plugin 
+- Install SFDX CLI along with SFPowerkit Plugin
 - Authenticate an Org using JWT or  Username/Password/Security Token
-
+- Validate a Unlocked package for metadata coverage
+- Install all package dependencies of an unlocked package
+- Run apex code analysis using PMD
 
 ## Deployment Related Tasks
 
 - Checkout a source based artifact from Git using PAT
 - Deploy a source format based repo to an org (scratch org/sandbox/prod)
 - Deploy an unlocked package to an org
-- Validate a Unlocked package for metadata coverage
-- Install all package dependencies of an unlocked package
 
 ## Packaging Related Tasks
 
@@ -25,6 +27,7 @@ Please note this extension only works with the newer source format based reposit
 - Create a build artifact for unlocked/source based packaging, which can be utilized in Release Pipelines
 
 ## Testing Related Tasks
+
 - Trigger Apex Test
 - Validate Apex Test Coverge of an org
 
