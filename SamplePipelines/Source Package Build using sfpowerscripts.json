@@ -83,7 +83,7 @@
       "apiUrl": "https://api.github.com/repos/azlamsalam/force-di",
       "branchesUrl": "https://api.github.com/repos/azlamsalam/force-di/branches",
       "cloneUrl": "https://github.com/azlamsalam/force-di.git",
-      "connectedServiceId": "$GitHub_365093ac$",
+      "connectedServiceId": "$GitHub_623d9fcc$",
       "defaultBranch": "master",
       "fullName": "repository",
       "hasAdminPermissions": "True",

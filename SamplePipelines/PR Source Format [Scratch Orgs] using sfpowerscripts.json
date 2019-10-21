@@ -43,11 +43,12 @@
             "condition": "succeeded()",
             "task": {
               "id": "243a2f4e-c997-42f1-9ac8-5f8a18915c86",
-              "versionSpec": "1.*",
+              "versionSpec": "2.*",
               "definitionType": "task"
             },
             "inputs": {
               "package": "force-di",
+              "bypass": "",
               "working_directory": ""
             }
           },
@@ -210,7 +211,7 @@
       "apiUrl": "https://api.github.com/repos/azlamsalam/force-di",
       "branchesUrl": "https://api.github.com/repos/azlamsalam/force-di/branches",
       "cloneUrl": "https://github.com/azlamsalam/force-di.git",
-      "connectedServiceId": "$GitHub_53da0976$",
+      "connectedServiceId": "$GitHub_1dd87ce0$",
       "defaultBranch": "master",
       "fullName": "repository",
       "hasAdminPermissions": "True",
@@ -267,7 +268,7 @@
   "path": "\\",
   "type": "build",
   "queueStatus": "enabled",
-  "revision": 4,
+  "revision": 5,
   "createdDate": "",
   "project": "{}"
 }
