@@ -260,7 +260,6 @@
             "properties": {
                 "name": "BuildTasks/PromoteUnlockedPackageTask"
             }
-        },
-
+        }
     ]
 }
