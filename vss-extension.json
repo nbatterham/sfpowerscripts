@@ -3,7 +3,7 @@
     "id": "sfpowerscripts-dev",
     "publisher": "AzlamSalam",
     "name": "sfpowerscripts (dev)",
-    "version": "2.0.25",
+    "version": "2.1.0",
     "description": "Azure Pipelines tasks for working with Salesforce",
     "tags": [
         "Extension",
@@ -105,6 +105,9 @@
         },
         {
             "path": "BuildTasks/AnalyzeWithPMDTask"
+        },
+        {
+            "path": "BuildTasks/PromoteUnlockedPackageTask"
         }
     ],
     "contributions": [
@@ -247,6 +250,17 @@
             "properties": {
                 "name": "BuildTasks/AnalyzeWithPMDTask"
             }
-        }
+        },
+        {
+            "id": "sfpwowerscript-promoteunlockedpackage-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/PromoteUnlockedPackageTask"
+            }
+        },
+
     ]
 }
