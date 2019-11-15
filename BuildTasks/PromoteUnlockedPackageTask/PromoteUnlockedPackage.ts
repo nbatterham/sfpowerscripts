@@ -7,7 +7,7 @@ const path = require("path");
 async function run() {
   try {
     
-    const package_installedfrom = tl.getInput("packageinstalledfrom", true);
+    const package_installedfrom = tl.getInput("packagepromotedfrom", true);
 
     let package_version_id;
 
