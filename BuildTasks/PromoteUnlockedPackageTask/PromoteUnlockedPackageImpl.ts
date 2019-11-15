@@ -7,6 +7,8 @@ export default class PromoteUnlockedPackageImpl {
   public async exec(): Promise<void> {
     let command = await this.buildExecCommand();
 
+    console.log(`Triggering Command: ${command}`)
+
     let child = child_process.exec(command, (error, stdout, stderr) => {
       if (error) throw error;
     });
@@ -22,6 +24,8 @@ export default class PromoteUnlockedPackageImpl {
     let command = `npx sfdx force:package:version:promote -v ${this.devhub_alias}`;
     //package
     command += ` -p ${this.package_version_id}`;
+    //noprompt
+    command += ` -n`;
 
     return command;
   }
