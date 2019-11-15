@@ -8,7 +8,7 @@
     "author": "azlam.abdulsalam",
     "version": {
         "Major": 1,
-        "Minor": 0,
+        "Minor": 1,
         "Patch": 0
     },
     "runsOn": [
@@ -63,7 +63,7 @@
     ],
     "execution": {
         "Node": {
-            "target": "PromoteUnlockedPackageTask/PromoteUnlockedPackageTask.js"
+            "target": "PromoteUnlockedPackageTask/PromoteUnlockedPackage.ts"
         }
     }
 }

@@ -3,7 +3,7 @@
     "id": "sfpowerscripts-dev",
     "publisher": "AzlamSalam",
     "name": "sfpowerscripts (dev)",
-    "version": "2.1.0",
+    "version": "2.1.7",
     "description": "Azure Pipelines tasks for working with Salesforce",
     "tags": [
         "Extension",
@@ -261,6 +261,5 @@
                 "name": "BuildTasks/PromoteUnlockedPackageTask"
             }
         }
-
     ]
 }
