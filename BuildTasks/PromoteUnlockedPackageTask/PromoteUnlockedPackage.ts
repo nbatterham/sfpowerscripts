@@ -7,6 +7,10 @@ const path = require("path");
 async function run() {
   try {
     
+
+    console.log(`SFPowerScript.. Promote Unlocked Package`);
+
+
     const package_installedfrom = tl.getInput("packagepromotedfrom", true);
 
     let package_version_id;
