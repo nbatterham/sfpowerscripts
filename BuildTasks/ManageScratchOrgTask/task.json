@@ -1,10 +1,11 @@
 {
     "id": "6e90f9bd-f53a-45ce-9a9c-1b8a6ed797c0",
     "name": "sfpower-managescratchorg",
-    "friendlyName": "Create/Delete a Scratch Org",
-    "description": "Create/Delete a scratch org, This task is part of SFPowerscripts",
+    "friendlyName": "Create/Delete a Scratch Org [DEPRECATED]",
+    "description": "[DEPRECATED] Create/Delete a scratch org, This task is part of SFPowerscripts",
     "helpMarkDown": "Creates or deletes a scratch org on the provided devhub with scratch defintion file. The devhub must be authenticated and the alias is a requirement for this command to work",
     "category": "Utility",
+    "deprecated": true,
     "author": "azlam.abdulsalam",
     "version": {
         "Major": 2,

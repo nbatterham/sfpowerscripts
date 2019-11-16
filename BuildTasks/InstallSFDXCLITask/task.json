@@ -2,7 +2,7 @@
     "id": "037eed85-ad5a-4f7f-9228-69c8e685b36a",
     "name": "sfpwowerkit-installsfdx-task",
     "friendlyName": "Install SFDX and SFPowerkit [DEPRECATED]",
-    "description": "This plugin installs SFDX CLI, SFPowerkit plugin, This task is currently deprecated, Please switch to the newer task Install SFDX CLI with sfpowerkit task",
+    "description": "[DEPRECATED] This plugin installs SFDX CLI, SFPowerkit plugin, This task is currently deprecated, Please switch to the newer task Install SFDX CLI with sfpowerkit task",
     "helpMarkDown": "Install SFDX - Use this task to install sfdx pluging and sfpowerkit version",
     "category": "Utility",
     "author": "azlam.abdulsalam",

@@ -6,7 +6,6 @@
     "helpMarkDown": "Install SFDX - Use this task to install sfdx plugin and the open source sfpowerkit by providing the respective version. More details available at https://sfpowerscripts.com/tasks/common-utility-tasks/install%20sfdx%20cli",
     "category": "Utility",
     "author": "azlam.abdulsalam",
-    "deprecated": true,
     "version": {
         "Major": 2,
         "Minor": 0,

@@ -2,7 +2,7 @@
     "id": "5c1fd528-ce06-42e2-855b-cfa9e07dc6b9",
     "name": "sfpower-authenticateorg",
     "friendlyName": "Authenticate a Salesforce Org [DEPRECATED]",
-    "description": "This task is currently deprecated, Please switch to the newer version of the task, Authorizes a Salesforce org using either a private key file that has been uploaded to a personal connected app [JWT] or username/password, This task is part of SFPowerscripts",
+    "description": "[DEPRECATED] This task is currently deprecated, Please switch to the newer version of the task, Authorizes a Salesforce org using either a private key file that has been uploaded to a personal connected app [JWT] or username/password, This task is part of SFPowerscripts",
     "helpMarkDown": "Read more about authentication here https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm",
     "category": "Utility",
     "deprecated": true,
