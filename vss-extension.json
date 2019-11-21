@@ -311,7 +311,7 @@
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "BuildTasks/PromoteUnlockedPackageTask"
+                "name": "BuildTasks/DeployDestructiveManifestToOrgTask"
             }
         }
     ]
