@@ -117,7 +117,11 @@
         },
         {
             "path": "BuildTasks/PromoteUnlockedPackageTask"
+        },
+        {
+            "path": "BuildTasks/DeployDestructiveManifestToOrgTask"
         }
+
     ],
     "contributions": [
         {
@@ -292,6 +296,16 @@
         },
         {
             "id": "sfpwowerscript-promoteunlockedpackage-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/PromoteUnlockedPackageTask"
+            }
+        },
+        {
+            "id": "sfpwowerscript-deploydestructivemanifest-task",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"
