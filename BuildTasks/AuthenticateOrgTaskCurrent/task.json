@@ -91,7 +91,7 @@
     ],
     "execution": {
         "Node": {
-            "target": "AuthenticateOrgTask/AuthenticateOrg.js"
+            "target": "AuthenticateOrgTaskCurrent/AuthenticateOrg.js"
         }
     }
 }
