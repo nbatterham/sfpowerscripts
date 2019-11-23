@@ -3,12 +3,12 @@
     "name": "sfpwowerscript-promoteunlockedpackage-task",
     "friendlyName": "Promote an Unlocked Package",
     "description": "This taks is used to promote an unlocked package before installing into production, This task is part of DX@Scale/SFPowerscripts",
-    "helpMarkDown": "Read more info about the task at , Ensure the required prerequisite tasks are run before this taks is executed",
+    "helpMarkDown": "Read more info about the task at https://sfpowerscripts.com/tasks/packaging-tasks/promote%20an%20unlocked%20package/, Ensure the required prerequisite tasks are run before this taks is executed",
     "category": "Build",
     "author": "azlam.abdulsalam",
     "version": {
         "Major": 1,
-        "Minor": 5,
+        "Minor": 6,
         "Patch": 0
     },
     "runsOn": [
