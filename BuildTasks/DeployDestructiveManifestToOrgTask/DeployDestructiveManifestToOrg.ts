@@ -29,13 +29,18 @@ async function run() {
       return;
     }
 
+    console.log("Displaying Destructive Manifest");
+    
+    let destructiveManifest:Buffer = fs.readFileSync(destructiveManifestPath);
+    console.log(destructiveManifest.toString());
+
     let  deploySourceToOrgImpl:DeployDestructiveManifestToOrgImpl = new DeployDestructiveManifestToOrgImpl(this.targetOrg,this.destructiveManifestPath);
     
     let command:string = await deploySourceToOrgImpl.buildExecCommand();
     await deploySourceToOrgImpl.exec(command);
 
-
-    let destructiveManifest:Buffer = fs.readFileSync(destructiveManifestPath);
+ 
+    console.log("Destuctive Changes succesfully deployed");
 
     tl.logDetail("dc45919a-dc91-46cb-94ca-86d105a444e0",destructiveManifest.toString(),undefined,undefined,"Destructive Manifest Deployed",undefined,undefined,undefined,undefined, tl.TaskState.Completed,tl.TaskResult.Succeeded);
     tl.setResult(tl.TaskResult.Succeeded,"Destuctive Changes succesfully deployed",true);
