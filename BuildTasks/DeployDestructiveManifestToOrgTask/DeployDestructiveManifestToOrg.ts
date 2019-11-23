@@ -24,9 +24,12 @@ async function run() {
     else
     {
       destructiveManifestPath =  tl.getInput("destructive_manifest_filepath", true);
+      console.log(`Destructive Manifest File Path: ${destructiveManifestPath}`);
       if(!fs.existsSync(destructiveManifestPath))
+      {
       tl.setResult(tl.TaskResult.Failed,"Unable to find the specified manifest file");
       return;
+      }
     }
 
     console.log("Displaying Destructive Manifest");
@@ -34,7 +37,7 @@ async function run() {
     let destructiveManifest:Buffer = fs.readFileSync(destructiveManifestPath);
     console.log(destructiveManifest.toString());
 
-    let  deploySourceToOrgImpl:DeployDestructiveManifestToOrgImpl = new DeployDestructiveManifestToOrgImpl(this.targetOrg,this.destructiveManifestPath);
+    let  deploySourceToOrgImpl:DeployDestructiveManifestToOrgImpl = new DeployDestructiveManifestToOrgImpl(targetOrg,destructiveManifestPath);
     
     let command:string = await deploySourceToOrgImpl.buildExecCommand();
     await deploySourceToOrgImpl.exec(command);
