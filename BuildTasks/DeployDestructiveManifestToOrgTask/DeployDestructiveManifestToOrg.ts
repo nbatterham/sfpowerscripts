@@ -45,7 +45,9 @@ async function run() {
  
     console.log("Destuctive Changes succesfully deployed");
 
-    tl.logDetail("dc45919a-dc91-46cb-94ca-86d105a444e0",destructiveManifest.toString(),"f351809e-29e2-4421-b421-ee1281930e45","build","Destructive Manifest Deployed",1,undefined,undefined,undefined, tl.TaskState.Completed,tl.TaskResult.Succeeded);
+   
+
+    console.log(`##vso[task.logdetail id=dc45919a-dc91-46cb-94ca-86d105a444e0;name=Destructive Manifest Deployed;type=build;order=6;state=Completed;result=Succeeded]${destructiveManifest.toString()}`);
     tl.setResult(tl.TaskResult.Succeeded,"Destuctive Changes succesfully deployed",true);
 
   } catch (err) {
