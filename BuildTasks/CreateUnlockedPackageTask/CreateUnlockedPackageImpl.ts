@@ -12,7 +12,8 @@ export default class CreateUnlockedPackageImpl {
     private installationkey: string,
     private project_directory: string,
     private devhub_alias: string,
-    private wait_time: string
+    private wait_time: string,
+    private isCoverageEnabled:boolean
   ) {}
 
   public async exec(command: string): Promise<string> {
@@ -51,6 +52,9 @@ export default class CreateUnlockedPackageImpl {
     
     if(isNullOrUndefined(this.tag))
     command+=` -t ${this.tag}`
+ 
+    if(this.isCoverageEnabled)
+    command+=` -c`
 
     command+=` -v ${this.devhub_alias}`
 
