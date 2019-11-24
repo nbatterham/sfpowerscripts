@@ -7,8 +7,8 @@
     "category": "Build",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 3,
-        "Minor": 2,
+        "Major": 4,
+        "Minor": 0,
         "Patch": 0
     },
     "runsOn": [
@@ -55,6 +55,14 @@
             "defaultValue": true,
             "required": true,
             "helpMarkDown": "Bypass the requirement for having an installation key for this version of the package"
+        },
+        {
+            "name": "enable_coverage",
+            "type": "boolean",
+            "label": "Enable generation of test coverage of this paritcular package",
+            "defaultValue": false,
+            "required": true,
+            "helpMarkDown": "Please note this command is takes longer time to compute, activating this on every packaging build might not necessary"
         },
         {
             "name": "installationkey",

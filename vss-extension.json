@@ -3,7 +3,7 @@
     "id": "sfpowerscripts-dev",
     "publisher": "AzlamSalam",
     "name": "sfpowerscripts (dev)",
-    "version": "2.0.23",
+    "version": "3.0.19",
     "description": "Azure Pipelines tasks for working with Salesforce",
     "tags": [
         "Extension",
@@ -68,10 +68,19 @@
             "path": "BuildTasks/InstallSFDXCLITask"
         },
         {
+            "path": "BuildTasks/InstallSFDXCLITaskCurrent"
+        },
+        {
             "path": "BuildTasks/AuthenticateOrgTask"
         },
         {
+            "path": "BuildTasks/AuthenticateOrgTaskCurrent"
+        },
+        {
             "path": "BuildTasks/ManageScratchOrgTask"
+        },
+        {
+            "path": "BuildTasks/ManageScratchOrgTaskCurrent"
         },
         {
             "path": "BuildTasks/InstallPackageDependenciesTask"
@@ -105,6 +114,12 @@
         },
         {
             "path": "BuildTasks/AnalyzeWithPMDTask"
+        },
+        {
+            "path": "BuildTasks/PromoteUnlockedPackageTask"
+        },
+        {
+            "path": "BuildTasks/DeployDestructiveManifestToOrgTask"
         }
     ],
     "contributions": [
@@ -119,6 +134,16 @@
             }
         },
         {
+            "id": "sfpwowerscript-installsfdx-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/InstallSFDXCLITaskCurrent"
+            }
+        },
+        {
             "id": "sfpower-authenticateorg",
             "type": "ms.vss-distributed-task.task",
             "targets": [
@@ -129,6 +154,16 @@
             }
         },
         {
+            "id": "sfpwowerscript-authenticateorg-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/AuthenticateOrgTaskCurrent"
+            }
+        },
+        {
             "id": "sfpower-managescratchorg",
             "type": "ms.vss-distributed-task.task",
             "targets": [
@@ -136,6 +171,16 @@
             ],
             "properties": {
                 "name": "BuildTasks/ManageScratchOrgTask"
+            }
+        },
+        {
+            "id": "sfpwowerscript-managescratchorg-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/ManageScratchOrgTaskCurrent"
             }
         },
         {
@@ -246,6 +291,26 @@
             ],
             "properties": {
                 "name": "BuildTasks/AnalyzeWithPMDTask"
+            }
+        },
+        {
+            "id": "sfpwowerscript-promoteunlockedpackage-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/PromoteUnlockedPackageTask"
+            }
+        },
+        {
+            "id": "sfpwowerscript-deploydestructivemanifest-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/DeployDestructiveManifestToOrgTask"
             }
         }
     ]
