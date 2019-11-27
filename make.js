@@ -96,6 +96,10 @@ target.incrementversion = function() {
       options.public = false;
       updateExtensionManifest(__dirname, options, false);
       break;
+    case "review":
+      options.public = false;
+      updateExtensionManifest(__dirname, options, false);
+      break;
     default:
       updateExtensionManifest(__dirname, options, true);
   }
@@ -116,6 +120,16 @@ target.publish = function() {
         " --share-with azlamsalam --token " +
         options.token
     );
+  } else if (options.stage == "review") {
+    shell.exec(
+      'tfx extension publish --vsix "' +
+        packagesPath +
+        "/AzlamSalam.sfpowerscripts-review-" +
+        options.version +
+        '.vsix"' +
+        " --share-with safebot --token " +
+        options.token
+    );
   } else {
     updateExtensionManifest(__dirname, options, true);
     console.log(`version found ${version}`);
@@ -126,7 +140,7 @@ target.publish = function() {
         packagesPath +
         "/AzlamSalam.sfpowerscripts-" +
         version +
-        '.vsix"'+
+        '.vsix"' +
         " --token " +
         options.token
     );
@@ -137,23 +151,22 @@ updateExtensionManifest = function(dir, options, isOriginalFile) {
   var manifestPath = path.join(dir, "vss-extension.json");
   var manifest = JSON.parse(fs.readFileSync(manifestPath));
 
-
-
   if (options.stage == "dev" && !isOriginalFile) {
     manifest.version = options.version;
     manifest.id = "sfpowerscripts" + "-" + "dev";
     manifest.name = "sfpowerscripts" + " (" + "dev" + ")";
     manifest.public = false;
-  }
-  else
-  {
+  } else if (options.stage == "review" && !isOriginalFile) {
+    manifest.version = options.version;
+    manifest.id = "sfpowerscripts" + "-" + "review";
+    manifest.name = "sfpowerscripts" + " (" + "review" + ")";
+    manifest.public = false;
+  } else {
     manifest.id = "sfpowerscripts";
     manifest.name = "sfpowerscripts";
     manifest.public = true;
     version = manifest.version;
   }
-
- 
 
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 4));
 };
