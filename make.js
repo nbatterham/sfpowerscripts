@@ -127,6 +127,13 @@ target.publish = function() {
         options.token
     );
   } else if (options.stage == "review") {
+   
+      //Reading current versions from manifest
+   var manifestPath = path.join(__dirname, "vss-extension.json");
+   var manifest = JSON.parse(fs.readFileSync(manifestPath));
+   options.version = manifest.version;
+
+
     shell.exec(
       'tfx extension publish --vsix "' +
         packagesPath +

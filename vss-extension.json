@@ -3,7 +3,7 @@
     "id": "sfpowerscripts-review",
     "publisher": "AzlamSalam",
     "name": "sfpowerscripts (review)",
-    "version": "4.7239.42223",
+    "version": "4.0.0",
     "description": "Azure Pipelines tasks for working with Salesforce",
     "tags": [
         "Extension",
