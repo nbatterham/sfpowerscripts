@@ -1,0 +1,16 @@
+{
+  "data": {
+
+  },
+  "name": "TestSFPowerscripts-code",
+  "type": "git",
+  "url": "https://dev.azure.com/aglideas/TestSFPowerscripts/_git/TestSFPowerscripts",
+  "authorization": {
+    "scheme": "UsernamePassword",
+    "parameters": {
+      "username": "$username$",
+      "password": "$password$"
+    }
+  },
+  "isReady": true
+}

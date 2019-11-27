@@ -1,6 +1,6 @@
 {
   "source": "userInterface",
-  "revision": 4,
+  "revision": 3,
   "description": null,
   "createdBy": "{}",
   "createdOn": "",
@@ -11,7 +11,7 @@
   "variableGroups": [],
   "environments": [
     {
-      "id": 1,
+      "id": 2,
       "name": "ST",
       "rank": 1,
       "owner": {
@@ -31,7 +31,7 @@
             "rank": 1,
             "isAutomated": true,
             "isNotificationOn": false,
-            "id": 1
+            "id": 4
           }
         ],
         "approvalOptions": {
@@ -44,7 +44,7 @@
         }
       },
       "deployStep": {
-        "id": 2
+        "id": 5
       },
       "postDeployApprovals": {
         "approvals": [
@@ -52,7 +52,7 @@
             "rank": 1,
             "isAutomated": true,
             "isNotificationOn": false,
-            "id": 3
+            "id": 6
           }
         ],
         "approvalOptions": {
@@ -92,6 +92,25 @@
           "workflowTasks": [
             {
               "environment": {},
+              "taskId": "7915fcdb-f02a-43ae-92bd-494993a31e5d",
+              "version": "4.*",
+              "name": "Checkout  from Git",
+              "refName": "forcedi",
+              "enabled": true,
+              "alwaysRun": false,
+              "continueOnError": false,
+              "timeoutInMinutes": 0,
+              "definitionType": "task",
+              "overrideInputs": {},
+              "condition": "succeeded()",
+              "inputs": {
+                "artifact": "force-di",
+                "username": "$(git.username)",
+                "password": "$(git.password)"
+              }
+            },
+            {
+              "environment": {},
               "taskId": "d8950cd3-2bf4-4b50-bb75-b9358f741951",
               "version": "2.*",
               "name": "Install SFDX",
@@ -112,31 +131,7 @@
               "environment": {},
               "taskId": "5eb34b28-fdd4-4904-9a3e-d3ff63130f16",
               "version": "4.*",
-              "name": "Authenticate  HubOrg using Credentials",
-              "refName": "",
-              "enabled": true,
-              "alwaysRun": false,
-              "continueOnError": false,
-              "timeoutInMinutes": 0,
-              "definitionType": "task",
-              "overrideInputs": {},
-              "condition": "succeeded()",
-              "inputs": {
-                "method": "Credentials",
-                "jwt_key_file": "",
-                "username": "$(prod.user)",
-                "password": "$(prod.password)",
-                "securitytoken": "$(prod.securitytoken)",
-                "alias": "HubOrg",
-                "isdevhub": "true",
-                "clientid": ""
-              }
-            },
-            {
-              "environment": {},
-              "taskId": "5eb34b28-fdd4-4904-9a3e-d3ff63130f16",
-              "version": "4.*",
-              "name": "Authenticate $(env.name) using Credentials ",
+              "name": "Authenticate  $(env.name) using Credentials",
               "refName": "",
               "enabled": true,
               "alwaysRun": false,
@@ -150,7 +145,7 @@
                 "jwt_key_file": "",
                 "username": "$(env.user)",
                 "password": "$(env.password)",
-                "securitytoken": "$(env.securitytoken)",
+                "securitytoken": "$(env.token)",
                 "alias": "$(env.name)",
                 "isdevhub": "false",
                 "clientid": ""
@@ -158,9 +153,9 @@
             },
             {
               "environment": {},
-              "taskId": "7af1df5d-8a5a-4eaa-9df1-968393c43397",
-              "version": "4.*",
-              "name": "Install a version of  force-di to $(env.name) ",
+              "taskId": "dea3a185-c3f5-44a8-841b-1e5044864778",
+              "version": "2.*",
+              "name": "Deploy force-di to $(env.name)",
               "refName": "",
               "enabled": true,
               "alwaysRun": false,
@@ -170,17 +165,15 @@
               "overrideInputs": {},
               "condition": "succeeded()",
               "inputs": {
-                "envname": "$(env.name)",
-                "package": "force-di",
-                "packageinstalledfrom": "BuildArtifact",
-                "package_version_id": "",
-                "artifact": "_unlocked_oackage",
-                "installationkey": "",
-                "apexcompileonlypackage": "false",
-                "security_type": "AllUsers",
-                "upgrade_type": "Mixed",
-                "wait_time": "120",
-                "publish_wait_time": "10"
+                "target_org": "$(env.name)",
+                "project_directory": "$(forcedi.sfpowerscripts_checked_out_path) ",
+                "source_directory": "force-di",
+                "checkonly": "true",
+                "wait_time": "20",
+                "validation_ignore": ".forceignore",
+                "testlevel": "NoTestRun",
+                "specified_tests": "",
+                "apextestsuite": ""
               }
             }
           ]
@@ -247,9 +240,9 @@
   ],
   "artifacts": [
     {
-      "sourceId": "$ProjectId$:$Unlocked Package Build using sfpowerscript-id$",
+      "sourceId": "$ProjectId$:$Source Package Build using sfpowerscripts-id$",
       "type": "Build",
-      "alias": "_unlocked_package",
+      "alias": "force-di",
       "definitionReference": {
         "artifactSourceDefinitionUrl": "{}",
         "defaultVersionBranch": {
@@ -269,8 +262,8 @@
           "name": "Latest"
         },
         "definition": {
-          "id": "$Unlocked Package Build using sfpowerscript-id$",
-          "name": "Unlocked Package Build using sfpowerscript"
+          "id": "$Source Package Build using sfpowerscripts-id$",
+          "name": "Source Package Build using sfpowerscripts"
         },
         "definitions": {
           "id": "",
@@ -299,7 +292,7 @@
   "properties": {
     "DefinitionCreationSource": {
       "$type": "System.String",
-      "$value": "ReleaseNew"
+      "$value": "ReleaseClone"
     },
     "IntegrateBoardsWorkItems": {
       "$type": "System.String",
@@ -311,7 +304,7 @@
     }
   },
   "id": "",
-  "name": "Unlocked Packaged Deployment Pipeline using sfpowerscripts",
+  "name": "Org  Deployment Pipeline using sfpowerscripts",
   "path": "\\",
   "projectReference": null,
   "url": "",
