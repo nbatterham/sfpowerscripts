@@ -70,12 +70,17 @@ target.copy = function() {
 target.incrementversion = function() {
   console.log("incrementversion");
 
+   //Reading current versions from manifest
+   var manifestPath = path.join(__dirname, "vss-extension.json");
+   var manifest = JSON.parse(fs.readFileSync(manifestPath));
+
+
   console.log(options);
   if (options.version) {
     if (options.version === "auto") {
       var ref = new Date(2000, 1, 1);
       var now = new Date();
-      var major = 2;
+      var major = semver.major(manifest.version);
       var minor = Math.floor((now - ref) / 86400000);
       var patch = Math.floor(
         Math.floor(
@@ -99,6 +104,7 @@ target.incrementversion = function() {
     case "review":
       options.public = false;
       updateExtensionManifest(__dirname, options, false);
+      shell.exec(`echo "##vso[build.updatebuildnumber] ${options.version}"`);
       break;
     default:
       updateExtensionManifest(__dirname, options, true);
