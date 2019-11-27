@@ -1,0 +1,15 @@
+{
+  "data": {},
+  "name": "GitHub connection 1",
+  "type": "github",
+  "url": "https://github.com",
+  "authorization": {
+    "parameters": {
+      "AccessToken": "AccessToken"
+    },
+    "scheme": "OAuth"
+  },
+  "isShared": false,
+  "isReady": true,
+  "owner": "Library"
+}

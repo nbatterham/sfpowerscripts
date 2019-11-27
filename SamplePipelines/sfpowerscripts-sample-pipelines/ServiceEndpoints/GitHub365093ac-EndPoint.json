@@ -1,0 +1,16 @@
+{
+  "data": {
+
+  },
+  "name": "GitHub_365093ac",
+  "type": "git",
+  "url": "https://github.com/azlamsalam/force-di.git",
+  "authorization": {
+    "scheme": "UsernamePassword",
+    "parameters": {
+      "username": "$GitUserName$",
+      "password": "$GitUserPassword$"
+    }
+  },
+  "isReady": true
+}
