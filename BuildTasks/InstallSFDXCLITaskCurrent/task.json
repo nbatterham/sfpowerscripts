@@ -7,7 +7,7 @@
     "category": "Utility",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 2,
+        "Major": 3,
         "Minor": 0,
         "Patch": 0
     },
@@ -31,6 +31,14 @@
             "defaultValue": "latest",
             "required": false,
             "helpMarkDown": "The version of sfpowerkit that should be installed, by default it is the latest "
+        },
+        {
+            "name": "isTelemetryEnabled",
+            "type": "boolean",
+            "label": "Send Anonymous Usage Telemetry",
+            "defaultValue": true,
+            "required": true,
+            "helpMarkDown": "Enabling this will help us to collect information on the tasks and improve services. All information collected is anonymised, please check code repository to understand what data is collected"
         }
     ],
     "execution": {
