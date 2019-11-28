@@ -1,0 +1,12 @@
+{
+  "Extensions": [
+    {
+      "extensionName": "sfpowerscripts",
+      "link": "<a href='https://marketplace.visualstudio.com/items?itemName=AzlamSalam.sfpowerscripts' target='_blank'><b>sfpowerscripts</b></a>",
+      "publisherId": "AzlamSalam",
+      "extensionId": "sfpowerscripts",
+      "publisherName": "Azlam  Salam",
+      "License": "<a href='https://marketplace.visualstudio.com/items?itemName=AzlamSalam.sfpowerscripts' target='_blank'>License Terms</a>"
+    }
+  ]
+}
