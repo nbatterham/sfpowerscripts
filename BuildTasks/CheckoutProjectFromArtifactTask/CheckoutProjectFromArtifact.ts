@@ -2,7 +2,7 @@ import tl = require("azure-pipelines-task-lib/task");
 import child_process = require("child_process");
 var fs = require("fs");
 const path = require("path");
-import * as simplegit from 'simple-git/promise';
+import  simplegit from 'simple-git/promise';
 
 import rimraf = require("rimraf");
 
