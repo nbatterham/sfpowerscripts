@@ -2,6 +2,7 @@ import tl = require("azure-pipelines-task-lib/task");
 import child_process = require("child_process");
 import * as secureFilesCommon from "../Common/SecureFileHelpers";
 import { isNullOrUndefined } from "util";
+import { AppInsights } from "../Common/AppInsights";
 
 async function run() {
   try {
@@ -9,6 +10,8 @@ async function run() {
     const username: string = tl.getInput("username", true);
     const isDevHub: boolean = tl.getBoolInput("isdevhub", true);
     const alias: string = tl.getInput("alias", true);
+
+    AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled",true));
 
     if (method == "JWT") {
       const jwt_key_file: string = tl.getInput("jwt_key_file", true);
@@ -20,14 +23,20 @@ async function run() {
       );
 
       authUsingJWT(isDevHub, alias, clientid, jwt_key_filePath, username);
+
+      AppInsights.trackTask("sfpwowerscript-authenticateorg-task","authUsingJWT");
+
     } else if (method == "Credentials") {
       const password: string = tl.getInput("password", true);
       const securitytoken: string = tl.getInput("securitytoken", false);
 
       authUsingCreds(isDevHub, alias, username, password, securitytoken);
+
+      AppInsights.trackTask("sfpwowerscript-authenticateorg-task","authUsingCreds");
     }
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);
+    AppInsights.trackExcepiton("sfpwowerscript-authenticateorg-task",err);
   }
 }
 
