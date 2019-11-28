@@ -1,5 +1,6 @@
 import tl = require("azure-pipelines-task-lib/task");
 const fs = require("fs");
+import { AppInsights } from "../Common/AppInsights";
 
 async function run() {
   try {
@@ -12,6 +13,8 @@ async function run() {
       let commit_id = tl.getVariable("build.sourceVersion");
       let repository_url = tl.getVariable("build.repository.uri")
 
+
+      AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled",true));
 
       
      let metadata = {
@@ -33,8 +36,14 @@ async function run() {
       // add localpath to ##vso command's properties for back compat of old Xplat agent
       data["localpath"] = __dirname + "/artifact_metadata";
       tl.command("artifact.upload", data, __dirname + "/artifact_metadata");
+
+      AppInsights.trackTask("sfpwowerscripts-createsourcepackage-task");
+      AppInsights.trackTaskEvent("sfpwowerscripts-createsourcepackage-task","source_package_created");
+
+
     }
    catch (err) {
+    AppInsights.trackExcepiton("sfpwowerscripts-createsourcepackage-task",err);
     tl.setResult(tl.TaskResult.Failed, err.message);
   }
 }

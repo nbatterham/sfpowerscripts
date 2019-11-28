@@ -7,7 +7,7 @@
     "category": "Build",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 4,
+        "Major": 5,
         "Minor": 0,
         "Patch": 0
     },
@@ -104,7 +104,16 @@
             "defaultValue": true,
             "required": true,
             "helpMarkDown": "wait time for command to finish in minutes"
+        },
+        {
+            "name": "isTelemetryEnabled",
+            "type": "boolean",
+            "label": "Send Anonymous Usage Telemetry",
+            "defaultValue": true,
+            "required": true,
+            "helpMarkDown": "Enabling this will help us to collect information on the tasks and improve services. All information collected is anonymised, please check code repository to understand what data is collected"
         }
+
     ],
     "OutputVariables": [
         {

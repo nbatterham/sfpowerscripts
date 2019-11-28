@@ -18,7 +18,8 @@ async function run() {
 
         console.log("SFDX along with SFPowerkit installed succesfully")
 
-        AppInsights.trackTask("Install SFDX with sfpowerkit");
+        AppInsights.trackTask("sfpwowerscript-installsfdx-task");
+        AppInsights.trackTaskEvent("sfpwowerscript-installsfdx-task");
     }
     catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);

@@ -7,8 +7,8 @@
     "category": "Build",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 2,
-        "Minor": 8,
+        "Major": 3,
+        "Minor": 0,
         "Patch": 0
     },
     "runsOn": [
@@ -97,7 +97,16 @@
             "helpMarkDown": "Name of the Apex Test  that need to be executed during this deployment",
             "required": true,
             "visibleRule": "testlevel = RunApexTestSuite"
+        },
+        {
+            "name": "isTelemetryEnabled",
+            "type": "boolean",
+            "label": "Send Anonymous Usage Telemetry",
+            "defaultValue": true,
+            "required": true,
+            "helpMarkDown": "Enabling this will help us to collect information on the tasks and improve services. All information collected is anonymised, please check code repository to understand what data is collected"
         }
+
     ],
     "OutputVariables": [
         {

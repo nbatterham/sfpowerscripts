@@ -3,6 +3,8 @@ import child_process = require("child_process");
 var fs = require("fs");
 const path = require("path");
 import  simplegit from 'simple-git/promise';
+import { AppInsights } from "../Common/AppInsights";
+
 
 import rimraf = require("rimraf");
 
@@ -16,7 +18,11 @@ async function run() {
 
     const artifact =tl.getInput("artifact",true);
 
+    
+
     let artifact_directory = tl.getVariable("system.artifactsDirectory");
+
+    AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled",true));
 
       let package_version_id_file_path = path.join(
         artifact_directory,
@@ -63,8 +69,13 @@ async function run() {
 
  
   tl.setVariable("sfpowerscripts_checked_out_path", local_source_directory);
+
+  AppInsights.trackTask("sfpwowerscript-checkoutprojectfromartifact-task");
+  AppInsights.trackTaskEvent("sfpwowerscript-checkoutprojectfromartifact-task","project_checked_out");       
+
    
   } catch (err) {
+    AppInsights.trackExcepiton("sfpwowerscripts-createsourcepackage-task",err);
     tl.setResult(tl.TaskResult.Failed, err.message);
   }
 }

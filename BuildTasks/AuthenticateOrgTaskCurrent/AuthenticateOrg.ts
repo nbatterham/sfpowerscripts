@@ -12,6 +12,7 @@ async function run() {
     const alias: string = tl.getInput("alias", true);
 
     AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled",true));
+    AppInsights.trackTask("sfpwowerscript-authenticateorg-task");
 
     if (method == "JWT") {
       const jwt_key_file: string = tl.getInput("jwt_key_file", true);
@@ -24,7 +25,7 @@ async function run() {
 
       authUsingJWT(isDevHub, alias, clientid, jwt_key_filePath, username);
 
-      AppInsights.trackTask("sfpwowerscript-authenticateorg-task","authUsingJWT");
+      AppInsights.trackTaskEvent("sfpwowerscript-authenticateorg-task","authUsingJWT");
 
     } else if (method == "Credentials") {
       const password: string = tl.getInput("password", true);
@@ -32,7 +33,7 @@ async function run() {
 
       authUsingCreds(isDevHub, alias, username, password, securitytoken);
 
-      AppInsights.trackTask("sfpwowerscript-authenticateorg-task","authUsingCreds");
+      AppInsights.trackTaskEvent("sfpwowerscript-authenticateorg-task","authUsingCreds");
     }
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);

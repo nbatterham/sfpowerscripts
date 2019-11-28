@@ -2,6 +2,7 @@ import tl = require("azure-pipelines-task-lib/task");
 import PromoteUnlockedPackageImpl from "./PromoteUnlockedPackageImpl";
 var fs = require("fs");
 const path = require("path");
+import { AppInsights } from "../Common/AppInsights";
 
 
 async function run() {
@@ -55,7 +56,12 @@ async function run() {
 
     await promoteUnlockedPackageImpl.exec();
 
+
+    AppInsights.trackTask("sfpwowerscript-promoteunlockedpackage-task");
+    AppInsights.trackTaskEvent("sfpwowerscript-promoteunlockedpackage-task","package_oromoted");    
+
   } catch (err) {
+    AppInsights.trackExcepiton("sfpwowerscript-promoteunlockedpackage-task",err);   
     tl.setResult(tl.TaskResult.Failed, err.message);
   }
 }

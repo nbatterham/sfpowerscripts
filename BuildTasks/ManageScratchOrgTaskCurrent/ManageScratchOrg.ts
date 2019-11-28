@@ -3,6 +3,7 @@ import child_process = require("child_process");
 import DeleteScratchOrgImpl from "./DeleteScratchOrgImpl";
 import CreateScratchOrgImpl from "./CreateScratchOrgImpl";
 
+import { AppInsights } from "../Common/AppInsights";
 
 async function run() {
   try {
@@ -12,7 +13,9 @@ async function run() {
     const action:string = tl.getInput("action",true);
     const devhub_alias: string = tl.getInput("devhub_alias", true);
    
+    AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled",true));
 
+ 
     if(action == "Create")
     {
     console.log("SFPowerScript.. Create a scratch org");
@@ -45,6 +48,8 @@ async function run() {
       `Successfully retrieved scratch org url ${resultAsJSON.result.url}`
     );
    
+   
+    AppInsights.trackTaskEvent("sfpwowerscript-managescratchorg-task","scratchorg_created");    
 
     }
     else
@@ -60,12 +65,14 @@ async function run() {
       tl.debug(command);
       await deleteScratchOrgImpl.exec(command);
 
+      AppInsights.trackTaskEvent("sfpwowerscript-managescratchorg-task","scratchorg_deleted");    
       
     }
 
-   
+    AppInsights.trackTask("sfpwowerscript-managescratchorg-task");
    
   } catch (err) {
+    AppInsights.trackExcepiton("sfpwowerscript-managescratchorg-task",err);    
     tl.setResult(tl.TaskResult.Failed, err.message);
   }
 }

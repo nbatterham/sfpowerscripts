@@ -72,6 +72,14 @@
             "required": false,
             "helpMarkDown": "Keep it blank in the build pipeline, pass the repo directory in the release pipeline",
             "visibleRule": "action = Create"
+        },
+        {
+            "name": "isTelemetryEnabled",
+            "type": "boolean",
+            "label": "Send Anonymous Usage Telemetry",
+            "defaultValue": true,
+            "required": true,
+            "helpMarkDown": "Enabling this will help us to collect information on the tasks and improve services. All information collected is anonymised, please check code repository to understand what data is collected"
         }
     ],
     "OutputVariables": [
