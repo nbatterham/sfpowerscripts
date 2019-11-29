@@ -70,12 +70,17 @@ target.copy = function() {
 target.incrementversion = function() {
   console.log("incrementversion");
 
+   //Reading current versions from manifest
+   var manifestPath = path.join(__dirname, "vss-extension.json");
+   var manifest = JSON.parse(fs.readFileSync(manifestPath));
+
+
   console.log(options);
   if (options.version) {
     if (options.version === "auto") {
       var ref = new Date(2000, 1, 1);
       var now = new Date();
-      var major = 2;
+      var major = semver.major(manifest.version);
       var minor = Math.floor((now - ref) / 86400000);
       var patch = Math.floor(
         Math.floor(
@@ -95,6 +100,11 @@ target.incrementversion = function() {
     case "dev":
       options.public = false;
       updateExtensionManifest(__dirname, options, false);
+      break;
+    case "review":
+      options.public = false;
+      updateExtensionManifest(__dirname, options, false);
+      shell.exec(`echo "##vso[build.updatebuildnumber] ${options.version}"`);
       break;
     default:
       updateExtensionManifest(__dirname, options, true);
@@ -116,6 +126,23 @@ target.publish = function() {
         " --share-with azlamsalam --token " +
         options.token
     );
+  } else if (options.stage == "review") {
+   
+      //Reading current versions from manifest
+   var manifestPath = path.join(__dirname, "vss-extension.json");
+   var manifest = JSON.parse(fs.readFileSync(manifestPath));
+   options.version = manifest.version;
+
+
+    shell.exec(
+      'tfx extension publish --vsix "' +
+        packagesPath +
+        "/AzlamSalam.sfpowerscripts-review-" +
+        options.version +
+        '.vsix"' +
+        " --share-with safebot --token " +
+        options.token
+    );
   } else {
     updateExtensionManifest(__dirname, options, true);
     console.log(`version found ${version}`);
@@ -126,7 +153,7 @@ target.publish = function() {
         packagesPath +
         "/AzlamSalam.sfpowerscripts-" +
         version +
-        '.vsix"'+
+        '.vsix"' +
         " --token " +
         options.token
     );
@@ -137,23 +164,22 @@ updateExtensionManifest = function(dir, options, isOriginalFile) {
   var manifestPath = path.join(dir, "vss-extension.json");
   var manifest = JSON.parse(fs.readFileSync(manifestPath));
 
-
-
   if (options.stage == "dev" && !isOriginalFile) {
     manifest.version = options.version;
     manifest.id = "sfpowerscripts" + "-" + "dev";
     manifest.name = "sfpowerscripts" + " (" + "dev" + ")";
     manifest.public = false;
-  }
-  else
-  {
+  } else if (options.stage == "review" && !isOriginalFile) {
+    manifest.version = options.version;
+    manifest.id = "sfpowerscripts" + "-" + "review";
+    manifest.name = "sfpowerscripts" + " (" + "review" + ")";
+    manifest.public = false;
+  } else {
     manifest.id = "sfpowerscripts";
     manifest.name = "sfpowerscripts";
     manifest.public = true;
     version = manifest.version;
   }
-
- 
 
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 4));
 };

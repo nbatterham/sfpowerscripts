@@ -3,12 +3,16 @@ import InstallUnlockedPackageImpl from "./InstallUnlockedPackageImpl";
 var fs = require("fs");
 const path = require("path");
 
+import { AppInsights } from "../Common/AppInsights";
+
 async function run() {
   try {
     const envname: string = tl.getInput("envname", true);
     const sfdx_package: string = tl.getInput("package", true);
 
     const package_installedfrom = tl.getInput("packageinstalledfrom", true);
+    AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled",true));
+
 
     let package_version_id;
 
@@ -37,9 +41,13 @@ async function run() {
 
       console.log(`Found Package Version Id in artifact ${package_version_id}`);
 
+     
+      AppInsights.trackTaskEvent("sfpwowerscript-installunlockedpackage-task","using_artifact"); 
+
 
     } else {
       package_version_id = tl.getInput("package_version_id", false);
+      AppInsights.trackTaskEvent("sfpwowerscript-installunlockedpackage-task","using_id"); 
     }
 
     const installationkey = tl.getInput("installationkey", false);
@@ -69,8 +77,11 @@ async function run() {
     );
 
     await installUnlockedPackageImpl.exec();
+    AppInsights.trackTask("sfpwowerscript-installunlockedpackage-task");
   } catch (err) {
+    AppInsights.trackTaskEvent("sfpwowerscript-installunlockedpackage-task",err); 
     tl.setResult(tl.TaskResult.Failed, err.message);
+
   }
 }
 

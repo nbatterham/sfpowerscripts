@@ -1,6 +1,7 @@
 import tl = require("azure-pipelines-task-lib/task");
 import CreateUnlockedPackageImpl from "./CreateUnlockedPackageImpl";
 const fs = require("fs");
+import { AppInsights } from "../Common/AppInsights";
 
 async function run() {
   try {
@@ -25,6 +26,10 @@ async function run() {
       true
     );
 
+    AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled",true));
+
+    AppInsights.trackTask("sfpwowerscripts-createunlockedpackage-task");
+
     let createUnlockedPackageImpl: CreateUnlockedPackageImpl = new CreateUnlockedPackageImpl(
       sfdx_package,
       version_number,
@@ -45,6 +50,8 @@ async function run() {
     );
 
     tl.setVariable("sfpowerscripts_package_version_id", package_version_id);
+
+    AppInsights.trackTaskEvent("sfpwowerscripts-createunlockedpackage-task","created_package");
 
     if (build_artifact_enabled) {
 
@@ -73,6 +80,7 @@ async function run() {
       tl.command("artifact.upload", data, __dirname + "/artifact_metadata");
     }
   } catch (err) {
+    AppInsights.trackExcepiton("sfpwowerscripts-createunlockedpackage-task",err);
     tl.setResult(tl.TaskResult.Failed, err.message);
   }
 }
