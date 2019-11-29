@@ -7,9 +7,9 @@
     "category": "Build",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 1,
-        "Minor": 1,
-        "Patch": 0
+        "Major": 2,
+        "Minor": 0,
+        "Patch": 1
     },
     "runsOn": [
         "Agent"
@@ -63,6 +63,14 @@
             "defaultValue": "60",
             "required": true,
             "helpMarkDown": "wait time for command to finish in minutes"
+        },
+        {
+            "name": "isTelemetryEnabled",
+            "type": "boolean",
+            "label": "Send Anonymous Usage Telemetry",
+            "defaultValue": true,
+            "required": true,
+            "helpMarkDown": "Enabling this will help us to collect information on the tasks and improve services. All information collected is anonymised, please check code repository to understand what data is collected"
         }
     ],
     "execution": {

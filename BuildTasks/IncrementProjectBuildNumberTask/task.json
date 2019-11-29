@@ -7,9 +7,9 @@
     "category": "Build",
     "author": "azlam.abdulsalam",
     "version": {
-        "Major": 1,
-        "Minor": 9,
-        "Patch": 0
+        "Major": 2,
+        "Minor": 0,
+        "Patch": 2
     },
     "runsOn": [
         "Agent"
@@ -61,6 +61,14 @@
             "defaultValue": "",
             "required": false,
             "helpMarkDown": "The  directory should contain a sfdx-project.json for this command to succeed"
+        },
+        {
+            "name": "isTelemetryEnabled",
+            "type": "boolean",
+            "label": "Send Anonymous Usage Telemetry",
+            "defaultValue": true,
+            "required": true,
+            "helpMarkDown": "Enabling this will help us to collect information on the tasks and improve services. All information collected is anonymised, please check code repository to understand what data is collected"
         }
     ],
     "OutputVariables": [
@@ -71,7 +79,7 @@
     ],
     "execution": {
         "Node": {
-            "target": "IncrementProjectBuildNumber.js"
+            "target": "IncrementProjectBuildNumberTask/IncrementProjectBuildNumber.js"
         }
     }
 }

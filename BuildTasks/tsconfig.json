@@ -6,9 +6,8 @@
     "sourceMap": true,
     "strict": false,
     "strictNullChecks": false,
-    "removeComments": true
-  },
-  "files": [
-    "./Common/SecureFileHelpers.ts"
-  ]
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true  
+  }
 }

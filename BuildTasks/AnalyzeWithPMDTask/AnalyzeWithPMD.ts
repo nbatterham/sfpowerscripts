@@ -6,6 +6,7 @@ const os = require("os");
 const path = require("path");
 import xml2js = require("xml2js");
 const fs = require("fs");
+import { AppInsights } from "../Common/AppInsights";
 
 async function run() {
   try {
@@ -18,9 +19,14 @@ async function run() {
     const directory: string = tl.getInput("directory", false);
     const ruleset: string = tl.getInput("ruleset", false);
 
+    AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled",true));
+
+
     let rulesetpath: string;
     if (ruleset == "Custom" && isNullOrUndefined(rulesetpath)) {
       rulesetpath = tl.getInput("rulesetpath", false);
+      AppInsights.trackTaskEvent("sfpwowerscripts-analyzewithpmd-task","custom_ruleset");       
+
     }
 
     const format: string = tl.getInput("format", false);
@@ -79,7 +85,12 @@ async function run() {
 
 
       if(isToBreakBuild && result[2]>0)
-        tl.setResult(tl.TaskResult.Failed,`Build Failed due to ${result[2]} critical defects found`)
+        tl.setResult(tl.TaskResult.Failed,`Build Failed due to ${result[2]} critical defects found`);
+
+      AppInsights.trackTask("sfpwowerscripts-analyzewithpmd-task");
+      AppInsights.trackTaskEvent("sfpwowerscripts-analyzewithpmd-task","artifact_uploaded");       
+
+       
     }
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);
