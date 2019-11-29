@@ -1,9 +1,9 @@
 {
     "manifestVersion": 1,
-    "id": "sfpowerscripts-review",
+    "id": "sfpowerscripts-dev",
     "publisher": "AzlamSalam",
-    "name": "sfpowerscripts (review)",
-    "version": "4.0.0",
+    "name": "sfpowerscripts (dev)",
+    "version": "4.0.1",
     "description": "Azure Pipelines tasks for working with Salesforce",
     "tags": [
         "Extension",
