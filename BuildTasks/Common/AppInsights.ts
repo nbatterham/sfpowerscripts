@@ -52,8 +52,8 @@ export class AppInsights {
     this.applicationInsightsClient.trackException({ exception: err });
 
     let taskType = tl.getVariable("Release.ReleaseId")
-      ? "Release Task"
-      : "Build Task";
+      ? "Release"
+      : "Build";
 
     this.applicationInsightsClient.trackEvent({
       name: "Task Execution",
