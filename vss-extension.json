@@ -3,7 +3,7 @@
     "id": "sfpowerscripts-dev",
     "publisher": "AzlamSalam",
     "name": "sfpowerscripts (dev)",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "description": "Azure Pipelines tasks for working with Salesforce",
     "tags": [
         "Extension",
@@ -42,6 +42,12 @@
         }
     },
     "links": {
+        "home": {
+            "uri": "https://www.sfpowerscripts.com/"
+        },
+        "getstarted": {
+            "uri": "https://www.sfpowerscripts.com/gettingstarted/"
+        },
         "repository": {
             "uri": "https://github.com/azlamsalam/sfpowerscripts"
         },
@@ -49,7 +55,7 @@
             "uri": "https://github.com/azlamsalam/sfpowerscripts/issues"
         },
         "support": {
-            "uri": "https://github.com/azlamsalam/sfpowerscripts/issues"
+            "uri": "https://sfpowerscripts.com/support/"
         }
     },
     "repository": {
@@ -58,11 +64,15 @@
     },
     "badges": [
         {
-            "href": "https://dev.azure.com/azlamsalam/sfpowerscripts/_build?definitionId=3",
-            "uri": "https://dev.azure.com/azlamsalam/sfpowerscripts/_apis/build/status/sfpowerscripts-CI?branchName=master",
-            "description": "Build"
+            "href": "https://dev.azure.com/azlamsalam/sfpowerscripts/_build?definitionId=8",
+            "uri": "https://dev.azure.com/azlamsalam/sfpowerscripts/_apis/build/status/sfpowerscripts/sfpowerscripts-release?branchName=release",
+            "description": "Azure Pipelines SFPowerscripts Release"
         }
     ],
+    "branding": {
+        "color": "rgb(255, 255, 255)",
+        "theme": "light"
+    },
     "files": [
         {
             "path": "BuildTasks/InstallSFDXCLITask"
