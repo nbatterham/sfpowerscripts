@@ -22,6 +22,8 @@ var rimraf = require("rimraf");
 
 // global paths
 var sourcePath = path.join(__dirname, "BuildTasks");
+var hubPath =  path.join(__dirname,"Hub");
+var widgetsPath = path.join(__dirname,"Widgets");
 var binariesPath = path.join(__dirname, "build");
 var packagesPath = path.join(__dirname, "dist");
 
@@ -40,9 +42,14 @@ target.copy = function() {
 
   //copy directory
   var taskOutputPath = path.join(binariesPath, "BuildTasks");
+  var hubOutputPath = path.join(binariesPath,"Hub");
+  var widgetsOutputPath = path.join(binariesPath,"Widgets");
 
   console.log("copy: copy task");
   copyRecursiveSync(sourcePath, taskOutputPath);
+  copyRecursiveSync(hubPath, hubOutputPath);
+  copyRecursiveSync(widgetsPath, widgetsOutputPath);
+  
 
   // rimraf.sync(taskOutputPath + "/**/**/*.ts");
 
@@ -210,25 +217,6 @@ updateTaskManifest = function(dir, options, isOriginalFile) {
   });
 };
 
-function installTasks(dir) {
-  echo("Installing task dependencies...");
-
-  var tasksPath = path.join(dir, "task");
-  var tasks = fs.readdirSync(tasksPath);
-  console.log(tasks.length + " tasks found.");
-  tasks.forEach(function(task) {
-    console.log("Processing task " + task);
-    process.chdir(path.join(tasksPath, task));
-
-    console.log("Installing npm dependencies for task...");
-    if (exec("npm install --only=prod").code != 0) {
-      console.log("npm install for task " + task + " failed");
-      exit(1);
-    }
-  });
-
-  process.chdir(dir);
-}
 
 copyRecursiveSync = function(src, dest) {
   var exists = fs.existsSync(src);
