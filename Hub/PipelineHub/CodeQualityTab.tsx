@@ -6,27 +6,28 @@ import { TextField } from "azure-devops-ui/TextField";
 import { Card } from "azure-devops-ui/Card";
 import { Header, TitleSize } from "azure-devops-ui/Header";
 import { IHeaderCommandBarItem } from "azure-devops-ui/HeaderCommandBar";
+import { Page } from "azure-devops-ui/Page";
 
 const stats = [
   {
     label: "Code Coverage",
     value: 68,
-    trent : 1
+    trent: 1
   },
   {
     label: "Minor Bugs",
     value: 20,
-    trent : 1
+    trent: 1
   },
   {
     label: "Major",
     value: 3,
-    trent : 1
+    trent: 1
   },
   {
     label: "Critical",
     value: 5,
-    trent : -1
+    trent: -1
   }
 ];
 
@@ -38,8 +39,7 @@ const commandBarItemsSimple: IHeaderCommandBarItem[] = [
     id: "addProject",
     important: true,
     onActivate: () => {
-
-      //How to add a new project?  
+      //How to add a new project?
       alert("This would normally trigger a modal popup");
     },
     text: "Action",
@@ -81,7 +81,7 @@ export class CodeQualityTab extends React.Component<{}> {
     //https://developer.microsoft.com/en-us/azure-devops/components/card#advanced-card
 
     return (
-      <div className="page-content page-content-top flex-row rhythm-horizontal-16">
+      <Page>
         <Header
           title={"Projects"}
           commandBarItems={commandBarItemsSimple}
@@ -89,24 +89,26 @@ export class CodeQualityTab extends React.Component<{}> {
           titleIconProps={{ iconName: "OpenSource" }}
         />
 
-        <Card
-          className="flex-grow"
-          titleProps={{ text: "Code Analysis : <<Inspections>>" }}
-        >
-          <div className="flex-row" style={{ flexWrap: "wrap" }}>
-            {stats.map((items, index) => (
-              <div
-                className="flex-column"
-                style={{ minWidth: "120px" }}
-                key={index}
-              >
-                <div className="body-m secondary-text">{items.label}</div>
-                <div className="body-m primary-text">{items.value}</div>
-              </div>
-            ))}
-          </div>
-        </Card>
-      </div>
+        <div className="page-content page-content-top flex-row rhythm-horizontal-16">
+          <Card
+            className="flex-grow"
+            titleProps={{ text: "Code Analysis : <<Inspections>>" }}
+          >
+            <div className="flex-row" style={{ flexWrap: "wrap" }}>
+              {stats.map((items, index) => (
+                <div
+                  className="flex-column"
+                  style={{ minWidth: "120px" }}
+                  key={index}
+                >
+                  <div className="body-m secondary-text">{items.label}</div>
+                  <div className="body-m primary-text">{items.value}</div>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
+      </Page>
     );
   }
 }
