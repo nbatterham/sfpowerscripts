@@ -23,7 +23,7 @@
     "postcompile:tasks": "",
     "lint:tasks": "glob-exec --parallel --foreach \"build/BuildTasks/*/tsconfig.json\" -- \"tslint -p {{file}} -c tslint.json\"",
     "prebuild": "npm run build:clean",
-    "build": "npm run build:copy && npm run build:hub",
+    "build": "npm run build:copy && npm run build:npm:tasks && npm run build:tasks && npm run build:hub",
     "postbuild": "rimraf -g build/BuildTasks/**/*.ts && rimraf -g build/Hub/**/*.tsx && rimraf -g build/Widgets/**/*.ts",
     "package": "npm run build && npm run package:extension",
     "increment:version": "node make incrementversion",

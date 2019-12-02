@@ -13,8 +13,8 @@
                 "ms.vss-features.host-dialog-service"
             ],
             "properties": {
-                "name": "Sample hub",
-                "uri": "dist/Hub/Hub.html",
+                "name": "SFPwoerscripts hub",
+                "uri": "build/Hub/PipelineHub/PIpelineHub.html",
                 "icon": "asset://static/sample-icon.png",
                 "supportsMobile": true
             }

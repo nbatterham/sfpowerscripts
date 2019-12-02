@@ -22,7 +22,7 @@ var rimraf = require("rimraf");
 
 // global paths
 var sourcePath = path.join(__dirname, "BuildTasks");
-var hubPath =  path.join(__dirname,"Hub");
+var assetPath =  path.join(__dirname,"static");
 var widgetsPath = path.join(__dirname,"Widgets");
 var binariesPath = path.join(__dirname, "build");
 var packagesPath = path.join(__dirname, "dist");
@@ -42,14 +42,13 @@ target.copy = function() {
 
   //copy directory
   var taskOutputPath = path.join(binariesPath, "BuildTasks");
-  var hubOutputPath = path.join(binariesPath,"Hub");
-  var widgetsOutputPath = path.join(binariesPath,"Widgets");
-
+  var assetOutputPath = path.join(binariesPath,"static");
+  
   console.log("copy: copy task");
   copyRecursiveSync(sourcePath, taskOutputPath);
-  copyRecursiveSync(hubPath, hubOutputPath);
-  copyRecursiveSync(widgetsPath, widgetsOutputPath);
   
+  console.log("copy: copy assets");
+  copyRecursiveSync(assetPath, assetOutputPath);
 
   // rimraf.sync(taskOutputPath + "/**/**/*.ts");
 

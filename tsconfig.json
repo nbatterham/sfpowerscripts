@@ -7,9 +7,9 @@
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strict": true,
-        "target": "es5",
+        "target": "es6",
         "rootDir": "Hub/",
-        "outDir": "build/Hub",
+        "outDir": "build/Hub/",
         "jsx": "react",
         "lib": [
           "es5",
@@ -19,6 +19,10 @@
         ],
         "types": [
             "react"
-        ]
-    }
+        ],
+        
+    },
+    "include": [
+        "Hub"
+      ]
 }

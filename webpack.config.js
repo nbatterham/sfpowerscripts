@@ -10,12 +10,14 @@ const hubDir = path.join(__dirname, "Hub");
 fs.readdirSync(hubDir).filter(dir => {
     if (fs.statSync(path.join(hubDir, dir)).isDirectory()) {
         entries[dir] = "./" + path.relative(process.cwd(), path.join(hubDir, dir, dir));
+        console.log(entries[dir]);
     }
 });
 
 module.exports = {
     entry: entries,
     output: {
+        path: path.resolve(__dirname, 'build/Hub'),
         filename: "[name]/[name].js"
     },
     resolve: {
