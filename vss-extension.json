@@ -1,350 +1,312 @@
 {
-    "manifestVersion": 1,
-    "id": "sfpowerscripts-dev",
-    "publisher": "AzlamSalam",
-    "name": "sfpowerscripts (dev)",
-    "version": "4.0.2",
-    "description": "Azure Pipelines tasks for working with Salesforce",
-    "tags": [
-        "Extension",
-        "Salesforce",
-        "SFDX",
-        "Publish",
-        "Package",
-        "Install",
-        "Continuous Integration",
-        "Continuous Delivery",
-        "Build",
-        "Release",
-        "Azure Pipelines",
-        "Azure DevOps Extensions",
-        "Visual Studio Extensions"
-    ],
-    "icons": {
-        "default": "tools-icon.png"
+  "manifestVersion": 1,
+  "id": "sfpowerscripts-dev",
+  "publisher": "AzlamSalam",
+  "name": "sfpowerscripts (dev)",
+  "version": "5.0.2",
+  "description": "Azure Pipelines tasks for working with Salesforce",
+  "tags": [
+    "Extension",
+    "Salesforce",
+    "SFDX",
+    "Publish",
+    "Package",
+    "Install",
+    "Continuous Integration",
+    "Continuous Delivery",
+    "Build",
+    "Release",
+    "Azure Pipelines",
+    "Azure DevOps Extensions",
+    "Visual Studio Extensions"
+  ],
+  "icons": {
+    "default": "tools-icon.png"
+  },
+  "public": false,
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services.Cloud"
+    }
+  ],
+  "scopes": [],
+  "categories": ["Azure Pipelines"],
+  "content": {
+    "details": {
+      "path": "overview.md"
     },
-    "public": false,
-    "targets": [
-        {
-            "id": "Microsoft.VisualStudio.Services.Cloud"
-        }
-    ],
-    "scopes": [],
-    "categories": [
-        "Azure Pipelines"
-    ],
-    "content": {
-        "details": {
-            "path": "overview.md"
-        },
-        "license": {
-            "path": "LICENSE.txt"
-        }
+    "license": {
+      "path": "LICENSE.txt"
+    }
+  },
+  "links": {
+    "home": {
+      "uri": "https://www.sfpowerscripts.com/"
     },
-    "links": {
-        "home": {
-            "uri": "https://www.sfpowerscripts.com/"
-        },
-        "getstarted": {
-            "uri": "https://www.sfpowerscripts.com/gettingstarted/"
-        },
-        "repository": {
-            "uri": "https://github.com/azlamsalam/sfpowerscripts"
-        },
-        "issues": {
-            "uri": "https://github.com/azlamsalam/sfpowerscripts/issues"
-        },
-        "support": {
-            "uri": "https://sfpowerscripts.com/support/"
-        }
+    "getstarted": {
+      "uri": "https://www.sfpowerscripts.com/gettingstarted/"
     },
     "repository": {
-        "type": "git",
-        "uri": "https://github.com/azlamsalam/sfpowerscripts"
+      "uri": "https://github.com/azlamsalam/sfpowerscripts"
     },
-    "badges": [
-        {
-            "href": "https://dev.azure.com/azlamsalam/sfpowerscripts/_build?definitionId=8",
-            "uri": "https://dev.azure.com/azlamsalam/sfpowerscripts/_apis/build/status/sfpowerscripts/sfpowerscripts-release?branchName=release",
-            "description": "Azure Pipelines SFPowerscripts Release"
-        }
-    ],
-    "branding": {
-        "color": "rgb(255, 255, 255)",
-        "theme": "light"
+    "issues": {
+      "uri": "https://github.com/azlamsalam/sfpowerscripts/issues"
     },
-    "files": [
-        {
-            "path": "BuildTasks/InstallSFDXCLITask"
-        },
-        {
-            "path": "BuildTasks/InstallSFDXCLITaskCurrent"
-        },
-        {
-            "path": "BuildTasks/AuthenticateOrgTask"
-        },
-        {
-            "path": "BuildTasks/AuthenticateOrgTaskCurrent"
-        },
-        {
-            "path": "BuildTasks/ManageScratchOrgTask"
-        },
-        {
-            "path": "BuildTasks/ManageScratchOrgTaskCurrent"
-        },
-        {
-            "path": "BuildTasks/InstallPackageDependenciesTask"
-        },
-        {
-            "path": "BuildTasks/DeploySourceToOrgTask"
-        },
-        {
-            "path": "BuildTasks/TriggerApexTestTask"
-        },
-        {
-            "path": "BuildTasks/ValidateApexCoverageTask"
-        },
-        {
-            "path": "BuildTasks/ValidateDXUnlockedPackageTask"
-        },
-        {
-            "path": "BuildTasks/CreateUnlockedPackageTask"
-        },
-        {
-            "path": "BuildTasks/IncrementProjectBuildNumberTask"
-        },
-        {
-            "path": "BuildTasks/InstallUnlockedPackageTask"
-        },
-        {
-            "path": "BuildTasks/CreateSourcePackageTask"
-        },
-        {
-            "path": "BuildTasks/CheckoutProjectFromArtifactTask"
-        },
-        {
-            "path": "BuildTasks/AnalyzeWithPMDTask"
-        },
-        {
-            "path": "BuildTasks/PromoteUnlockedPackageTask"
-        },
-        {
-            "path": "BuildTasks/DeployDestructiveManifestToOrgTask"
+    "support": {
+      "uri": "https://sfpowerscripts.com/support/"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/azlamsalam/sfpowerscripts"
+  },
+  "badges": [
+    {
+      "href": "https://dev.azure.com/azlamsalam/sfpowerscripts/_build?definitionId=8",
+      "uri": "https://dev.azure.com/azlamsalam/sfpowerscripts/_apis/build/status/sfpowerscripts/sfpowerscripts-release?branchName=release",
+      "description": "Azure Pipelines SFPowerscripts Release"
+    }
+  ],
+  "branding": {
+    "color": "rgb(255, 255, 255)",
+    "theme": "light"
+  },
+  "files": [
+    {
+      "path": "BuildTasks/InstallSFDXCLITask"
+    },
+    {
+      "path": "BuildTasks/InstallSFDXCLITaskCurrent"
+    },
+    {
+      "path": "BuildTasks/AuthenticateOrgTask"
+    },
+    {
+      "path": "BuildTasks/AuthenticateOrgTaskCurrent"
+    },
+    {
+      "path": "BuildTasks/ManageScratchOrgTask"
+    },
+    {
+      "path": "BuildTasks/ManageScratchOrgTaskCurrent"
+    },
+    {
+      "path": "BuildTasks/InstallPackageDependenciesTask"
+    },
+    {
+      "path": "BuildTasks/DeploySourceToOrgTask"
+    },
+    {
+      "path": "BuildTasks/TriggerApexTestTask"
+    },
+    {
+      "path": "BuildTasks/ValidateApexCoverageTask"
+    },
+    {
+      "path": "BuildTasks/ValidateDXUnlockedPackageTask"
+    },
+    {
+      "path": "BuildTasks/CreateUnlockedPackageTask"
+    },
+    {
+      "path": "BuildTasks/IncrementProjectBuildNumberTask"
+    },
+    {
+      "path": "BuildTasks/InstallUnlockedPackageTask"
+    },
+    {
+      "path": "BuildTasks/CreateSourcePackageTask"
+    },
+    {
+      "path": "BuildTasks/CheckoutProjectFromArtifactTask"
+    },
+    {
+      "path": "BuildTasks/AnalyzeWithPMDTask"
+    },
+    {
+      "path": "BuildTasks/PromoteUnlockedPackageTask"
+    },
+    {
+      "path": "BuildTasks/DeployDestructiveManifestToOrgTask"
+    },
+    {
+      "path": "static",
+      "addressable": true
+    },
+    {
+      "path": "Hub",
+      "addressable": true
+    }
+  ],
+  "contributions": [
+    {
+      "id": "sfpwowerkit-installsfdx-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/InstallSFDXCLITask"
+      }
+    },
+    {
+      "id": "sfpwowerscript-installsfdx-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/InstallSFDXCLITaskCurrent"
+      }
+    },
+    {
+      "id": "sfpower-authenticateorg",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/AuthenticateOrgTask"
+      }
+    },
+    {
+      "id": "sfpwowerscript-authenticateorg-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/AuthenticateOrgTaskCurrent"
+      }
+    },
+    {
+      "id": "sfpower-managescratchorg",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/ManageScratchOrgTask"
+      }
+    },
+    {
+      "id": "sfpwowerscript-managescratchorg-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/ManageScratchOrgTaskCurrent"
+      }
+    },
+    {
+      "id": "sfpowerscript-installpackagedependencies-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/InstallPackageDependenciesTask"
+      }
+    },
+    {
+      "id": "sfpowerscript-deploysourcetoorg-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/DeploySourceToOrgTask"
+      }
+    },
+    {
+      "id": "sfpwowerscript-triggerapextest-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/TriggerApexTestTask"
+      }
+    },
+    {
+      "id": "sfpwowerscript-validateapextestcoverage-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/ValidateApexCoverageTask"
+      }
+    },
+    {
+      "id": "sfpwowerscript-validatedxunlockedpackage-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/ValidateDXUnlockedPackageTask"
+      }
+    },
+    {
+      "id": "sfpwowerscripts-createunlockedpackage-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/CreateUnlockedPackageTask"
+      }
+    },
+    {
+      "id": "sfpwowerscript-incrementversionnumber-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/IncrementProjectBuildNumberTask"
+      }
+    },
+    {
+      "id": "sfpwowerscript-installunlockedpackage-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/InstallUnlockedPackageTask"
+      }
+    },
+    {
+      "id": "sfpwowerscripts-createsourcepackage-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/CreateSourcePackageTask"
+      }
+    },
+    {
+      "id": "sfpwowerscript-checkoutprojectfromartifact-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/CheckoutProjectFromArtifactTask"
+      }
+    },
+    {
+      "id": "sfpwowerscripts-analyzewithpmd-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/AnalyzeWithPMDTask"
+      }
+    },
+    {
+      "id": "sfpwowerscript-promoteunlockedpackage-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/PromoteUnlockedPackageTask"
+      }
+    },
+    {
+      "id": "sfpwowerscript-deploydestructivemanifest-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/DeployDestructiveManifestToOrgTask"
+      }
+    },
+    {
+        "id": "sfpwowerscript-pipelines-hub",
+        "type": "ms.vss-web.hub",
+        "targets": ["ms.vss-build-web.build-release-hub-group"],
+        "includes": [
+          "ms.vss-tfs-web.tfs-page-data-service",
+          "ms.vss-features.host-navigation-service",
+          "ms.vss-features.extension-data-service",
+          "ms.vss-features.host-dialog-service"
+        ],
+        "properties": {
+          "name": "SFPowerscripts Hub",
+          "uri": "Hub/PipelineHub/PipelineHub.html",
+          "icon": "asset://static/sample-icon.png",
+          "supportsMobile": true
         }
-    ],
-    "contributions": [
-        {
-            "id": "sfpwowerkit-installsfdx-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/InstallSFDXCLITask"
-            }
-        },
-        {
-            "id": "sfpwowerscript-installsfdx-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/InstallSFDXCLITaskCurrent"
-            }
-        },
-        {
-            "id": "sfpower-authenticateorg",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/AuthenticateOrgTask"
-            }
-        },
-        {
-            "id": "sfpwowerscript-authenticateorg-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/AuthenticateOrgTaskCurrent"
-            }
-        },
-        {
-            "id": "sfpower-managescratchorg",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/ManageScratchOrgTask"
-            }
-        },
-        {
-            "id": "sfpwowerscript-managescratchorg-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/ManageScratchOrgTaskCurrent"
-            }
-        },
-        {
-            "id": "sfpowerscript-installpackagedependencies-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/InstallPackageDependenciesTask"
-            }
-        },
-        {
-            "id": "sfpowerscript-deploysourcetoorg-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/DeploySourceToOrgTask"
-            }
-        },
-        {
-            "id": "sfpwowerscript-triggerapextest-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/TriggerApexTestTask"
-            }
-        },
-        {
-            "id": "sfpwowerscript-validateapextestcoverage-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/ValidateApexCoverageTask"
-            }
-        },
-        {
-            "id": "sfpwowerscript-validatedxunlockedpackage-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/ValidateDXUnlockedPackageTask"
-            }
-        },
-        {
-            "id": "sfpwowerscripts-createunlockedpackage-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/CreateUnlockedPackageTask"
-            }
-        },
-        {
-            "id": "sfpwowerscript-incrementversionnumber-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/IncrementProjectBuildNumberTask"
-            }
-        },
-        {
-            "id": "sfpwowerscript-installunlockedpackage-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/InstallUnlockedPackageTask"
-            }
-        },
-        {
-            "id": "sfpwowerscripts-createsourcepackage-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/CreateSourcePackageTask"
-            }
-        },
-        {
-            "id": "sfpwowerscript-checkoutprojectfromartifact-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/CheckoutProjectFromArtifactTask"
-            }
-        },
-        {
-            "id": "sfpwowerscripts-analyzewithpmd-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/AnalyzeWithPMDTask"
-            }
-        },
-        {
-            "id": "sfpwowerscript-promoteunlockedpackage-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/PromoteUnlockedPackageTask"
-            }
-        },
-        {
-            "id": "sfpwowerscript-deploydestructivemanifest-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/DeployDestructiveManifestToOrgTask"
-            }
-        },
-        {
-            "contributions": [
-                {
-                    "id": "hub",
-                    "type": "ms.vss-web.hub",
-                    "targets": [
-                        "ms.vss-build-web.build-release-hub-group"
-                    ],
-                    "includes": [
-                        "ms.vss-tfs-web.tfs-page-data-service",
-                        "ms.vss-features.host-navigation-service",
-                        "ms.vss-features.extension-data-service",
-                        "ms.vss-features.host-dialog-service"
-                    ],
-                    "properties": {
-                        "name": "SFPowerscripts Hub",
-                        "uri": "Hub/PipelineHub/PipelineHub.html",
-                        "icon": "asset://static/sample-icon.png",
-                        "supportsMobile": true
-                    }
-                }
-            ]
-        }
-    ]
+      }
+  ]
 }
