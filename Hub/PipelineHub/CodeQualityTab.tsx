@@ -89,9 +89,6 @@ export class CodeQualityTab extends React.Component<{}> {
           titleIconProps={{ iconName: "OpenSource" }}
         />
 
-
-        // Need to create cards as much as we can 
-        
         <Card
           className="flex-grow"
           titleProps={{ text: "Code Analysis : <<Inspections>>" }}
