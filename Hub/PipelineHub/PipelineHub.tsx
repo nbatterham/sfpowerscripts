@@ -14,6 +14,7 @@ import { EnvironmentTab } from "./EnvironmentTab";
 import { CodeQualityTab } from "./CodeQualityTab";
 import { SupportTab } from "./SupportTab";
 import { showRootComponent } from "./Common";
+import { ProjectTab } from "./ProjectTab";
 
 interface IHubContentState {
     selectedTabId: string;
@@ -56,6 +57,7 @@ class HubContent extends React.Component<{}, IHubContentState> {
                     tabSize={useCompactPivots ? TabSize.Compact : TabSize.Tall}>
 
                     <Tab name="Overview" id="overview" />
+                    <Tab name="Projects" id="projects" />
                     <Tab name="Code Quality" id="codequality" />
                     <Tab name="Environment" id="environment" />
                     <Tab name="Support" id="support" />
@@ -76,6 +78,9 @@ class HubContent extends React.Component<{}, IHubContentState> {
         const { selectedTabId } = this.state;
         if (selectedTabId === "overview") {
             return <OverviewTab />;
+        }
+        else if (selectedTabId === "project") {
+            return <ProjectTab />;
         }
         else if (selectedTabId === "codequality") {
             return <CodeQualityTab />;
