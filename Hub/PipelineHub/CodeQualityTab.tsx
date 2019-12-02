@@ -10,62 +10,68 @@ import { Page } from "azure-devops-ui/Page";
 
 const stats = [
   {
-    label: "Code Coverage",
+    label: "Apex Test Coverage",
     value: 68,
     trent: 1
   },
   {
-    label: "Minor Bugs",
+    label: "PMD - Minor",
     value: 20,
     trent: 1
   },
   {
-    label: "Major",
+    label: "PMD  - Major",
     value: 3,
     trent: 1
   },
   {
-    label: "Critical",
+    label: "PMD - Critical",
     value: 5,
     trent: -1
   }
 ];
 
-const commandBarItemsSimple: IHeaderCommandBarItem[] = [
-  {
-    iconProps: {
-      iconName: "Add"
-    },
-    id: "addProject",
-    important: true,
-    onActivate: () => {
-      //How to add a new project?
-      alert("This would normally trigger a modal popup");
-    },
-    text: "Action",
-    tooltipProps: {
-      text: "Custom tooltip for create"
-    }
-  },
-  {
-    iconProps: {
-      iconName: "Delete"
-    },
-    id: "deleteProject",
-    important: false,
-    onActivate: () => {
-      alert("submenu clicked");
-    },
-    text: "Menu row with delete icon"
-  }
-];
+
 
 export class CodeQualityTab extends React.Component<{}> {
+
+
   constructor(props: {}) {
     super(props);
     this.state = {};
   }
 
+  private commandBar: IHeaderCommandBarItem[] = [
+    {
+      iconProps: {
+        iconName: "Add"
+      },
+      id: "addProject",
+      important: true,
+      onActivate: () => {
+        //How to add a new project?
+        alert("This would normally trigger a modal popup");
+      },
+      text: "Add",
+      tooltipProps: {
+        text: "Custom tooltip for create"
+      }
+    },
+    {
+      iconProps: {
+        iconName: "Delete"
+      },
+      id: "deleteProject",
+      important: true,
+      onActivate: () => {
+        alert("submenu clicked");
+      },
+      text: "Delete"
+    }
+  ];
+
+
+  
   public componentDidMount() {
     this.initializeState();
   }
@@ -84,7 +90,7 @@ export class CodeQualityTab extends React.Component<{}> {
       <Page>
         <Header
           title={"Projects"}
-          commandBarItems={commandBarItemsSimple}
+          commandBarItems={this.commandBar}
           titleSize={TitleSize.Medium}
           titleIconProps={{ iconName: "OpenSource" }}
         />
