@@ -111,7 +111,7 @@ export class EnvironmentTab extends React.Component<{}> {
       <div className="page-content page-content-top flex-column rhythm-vertical-16">
         <Card
           className="flex-grow bolt-table-card"
-          titleProps={{ text: "Food Inventory" }}
+          titleProps={{ text: "Environments" }}
           headerCommandBarItems={commandBarItems}
         >
           <Table<Partial<ITableItem>>
