@@ -8,12 +8,12 @@ import { Dropdown } from "azure-devops-ui/Dropdown";
 import { ListSelection } from "azure-devops-ui/List";
 import { IListBoxItem } from "azure-devops-ui/ListBox";
 
-export interface IMessagesTabState {
+export interface ISupportTabState {
     messageLevel?: MessageBannerLevel;
     selection: ListSelection;
 }
 
-export class MessagesTab extends React.Component<{}, IMessagesTabState> {
+export class SupportTab extends React.Component<{}, ISupportTabState> {
 
     constructor(props: {}) {
         super(props);

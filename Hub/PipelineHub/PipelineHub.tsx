@@ -10,9 +10,9 @@ import { Page } from "azure-devops-ui/Page";
 import { Tab, TabBar, TabSize } from "azure-devops-ui/Tabs";
 
 import { OverviewTab } from "./OverviewTab"; 
-import { NavigationTab } from "./NavigationTab";
-import { ExtensionDataTab } from "./ExtensionDataTab";
-import { MessagesTab } from "./MessagesTab";
+import { EnvironmentTab } from "./EnvironmentTab";
+import { CodeQualityTab } from "./CodeQualityTab";
+import { SupportTab } from "./SupportTab";
 import { showRootComponent } from "./Common";
 
 interface IHubContentState {
@@ -44,9 +44,9 @@ class HubContent extends React.Component<{}, IHubContentState> {
         const { selectedTabId, headerDescription, useCompactPivots, useLargeTitle } = this.state;
 
         return (
-            <Page className="sample-hub flex-grow">
+            <Page className="sfpowerscripts-hub flex-grow">
 
-                <Header title="Sample Hub"
+                <Header title="SFPowerscripts Hub"
                     commandBarItems={this.getCommandBarItems()}
                     description={headerDescription}
                     titleSize={useLargeTitle ? TitleSize.Large : TitleSize.Medium} />
@@ -57,9 +57,9 @@ class HubContent extends React.Component<{}, IHubContentState> {
                     tabSize={useCompactPivots ? TabSize.Compact : TabSize.Tall}>
 
                     <Tab name="Overview" id="overview" />
-                    <Tab name="Navigation" id="navigation" />
-                    <Tab name="Extension Data" id="extensionData" />
-                    <Tab name="Messages" id="messages" />
+                    <Tab name="Code Quality" id="codequality" />
+                    <Tab name="Environment" id="environment" />
+                    <Tab name="Support" id="support" />
                 </TabBar>
 
                 { this.getPageContent() }
@@ -78,14 +78,14 @@ class HubContent extends React.Component<{}, IHubContentState> {
         if (selectedTabId === "overview") {
             return <OverviewTab />;
         }
-        else if (selectedTabId === "navigation") {
-            return <NavigationTab />;
+        else if (selectedTabId === "codequality") {
+            return <CodeQualityTab />;
         }
-        else if (selectedTabId === "extensionData") {
-            return <ExtensionDataTab />;
+        else if (selectedTabId === "environment") {
+            return <EnvironmentTab />;
         }
-        else if (selectedTabId === "messages") {
-            return <MessagesTab />;
+        else if (selectedTabId === "support") {
+            return <SupportTab />;
         }
     }
 

@@ -14,7 +14,7 @@
             ],
             "properties": {
                 "name": "SFPwoerscripts hub",
-                "uri": "build/Hub/PipelineHub/PIpelineHub.html",
+                "uri": "build/Hub/PipelineHub/PipelineHub.html",
                 "icon": "asset://static/sample-icon.png",
                 "supportsMobile": true
             }
