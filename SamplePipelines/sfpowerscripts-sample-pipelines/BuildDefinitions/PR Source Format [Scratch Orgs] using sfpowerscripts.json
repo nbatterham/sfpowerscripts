@@ -1,4 +1,27 @@
 {
+  "options": [
+    {
+      "enabled": false,
+      "definition": {
+        "id": "5d58cc01-7c75-450c-be18-a388ddb129ec"
+      },
+      "inputs": {
+        "branchFilters": "[\"+refs/heads/*\"]",
+        "additionalFields": "{}"
+      }
+    },
+    {
+      "enabled": false,
+      "definition": {
+        "id": "a9db38f9-9fdc-478c-b0f9-464221e58316"
+      },
+      "inputs": {
+        "workItemType": "Bug",
+        "assignToRequestor": "true",
+        "additionalFields": "{}"
+      }
+    }
+  ],
   "variables": {
     "system.debug": {
       "value": "false",
@@ -25,12 +48,13 @@
             "condition": "succeeded()",
             "task": {
               "id": "d8950cd3-2bf4-4b50-bb75-b9358f741951",
-              "versionSpec": "2.*",
+              "versionSpec": "3.*",
               "definitionType": "task"
             },
             "inputs": {
               "sfdx_cli_version": "latest",
-              "sfpowerkit_version": "latest"
+              "sfpowerkit_version": "latest",
+              "isTelemetryEnabled": "true"
             }
           },
           {
@@ -49,7 +73,8 @@
             "inputs": {
               "package": "force-di",
               "bypass": "",
-              "working_directory": ""
+              "working_directory": "",
+              "isTelemetryEnabled": "true"
             }
           },
           {
@@ -62,18 +87,19 @@
             "condition": "succeeded()",
             "task": {
               "id": "5eb34b28-fdd4-4904-9a3e-d3ff63130f16",
-              "versionSpec": "4.*",
+              "versionSpec": "5.*",
               "definitionType": "task"
             },
             "inputs": {
               "method": "Credentials",
               "jwt_key_file": "",
               "username": "$(prod.user)",
-              "password": "sf123@acn",
-              "securitytoken": "nfljFErhOIiu6dCHEJnxnhEmC",
-              "alias": "HubOrg ",
+              "password": "$(prod.password)",
+              "securitytoken": "$(prod.securitytoken)",
+              "alias": "HubOrg",
               "isdevhub": "true",
-              "clientid": ""
+              "clientid": "",
+              "isTelemetryEnabled": "true"
             }
           },
           {
@@ -86,7 +112,7 @@
             "condition": "succeeded()",
             "task": {
               "id": "b57f86cb-22fc-4e55-a7e2-fff702f4eb10",
-              "versionSpec": "3.*",
+              "versionSpec": "4.*",
               "definitionType": "task"
             },
             "inputs": {
@@ -95,7 +121,8 @@
               "alias": "scratchorg",
               "target_org": "scratchorg",
               "devhub_alias": "HubOrg",
-              "working_directory": ""
+              "working_directory": "",
+              "isTelemetryEnabled": "true"
             }
           },
           {
@@ -108,19 +135,20 @@
             "condition": "succeeded()",
             "task": {
               "id": "dea3a185-c3f5-44a8-841b-1e5044864778",
-              "versionSpec": "2.*",
+              "versionSpec": "3.*",
               "definitionType": "task"
             },
             "inputs": {
               "target_org": "scratchorg",
               "project_directory": "",
               "source_directory": "force-di",
-              "checkonly": "false",
+              "checkonly": "true",
               "wait_time": "20",
               "validation_ignore": ".forceignore",
               "testlevel": "NoTestRun",
               "specified_tests": "",
-              "apextestsuite": ""
+              "apextestsuite": "",
+              "isTelemetryEnabled": "true"
             }
           },
           {
@@ -133,7 +161,7 @@
             "condition": "succeeded()",
             "task": {
               "id": "2f57114d-c08b-4014-96d7-a8981a2dae9b",
-              "versionSpec": "1.*",
+              "versionSpec": "2.*",
               "definitionType": "task"
             },
             "inputs": {
@@ -141,7 +169,8 @@
               "testlevel": "RunLocalTests",
               "specified_tests": "",
               "apextestsuite": "",
-              "wait_time": "60"
+              "wait_time": "60",
+              "isTelemetryEnabled": "true"
             }
           },
           {
@@ -154,12 +183,13 @@
             "condition": "succeeded()",
             "task": {
               "id": "b8c4c0f6-7a50-4dc1-b1cd-495914fc1384",
-              "versionSpec": "1.*",
+              "versionSpec": "2.*",
               "definitionType": "task"
             },
             "inputs": {
               "target_org": "scratchorg",
-              "test_coverage": "80"
+              "test_coverage": "80",
+              "isTelemetryEnabled": "true"
             }
           },
           {
@@ -167,34 +197,12 @@
             "enabled": true,
             "continueOnError": false,
             "alwaysRun": false,
-            "displayName": "Create a Scratch Org",
+            "displayName": "Delete a Scratch Org ",
             "timeoutInMinutes": 0,
             "condition": "succeeded()",
             "task": {
               "id": "b57f86cb-22fc-4e55-a7e2-fff702f4eb10",
-              "versionSpec": "3.*",
-              "definitionType": "task"
-            },
-            "inputs": {
-              "action": "Create",
-              "config_file_path": "config/project-scratch-def.json",
-              "alias": "scratchorg",
-              "target_org": "scratchorg",
-              "devhub_alias": "HubOrg",
-              "working_directory": ""
-            }
-          },
-          {
-            "environment": {},
-            "enabled": true,
-            "continueOnError": false,
-            "alwaysRun": false,
-            "displayName": "Delete a Scratch Org",
-            "timeoutInMinutes": 0,
-            "condition": "always()",
-            "task": {
-              "id": "b57f86cb-22fc-4e55-a7e2-fff702f4eb10",
-              "versionSpec": "3.*",
+              "versionSpec": "4.*",
               "definitionType": "task"
             },
             "inputs": {
@@ -203,7 +211,8 @@
               "alias": "scratchorg",
               "target_org": "scratchorg",
               "devhub_alias": "HubOrg",
-              "working_directory": ""
+              "working_directory": "",
+              "isTelemetryEnabled": "true"
             }
           }
         ],
@@ -230,39 +239,22 @@
   },
   "repository": {
     "properties": {
-      "apiUrl": "https://api.github.com/repos/azlamsalam/force-di",
-      "branchesUrl": "https://api.github.com/repos/azlamsalam/force-di/branches",
-      "cloneUrl": "https://github.com/azlamsalam/force-di.git",
-      "connectedServiceId": "$GitHub_8a61653b$",
-      "defaultBranch": "master",
       "fullName": "repository",
-      "hasAdminPermissions": "True",
-      "isFork": "True",
+      "cloneUrl": "https://github.com/azlamsalam/force-di.git",
       "isPrivate": "False",
-      "lastUpdated": "11/15/2019 17:49:30",
-      "manageUrl": "https://github.com/azlamsalam/force-di",
-      "nodeId": "MDEwOlJlcG9zaXRvcnkyMDY2ODYzODk=",
-      "ownerId": "15088656",
-      "orgName": "azlamsalam",
-      "refsUrl": "https://api.github.com/repos/azlamsalam/force-di/git/refs",
-      "safeRepository": "azlamsalam/force-di",
-      "shortName": "force-di",
-      "ownerAvatarUrl": "https://avatars1.githubusercontent.com/u/15088656?v=4",
-      "archived": "False",
-      "externalId": "206686389",
-      "ownerIsAUser": "True",
       "checkoutNestedSubmodules": "false",
       "cleanOptions": "0",
       "fetchDepth": "0",
       "gitLfsSupport": "false",
       "reportBuildStatus": "true",
+      "connectedServiceId": "$GitHub_4cfc2437$",
       "skipSyncSource": "false",
       "labelSourcesFormat": "$(build.buildNumber)",
       "labelSources": "0"
     },
-    "id": "azlamsalam/force-di",
+    "id": "https://github.com/azlamsalam/force-di.git",
     "type": "Git",
-    "name": "repository",
+    "name": "GitHub_34ef6d4b",
     "url": "https://github.com/azlamsalam/force-di.git",
     "defaultBranch": "master",
     "clean": "false",
@@ -290,7 +282,7 @@
   "path": "\\",
   "type": "build",
   "queueStatus": "enabled",
-  "revision": 7,
+  "revision": 4,
   "createdDate": "",
   "project": "{}"
 }

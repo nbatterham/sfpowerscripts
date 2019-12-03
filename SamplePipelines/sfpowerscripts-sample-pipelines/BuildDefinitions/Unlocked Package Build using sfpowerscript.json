@@ -1,4 +1,27 @@
 {
+  "options": [
+    {
+      "enabled": false,
+      "definition": {
+        "id": "5d58cc01-7c75-450c-be18-a388ddb129ec"
+      },
+      "inputs": {
+        "branchFilters": "[\"+refs/heads/*\"]",
+        "additionalFields": "{}"
+      }
+    },
+    {
+      "enabled": false,
+      "definition": {
+        "id": "a9db38f9-9fdc-478c-b0f9-464221e58316"
+      },
+      "inputs": {
+        "workItemType": "Bug",
+        "assignToRequestor": "true",
+        "additionalFields": "{}"
+      }
+    }
+  ],
   "variables": {
     "system.debug": {
       "value": "false",
@@ -25,12 +48,13 @@
             "condition": "succeeded()",
             "task": {
               "id": "d8950cd3-2bf4-4b50-bb75-b9358f741951",
-              "versionSpec": "2.*",
+              "versionSpec": "3.*",
               "definitionType": "task"
             },
             "inputs": {
               "sfdx_cli_version": "latest",
-              "sfpowerkit_version": "latest"
+              "sfpowerkit_version": "latest",
+              "isTelemetryEnabled": "true"
             }
           },
           {
@@ -43,7 +67,7 @@
             "condition": "succeeded()",
             "task": {
               "id": "5eb34b28-fdd4-4904-9a3e-d3ff63130f16",
-              "versionSpec": "4.*",
+              "versionSpec": "5.*",
               "definitionType": "task"
             },
             "inputs": {
@@ -54,7 +78,8 @@
               "securitytoken": "$(prod.securitytoken)",
               "alias": "HubOrg",
               "isdevhub": "true",
-              "clientid": ""
+              "clientid": "",
+              "isTelemetryEnabled": "true"
             }
           },
           {
@@ -68,7 +93,7 @@
             "refName": "build_package",
             "task": {
               "id": "f67abc38-a5b8-4196-946e-ba81df4cd57c",
-              "versionSpec": "1.*",
+              "versionSpec": "2.*",
               "definitionType": "task"
             },
             "inputs": {
@@ -76,7 +101,8 @@
               "set_build_number": "true",
               "commit_changes": "true",
               "package": "",
-              "project_directory": ""
+              "project_directory": "",
+              "isTelemetryEnabled": "true"
             }
           },
           {
@@ -89,7 +115,7 @@
             "condition": "succeeded()",
             "task": {
               "id": "a81064ca-c1cc-4ebf-892f-6299fa36b151",
-              "versionSpec": "4.*",
+              "versionSpec": "5.*",
               "definitionType": "task"
             },
             "inputs": {
@@ -103,7 +129,8 @@
               "project_directory": "",
               "devhub_alias": "HubOrg",
               "wait_time": "120",
-              "build_artifact_enabled": "true"
+              "build_artifact_enabled": "true",
+              "isTelemetryEnabled": "true"
             }
           }
         ],
@@ -130,39 +157,22 @@
   },
   "repository": {
     "properties": {
-      "apiUrl": "https://api.github.com/repos/azlamsalam/force-di",
-      "branchesUrl": "https://api.github.com/repos/azlamsalam/force-di/branches",
-      "cloneUrl": "https://github.com/azlamsalam/force-di.git",
-      "connectedServiceId": "$GitHub_b42cd37b$",
-      "defaultBranch": "master",
       "fullName": "repository",
-      "hasAdminPermissions": "True",
-      "isFork": "True",
+      "cloneUrl": "https://github.com/azlamsalam/force-di.git",
       "isPrivate": "False",
-      "lastUpdated": "11/15/2019 17:49:30",
-      "manageUrl": "https://github.com/azlamsalam/force-di",
-      "nodeId": "MDEwOlJlcG9zaXRvcnkyMDY2ODYzODk=",
-      "ownerId": "15088656",
-      "orgName": "azlamsalam",
-      "refsUrl": "https://api.github.com/repos/azlamsalam/force-di/git/refs",
-      "safeRepository": "azlamsalam/force-di",
-      "shortName": "force-di",
-      "ownerAvatarUrl": "https://avatars1.githubusercontent.com/u/15088656?v=4",
-      "archived": "False",
-      "externalId": "206686389",
-      "ownerIsAUser": "True",
       "checkoutNestedSubmodules": "false",
       "cleanOptions": "0",
       "fetchDepth": "0",
       "gitLfsSupport": "false",
       "reportBuildStatus": "true",
+      "connectedServiceId": "$GitHub_ac4cdbec$",
       "skipSyncSource": "false",
       "labelSourcesFormat": "$(build.buildNumber)",
       "labelSources": "0"
     },
-    "id": "azlamsalam/force-di",
+    "id": "https://github.com/azlamsalam/force-di.git",
     "type": "Git",
-    "name": "repository",
+    "name": "GitHub_34ef6d4b",
     "url": "https://github.com/azlamsalam/force-di.git",
     "defaultBranch": "master",
     "clean": "false",
@@ -190,7 +200,7 @@
   "path": "\\",
   "type": "build",
   "queueStatus": "enabled",
-  "revision": 2,
+  "revision": 4,
   "createdDate": "",
   "project": "{}"
 }
