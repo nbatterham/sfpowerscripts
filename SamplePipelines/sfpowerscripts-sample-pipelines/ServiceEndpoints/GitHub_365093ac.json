@@ -1,11 +1,11 @@
 {
   "data": {},
-  "name": "TestSFPowerscripts-code",
+  "name": "GitHub_365093ac",
   "type": "git",
-  "url": "https://dev.azure.com/aglideas/TestSFPowerscripts/_git/TestSFPowerscripts",
+  "url": "https://github.com/azlamsalam/force-di.git",
   "authorization": {
     "parameters": {
-      "username": "",
+      "username": "demogenerator",
       "password": "password"
     },
     "scheme": "UsernamePassword"
