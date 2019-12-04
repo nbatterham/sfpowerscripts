@@ -142,7 +142,7 @@
               "target_org": "scratchorg",
               "project_directory": "",
               "source_directory": "force-di",
-              "checkonly": "true",
+              "checkonly": "false",
               "wait_time": "20",
               "validation_ignore": ".forceignore",
               "testlevel": "NoTestRun",
@@ -199,7 +199,7 @@
             "alwaysRun": false,
             "displayName": "Delete a Scratch Org ",
             "timeoutInMinutes": 0,
-            "condition": "succeeded()",
+            "condition": "always()",
             "task": {
               "id": "b57f86cb-22fc-4e55-a7e2-fff702f4eb10",
               "versionSpec": "4.*",

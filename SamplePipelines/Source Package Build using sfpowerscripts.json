@@ -26,7 +26,7 @@
             "refName": "build",
             "task": {
               "id": "f67abc38-a5b8-4196-946e-ba81df4cd57c",
-              "versionSpec": "1.*",
+              "versionSpec": "2.*",
               "definitionType": "task"
             },
             "inputs": {
@@ -34,7 +34,8 @@
               "set_build_number": "true",
               "commit_changes": "true",
               "package": "",
-              "project_directory": ""
+              "project_directory": "",
+              "isTelemetryEnabled": "true"
             }
           },
           {
@@ -47,13 +48,14 @@
             "condition": "succeeded()",
             "task": {
               "id": "50de2eba-73bc-4cd6-82bc-89853925830c",
-              "versionSpec": "4.*",
+              "versionSpec": "5.*",
               "definitionType": "task"
             },
             "inputs": {
               "package": "force-di",
               "version_number": "build.sfpowerscripts_incremented_project_version",
-              "project_directory": ""
+              "project_directory": "",
+              "isTelemetryEnabled": "true"
             }
           }
         ],
