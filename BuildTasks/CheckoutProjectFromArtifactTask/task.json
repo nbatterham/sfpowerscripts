@@ -21,10 +21,10 @@
       "defaultValue": "github",
       "options": {
         "github": "GitHub",
-        "github_enterprise": "GitHub Enterprise",
+        "githubEnterprise": "GitHub Enterprise",
         "bitbucket": "BitBucket Cloud",
-        "azure_repo": "Azure Repo",
-        "other_git": "Other Git"
+        "azureRepo": "Azure Repo",
+        "otherGit": "Other Git"
       },
       "required": false,
       "helpMarkDown": "Select a version control provider from the dropdown"
@@ -54,7 +54,7 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Specify the service connection name for your Git Hub Enterprise connection. Please note this service connection have permissions to write to the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
-      "visibleRule": "versionControlProvider = github_enterprise"
+      "visibleRule": "versionControlProvider = githubEnterprise"
     },
     {
       "name": "other_git_connection",
@@ -63,7 +63,7 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Specify the service connection name for your Git  connection. Please note this service connection have permissions to write to the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
-      "visibleRule": "versionControlProvider = other_git"
+      "visibleRule": "versionControlProvider = otherGit"
     },
     {
       "name": "artifact",

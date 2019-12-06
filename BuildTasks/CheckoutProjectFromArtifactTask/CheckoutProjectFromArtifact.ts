@@ -19,13 +19,13 @@ async function run() {
       case "github":
         connection = tl.getInput("github_connection", true);
         break;
-      case "github_enterprise":
+      case "githubEnterprise":
         connection = tl.getInput("github_enterprise_connection", true);
         break;
       case "bitbucket":
         connection = tl.getInput("bitbucket", true);
         break;
-      case "other_git":
+      case "otherGit":
         connection = tl.getInput("other_git_connection", true);
         break;
     }
