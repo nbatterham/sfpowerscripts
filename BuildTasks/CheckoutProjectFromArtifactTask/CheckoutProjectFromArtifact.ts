@@ -76,9 +76,9 @@ async function run() {
 
     let remote: string;
     if (version_control_provider == "bitbucket" || version_control_provider == "azureRepo") {
-       remote = `https://x-token-auth:${token}@${package_metadata.repository_url}.git`;
+       remote = `https://x-token-auth:${token}@${package_metadata.repository_url}`;
     } else  if(version_control_provider == "github" || version_control_provider == "githubEnterprise") {
-       remote = `https://${token}:x-oauth-basic@${package_metadata.repository_url}.git`;
+       remote = `https://${token}:x-oauth-basic@${package_metadata.repository_url}`;
     }
 
     const git = simplegit(local_source_directory);
