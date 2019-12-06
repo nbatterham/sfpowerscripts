@@ -10,7 +10,7 @@ async function run() {
   try {
     const artifact = tl.getInput("artifact", true);
     const version_control_provider: string = tl.getInput(
-      "version_control_provider",
+      "versionControlProvider",
       true
     );
 

@@ -15,7 +15,7 @@
   "instanceNameFormat": "Checkout $(artifactname) from Git",
   "inputs": [
     {
-      "name": "version_control_provider",
+      "name": "versionControlProvider",
       "type": "pickList",
       "label": "Select the version control provider",
       "defaultValue": "github",
@@ -36,7 +36,7 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Specify the service connection name for your GitHub connection. Please note this service connection have permissions to write to the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
-      "visibleRule": "version_control_provider = github"
+      "visibleRule": "versionControlProvider = github"
     },
     {
       "name": "bitbucket_connection",
@@ -45,7 +45,7 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Specify the service connection name for your BitBucket connection. Please note this service connection have permissions to write to the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
-      "visibleRule": "version_control_provider = bitbucket"
+      "visibleRule": "versionControlProvider = bitbucket"
     },
     {
       "name": "github_enterprise_connection",
@@ -54,7 +54,7 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Specify the service connection name for your Git Hub Enterprise connection. Please note this service connection have permissions to write to the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
-      "visibleRule": "version_control_provider = github_enterprise"
+      "visibleRule": "versionControlProvider = github_enterprise"
     },
     {
       "name": "other_git_connection",
@@ -63,7 +63,7 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Specify the service connection name for your Git  connection. Please note this service connection have permissions to write to the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
-      "visibleRule": "version_control_provider = other_git"
+      "visibleRule": "versionControlProvider = other_git"
     },
     {
       "name": "artifact",
