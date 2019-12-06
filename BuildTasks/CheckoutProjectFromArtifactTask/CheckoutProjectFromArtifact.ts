@@ -31,7 +31,7 @@ async function run() {
     }
 
     let token;
-    if (version_control_provider == "azure_repo") {
+    if (version_control_provider == "azureRepo") {
       token = tl.getVariable("system.accessToken");
     } else {
       token = tl.getEndpointAuthorizationParameter(
@@ -75,10 +75,10 @@ async function run() {
     console.log(package_metadata);
 
     let remote: string;
-    if (version_control_provider == "bitbucket") {
+    if (version_control_provider == "bitbucket" || version_control_provider == "azureRepo") {
        remote = `https://x-token-auth:${token}@${package_metadata.repository_url}.git`;
-    } else  {
-       remote = `https://${token}@${package_metadata.repository_url}.git`;
+    } else  if(version_control_provider == "github" || version_control_provider == "githubEnterprise") {
+       remote = `https://${token}:x-oauth-basic@${package_metadata.repository_url}.git`;
     }
 
     const git = simplegit(local_source_directory);
