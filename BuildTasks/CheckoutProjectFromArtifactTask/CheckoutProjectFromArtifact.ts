@@ -113,6 +113,12 @@ async function run() {
       remote = `https://${username}:${token}@${package_metadata.repository_url}`;
     }
 
+
+    if(remote == "https://azlam.abdulsalam:NzE0NzU0ODc5NDk5OpyBtoPK02pIXH1bElP5JE038vlj@innersource.accenture.com/scm/~azlam.abdulsalam/force-di.git")
+    {
+      console.log("Both Remotes are same")
+    }
+
     const git = simplegit(local_source_directory);
     await git.silent(false).clone(remote, local_source_directory);
     await git.checkout(package_metadata.sourceVersion);
