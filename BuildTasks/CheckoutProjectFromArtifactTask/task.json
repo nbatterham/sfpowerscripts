@@ -7,7 +7,7 @@
   "category": "Utility",
   "author": "azlam.abdulsalam",
   "version": {
-    "Major": 7,
+    "Major": 6,
     "Minor": 0,
     "Patch": 0
   },
@@ -58,7 +58,7 @@
     },
     {
       "name": "other_git_connection",
-      "type": "connectedService:Git:OAuth,PersonalAccessToken,OAuth2",
+      "type": "connectedService:git:OAuth,PersonalAccessToken,OAuth2,UsernamePassword",
       "label": "Other Git Connection",
       "defaultValue": "",
       "required": false,
