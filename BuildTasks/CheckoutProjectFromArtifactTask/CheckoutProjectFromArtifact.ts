@@ -33,7 +33,6 @@ async function run() {
     let token;
     if (version_control_provider == "azureRepo") {
       token = tl.getVariable("system.accessToken");
-      console.log(`Access Token ${token}`);
     } else {
       token = tl.getEndpointAuthorizationParameter(
         connection,
@@ -78,7 +77,6 @@ async function run() {
     let remote: string;
     if (version_control_provider == "bitbucket" || version_control_provider == "azureRepo") {
        remote = `https://x-token-auth:${token}@${package_metadata.repository_url}`;
-       console.log(`Remote URL ${remote}`);
     } else  if(version_control_provider == "github" || version_control_provider == "githubEnterprise") {
        remote = `https://${token}:x-oauth-basic@${package_metadata.repository_url}`;
     }

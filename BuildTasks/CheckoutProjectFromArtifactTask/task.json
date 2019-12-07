@@ -7,8 +7,8 @@
   "category": "Utility",
   "author": "azlam.abdulsalam",
   "version": {
-    "Major": 6,
-    "Minor": 3,
+    "Major": 7,
+    "Minor": 0`,
     "Patch": 0
   },
   "runsOn": ["Agent"],
@@ -31,7 +31,7 @@
     },
     {
       "name": "github_connection",
-      "type": "connectedService:github:OAuth,PersonalAccessToken",
+      "type": "connectedService:github:OAuth,PersonalAccessToken,OAuth2",
       "label": "GitHub Connection",
       "defaultValue": "",
       "required": false,
@@ -40,7 +40,7 @@
     },
     {
       "name": "bitbucket_connection",
-      "type": "connectedService:bitbucket:OAuth,PersonalAccessToken",
+      "type": "connectedService:bitbucket:OAuth,PersonalAccessToken,OAuth2",
       "label": "BitBucket Connection",
       "defaultValue": "",
       "required": false,
@@ -49,7 +49,7 @@
     },
     {
       "name": "github_enterprise_connection",
-      "type": "connectedService:githubenterprise:OAuth,PersonalAccessToken",
+      "type": "connectedService:githubenterprise:OAuth,PersonalAccessToken,OAuth2",
       "label": "GitHub Enterprise Connection",
       "defaultValue": "",
       "required": false,
