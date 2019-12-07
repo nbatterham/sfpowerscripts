@@ -35,7 +35,7 @@ async function run() {
     }
 
     let token;
-    let username;
+    let username:string;
     if (version_control_provider == "azureRepo") {
       token = tl.getVariable("system.accessToken");
     } else if(version_control_provider == "github" ||version_control_provider == "githubEnterprise" ) {
@@ -62,6 +62,12 @@ async function run() {
         "password",
         true
       );
+
+      
+
+     console.log(`USERNAME ${username.length}`)
+     console.log(`TOKEN ${token.length}`)
+
     }
 
     let artifact_directory = tl.getVariable("system.artifactsDirectory");
@@ -112,6 +118,7 @@ async function run() {
     {
       remote = `https://${username}:${token}@${package_metadata.repository_url}`;
     }
+
 
 
     if(remote == "https://azlam.abdulsalam:NzE0NzU0ODc5NDk5OpyBtoPK02pIXH1bElP5JE038vlj@innersource.accenture.com/scm/~azlam.abdulsalam/force-di.git")
