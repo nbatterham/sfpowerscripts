@@ -35,12 +35,31 @@ async function run() {
     }
 
     let token;
+    let username;
     if (version_control_provider == "azureRepo") {
       token = tl.getVariable("system.accessToken");
-    } else {
+    } else if(version_control_provider == "github" ||version_control_provider == "githubEnterprise" ) {
       token = tl.getEndpointAuthorizationParameter(
         connection,
         "AccessToken",
+        true
+      );
+    } else if(version_control_provider == "bitbucket") {
+      token = tl.getEndpointAuthorizationParameter(
+        connection,
+        "AccessToken",
+        true
+      );
+    } else
+    {
+      username = tl.getEndpointAuthorizationParameter(
+        connection,
+        "username",
+        true
+      );
+      token = tl.getEndpointAuthorizationParameter(
+        connection,
+        "password",
         true
       );
     }
@@ -89,6 +108,9 @@ async function run() {
        remote = `https://x-token-auth:${token}@${package_metadata.repository_url}`;
     } else  if(version_control_provider == "github" || version_control_provider == "githubEnterprise") {
        remote = `https://${token}:x-oauth-basic@${package_metadata.repository_url}`;
+    } else if (version_control_provider == "otherGit")
+    {
+      remote = `https://${username}:${token}@${package_metadata.repository_url}`;
     }
 
     const git = simplegit(local_source_directory);
