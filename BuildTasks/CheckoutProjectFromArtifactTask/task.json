@@ -7,7 +7,7 @@
   "category": "Utility",
   "author": "azlam.abdulsalam",
   "version": {
-    "Major": 7,
+    "Major": 8,
     "Minor": 0,
     "Patch": 0
   },
@@ -40,7 +40,7 @@
     },
     {
       "name": "bitbucket_connection",
-      "type": "connectedService:bitbucket:PersonalAccessToken",
+      "type": "connectedService:bitbucket",
       "label": "BitBucket Connection",
       "defaultValue": "",
       "required": false,
