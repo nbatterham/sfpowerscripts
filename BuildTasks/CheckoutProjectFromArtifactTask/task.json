@@ -2,13 +2,13 @@
   "id": "7915fcdb-f02a-43ae-92bd-494993a31e5d",
   "name": "sfpwowerscript-checkoutprojectfromartifact-task",
   "friendlyName": "Checkout the project from Git mentioned in the artifact",
-  "description": "Use this utility task to checkout the mentioned commit from a sfpowerscripts build artifact and mostly used in Release Pipelines, This task is part of SFPowerscripts. Read more at https://bit.ly/2LuJjLJ",
+  "description": "Use this utility task to checkout the mentioned commit from a sfpowerscripts build artifact for checking out associated code in Release Pipelines, This task is part of SFPowerscripts. Read more at https://bit.ly/2LuJjLJ",
   "helpMarkDown": "",
   "category": "Utility",
   "author": "azlam.abdulsalam",
   "version": {
     "Major": 6,
-    "Minor": 0,
+    "Minor": 1,
     "Patch": 0
   },
   "runsOn": ["Agent"],
@@ -35,7 +35,7 @@
       "label": "GitHub Connection",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Specify the service connection name for your GitHub connection. Please note this service connection have permissions to write to the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
+      "helpMarkDown": "Specify the service connection name for your GitHub connection. Please note this service connection have permissions to read to the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
       "visibleRule": "versionControlProvider = github"
     },
     {
@@ -44,7 +44,7 @@
       "label": "BitBucket Connection",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Specify the service connection name for your BitBucket connection. Please note this service connection have permissions to write to the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
+      "helpMarkDown": "Specify the service connection name for your BitBucket connection. Please note this service connection have permissions to read to the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
       "visibleRule": "versionControlProvider = bitbucket"
     },
     {
@@ -53,7 +53,7 @@
       "label": "GitHub Enterprise Connection",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Specify the service connection name for your Git Hub Enterprise connection. Please note this service connection have permissions to write to the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
+      "helpMarkDown": "Specify the service connection name for your Git Hub Enterprise connection. Please note this service connection have permissions to read from the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
       "visibleRule": "versionControlProvider = githubEnterprise"
     },
     {
@@ -62,7 +62,7 @@
       "label": "Other Git Connection",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Specify the service connection name for your Git  connection. Please note this service connection have permissions to write to the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
+      "helpMarkDown": "Specify the service connection name for your Git  connection. Please note this service connection have permissions to read from the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
       "visibleRule": "versionControlProvider = otherGit"
     },
     {

@@ -8,6 +8,10 @@ import { AppInsights } from "../Common/AppInsights";
 
 async function run() {
   try {
+
+    AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled", true));
+
+
     const artifact = tl.getInput("artifact", true);
     const version_control_provider: string = tl.getInput(
       "versionControlProvider",
@@ -37,13 +41,13 @@ async function run() {
       token = tl.getEndpointAuthorizationParameter(
         connection,
         "AccessToken",
-        true
+        false
       );
     }
 
     let artifact_directory = tl.getVariable("system.artifactsDirectory");
 
-    AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled", true));
+   
 
     let package_version_id_file_path = path.join(
       artifact_directory,
@@ -57,6 +61,11 @@ async function run() {
       .toString();
 
     let package_metadata = JSON.parse(package_metadata_json);
+
+    
+    console.log(package_metadata);
+
+
     let local_source_directory = path.join(
       artifact_directory,
       artifact,
@@ -65,6 +74,8 @@ async function run() {
 
     fs.mkdirSync(local_source_directory, { recursive: true });
 
+    console.log(`Source Directory created at ${local_source_directory}`)
+
     //Strinp https
     const removeHttps = input => input.replace(/^https?:\/\//, "");
 
@@ -72,7 +83,6 @@ async function run() {
       package_metadata.repository_url
     );
 
-    console.log(package_metadata);
 
     let remote: string;
     if (version_control_provider == "bitbucket" || version_control_provider == "azureRepo") {
@@ -99,7 +109,8 @@ async function run() {
       "project_checked_out"
     );
   } catch (err) {
-    AppInsights.trackExcepiton("sfpwowerscripts-createsourcepackage-task", err);
+    
+    AppInsights.trackExcepiton("sfpwowerscripts-checkoutprojectfromartifact-task", err);
     tl.setResult(tl.TaskResult.Failed, err.message);
   }
 }
