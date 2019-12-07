@@ -7,7 +7,7 @@
   "category": "Utility",
   "author": "azlam.abdulsalam",
   "version": {
-    "Major": 8,
+    "Major": 9,
     "Minor": 0,
     "Patch": 0
   },
@@ -40,7 +40,7 @@
     },
     {
       "name": "bitbucket_connection",
-      "type": "connectedService:bitbucket",
+      "type": "connectedService:bitbucket:OAuth,PersonalAccessToken,OAuth2",
       "label": "BitBucket Connection",
       "defaultValue": "",
       "required": false,
@@ -58,7 +58,7 @@
     },
     {
       "name": "other_git_connection",
-      "type": "connectedService:git:OAuth,PersonalAccessToken,OAuth2,UsernamePassword",
+      "type": "connectedService:git:UsernamePassword",
       "label": "Other Git Connection",
       "defaultValue": "",
       "required": false,

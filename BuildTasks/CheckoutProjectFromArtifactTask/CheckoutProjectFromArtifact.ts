@@ -27,7 +27,7 @@ async function run() {
         connection = tl.getInput("github_enterprise_connection", true);
         break;
       case "bitbucket":
-        connection = tl.getInput("bitbucket", true);
+        connection = tl.getInput("bitbucket_connection", true);
         break;
       case "otherGit":
         connection = tl.getInput("other_git_connection", true);
