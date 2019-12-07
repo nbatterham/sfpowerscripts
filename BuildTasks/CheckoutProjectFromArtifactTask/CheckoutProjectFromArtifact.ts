@@ -41,7 +41,7 @@ async function run() {
       token = tl.getEndpointAuthorizationParameter(
         connection,
         "AccessToken",
-        false
+        true
       );
     }
 

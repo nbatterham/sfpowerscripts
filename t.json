@@ -1,0 +1,276 @@
+{
+  "count": 9,
+  "value": [
+    {
+      "data": {
+        "AvatarUrl": "https://avatars1.githubusercontent.com/u/15088656?v=4"
+      },
+      "id": "22830685-9349-460f-b4b4-f2890df5e47b",
+      "name": "github.com_azlamsalam",
+      "type": "github",
+      "url": "https://github.com",
+      "createdBy": {
+        "displayName": "Azlam Abdulsalam",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/A9a2aaa21-b054-44a5-a165-89c27a01efca/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+          }
+        },
+        "id": "cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "uniqueName": "azlam.salam@outlook.com",
+        "imageUrl": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
+        "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+      },
+      "description": "",
+      "authorization": {
+        "parameters": {
+          "ConfigurationId": "9b079bb9-758f-452e-a3e8-8deed3054af2"
+        },
+        "scheme": "OAuth"
+      },
+      "isShared": false,
+      "isReady": true,
+      "owner": "Library",
+      "serviceEndpointProjectReferences": null
+    },
+    {
+      "data": {},
+      "id": "5e60a6a8-4cc7-4820-8c25-3579857b572f",
+      "name": "GitHub_1919736e",
+      "type": "git",
+      "url": "https://github.com/azlamsalam/force-di.git",
+      "createdBy": {
+        "displayName": "Azlam Abdulsalam",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/A9a2aaa21-b054-44a5-a165-89c27a01efca/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+          }
+        },
+        "id": "cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "uniqueName": "azlam.salam@outlook.com",
+        "imageUrl": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
+        "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+      },
+      "description": "",
+      "authorization": {
+        "parameters": { "username": "demogenerator" },
+        "scheme": "UsernamePassword"
+      },
+      "isShared": false,
+      "isReady": true,
+      "owner": "Library",
+      "serviceEndpointProjectReferences": null
+    },
+    {
+      "data": {},
+      "id": "1359d02e-5eaf-49b8-8cd2-232d9c55b76a",
+      "name": "GitHub_8a61653b",
+      "type": "git",
+      "url": "https://github.com/azlamsalam/force-di.git",
+      "createdBy": {
+        "displayName": "Azlam Abdulsalam",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/A9a2aaa21-b054-44a5-a165-89c27a01efca/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+          }
+        },
+        "id": "cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "uniqueName": "azlam.salam@outlook.com",
+        "imageUrl": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
+        "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+      },
+      "description": "",
+      "authorization": {
+        "parameters": { "username": "demogenerator" },
+        "scheme": "UsernamePassword"
+      },
+      "isShared": false,
+      "isReady": true,
+      "owner": "Library",
+      "serviceEndpointProjectReferences": null
+    },
+    {
+      "data": {},
+      "id": "931763c6-20ae-4a37-bd9b-92eb8220261f",
+      "name": "GitHub_b42cd37b",
+      "type": "git",
+      "url": "https://github.com/azlamsalam/force-di.git",
+      "createdBy": {
+        "displayName": "Azlam Abdulsalam",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/A9a2aaa21-b054-44a5-a165-89c27a01efca/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+          }
+        },
+        "id": "cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "uniqueName": "azlam.salam@outlook.com",
+        "imageUrl": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
+        "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+      },
+      "description": "",
+      "authorization": {
+        "parameters": { "username": "demogenerator" },
+        "scheme": "UsernamePassword"
+      },
+      "isShared": false,
+      "isReady": true,
+      "owner": "Library",
+      "serviceEndpointProjectReferences": null
+    },
+    {
+      "data": {},
+      "id": "473a3163-1c4e-47f5-a899-aa0e2d9060b5",
+      "name": "TestSFPowerscripts-code",
+      "type": "git",
+      "url": "https://dev.azure.com/aglideas/TestSFPowerscripts/_git/TestSFPowerscripts",
+      "createdBy": {
+        "displayName": "Azlam Abdulsalam",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/A9a2aaa21-b054-44a5-a165-89c27a01efca/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+          }
+        },
+        "id": "cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "uniqueName": "azlam.salam@outlook.com",
+        "imageUrl": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
+        "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+      },
+      "description": "",
+      "authorization": {
+        "parameters": { "username": "" },
+        "scheme": "UsernamePassword"
+      },
+      "isShared": false,
+      "isReady": true,
+      "owner": "Library",
+      "serviceEndpointProjectReferences": null
+    },
+    {
+      "data": {
+        "AvatarUrl": "https://avatars1.githubusercontent.com/u/15088656?v=4"
+      },
+      "id": "d5a47a85-7c99-4b6f-8e7c-c3cc1b648ce3",
+      "name": "github",
+      "type": "github",
+      "url": "https://github.com",
+      "createdBy": {
+        "displayName": "Azlam Abdulsalam",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/A9a2aaa21-b054-44a5-a165-89c27a01efca/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+          }
+        },
+        "id": "cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "uniqueName": "azlam.salam@outlook.com",
+        "imageUrl": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
+        "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+      },
+      "description": "",
+      "authorization": {
+        "parameters": {
+          "ConfigurationId": "9b079bb9-758f-452e-a3e8-8deed3054af2"
+        },
+        "scheme": "OAuth"
+      },
+      "isShared": false,
+      "isReady": true,
+      "owner": "Library",
+      "serviceEndpointProjectReferences": null
+    },
+    {
+      "data": { "displayName": "azlamsalam" },
+      "id": "d5e30b78-c42d-4613-ae6f-b318cf6bb5fe",
+      "name": "azlamsalam",
+      "type": "bitbucket",
+      "url": "https://bitbucket.org",
+      "createdBy": {
+        "displayName": "Azlam Abdulsalam",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/A9a2aaa21-b054-44a5-a165-89c27a01efca/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+          }
+        },
+        "id": "cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "uniqueName": "azlam.salam@outlook.com",
+        "imageUrl": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
+        "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+      },
+      "description": "",
+      "authorization": {
+        "parameters": {
+          "ConfigurationId": "744a24d8-54a8-4947-9320-d63745191082"
+        },
+        "scheme": "OAuth2"
+      },
+      "isShared": false,
+      "isReady": true,
+      "owner": "Library",
+      "serviceEndpointProjectReferences": null
+    },
+    {
+      "data": {},
+      "id": "6cc20184-cef4-4489-88e5-4537410b1004",
+      "name": "BitBucket Enterprise",
+      "type": "git",
+      "url": "https://innersource.accenture.com/scm/~azlam.abdulsalam/force-di.git",
+      "createdBy": {
+        "displayName": "Azlam Abdulsalam",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/A9a2aaa21-b054-44a5-a165-89c27a01efca/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+          }
+        },
+        "id": "cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "uniqueName": "azlam.salam@outlook.com",
+        "imageUrl": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
+        "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+      },
+      "description": "",
+      "authorization": {
+        "parameters": { "username": "azlam.abdulsalam" },
+        "scheme": "UsernamePassword"
+      },
+      "isShared": false,
+      "isReady": true,
+      "owner": "Library",
+      "serviceEndpointProjectReferences": null
+    },
+    {
+      "data": { "accessExternalGitServer": "true" },
+      "id": "c2c2e6fc-0691-4240-addd-9424e85f724c",
+      "name": "InnerSource",
+      "type": "git",
+      "url": "https://innersource.accenture.com/scm/~azlam.abdulsalam/force-di.git",
+      "createdBy": {
+        "displayName": "Azlam Abdulsalam",
+        "url": "https://spsprodeau1.vssps.visualstudio.com/A9a2aaa21-b054-44a5-a165-89c27a01efca/_apis/Identities/cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+          }
+        },
+        "id": "cfbd1d3a-f0ed-4715-8e77-b389c8771c4d",
+        "uniqueName": "azlam.salam@outlook.com",
+        "imageUrl": "https://dev.azure.com/safebot/_apis/GraphProfile/MemberAvatars/msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky",
+        "descriptor": "msa.MWZhYzU1ZjMtMjM2My03YjZkLTgwOWQtZjA0M2YxOThkNzky"
+      },
+      "description": "",
+      "authorization": {
+        "parameters": { "username": "azlam.abdulsalam" },
+        "scheme": "UsernamePassword"
+      },
+      "isShared": false,
+      "isReady": true,
+      "owner": "Library",
+      "serviceEndpointProjectReferences": null
+    }
+  ]
+}

@@ -8,7 +8,7 @@
   "author": "azlam.abdulsalam",
   "version": {
     "Major": 6,
-    "Minor": 1,
+    "Minor": 2,
     "Patch": 0
   },
   "runsOn": ["Agent"],
@@ -68,10 +68,10 @@
     {
       "name": "artifact",
       "type": "string",
-      "label": "Name of the source artifact that needs to be checked out",
+      "label": "Name of the  artifact attached to this pipeline that needs to be checked out",
       "defaultValue": "_source",
       "required": true,
-      "helpMarkDown": "Name of the artifact that is generated from the build pipeline  for a source format deployment, Please note this is not a generic utility and will only work for artifacts created by SFPowerkit"
+      "helpMarkDown": "Name of the artifact that is generated from the build pipeline  for checking out source,  Please note this is not a generic utility and will only work for artifacts created by SFPowerkit"
     },
     {
       "name": "isTelemetryEnabled",
