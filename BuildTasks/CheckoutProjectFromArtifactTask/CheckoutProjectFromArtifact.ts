@@ -52,21 +52,16 @@ async function run() {
       );
     } else
     {
-      username = tl.getEndpointAuthorizationParameter(
-        connection,
-        "username",
-        true
-      );
-      token = tl.getEndpointAuthorizationParameter(
-        connection,
-        "password",
-        true
-      );
 
+     
+
+      var auth = tl.getEndpointAuthorization(connection, false);
+      username = getAuthParameter(auth, 'username');
+      token = getAuthParameter(auth, 'password');
       
 
-     console.log(`USERNAME ${username.length}`)
-     console.log(`TOKEN ${token.length}`)
+     console.log(`USERNAME  ${username} ${username.length}`)
+     console.log(`TOKEN ${token} ${token.length}`)
 
     }
 
@@ -148,6 +143,20 @@ async function run() {
     AppInsights.trackExcepiton("sfpwowerscripts-checkoutprojectfromartifact-task", err);
     tl.setResult(tl.TaskResult.Failed, err.message);
   }
+}
+
+function getAuthParameter(auth, paramName) {
+  var paramValue = null;
+  var parameters = Object.getOwnPropertyNames(auth['parameters']);
+  var keyName;
+  parameters.some(function (key) {
+      if (key.toLowerCase() === paramName.toLowerCase()) {
+          keyName = key;
+          return true;
+      }
+  });
+  paramValue = auth['parameters'][keyName];
+  return paramValue;
 }
 
 run();
