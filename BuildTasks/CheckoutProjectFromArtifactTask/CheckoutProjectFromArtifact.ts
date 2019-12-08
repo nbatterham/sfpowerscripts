@@ -116,14 +116,14 @@ async function run() {
     {
       remote = `https://${username}:${token}@${repository_url}`;
 
-    
+     // git clone https://azlam.abdulsalam:NzE0NzU0ODc5NDk5OpyBtoPK02pIXH1bElP5JE038vlj@innersource.accenture.com/scm/~azlam.abdulsalam/force-di.git forcedi2
      
      
     }
 
 
 
-    child_process.execSync(`git clone ${remote} ${local_source_directory}`)
+    child_process.execSync(`git clone https://azlam.abdulsalam:NzE0NzU0ODc5NDk5OpyBtoPK02pIXH1bElP5JE038vlj@innersource.accenture.com/scm/~azlam.abdulsalam/force-di.git ${local_source_directory}`)
    // await git.silent(false).clone(remote, local_source_directory);
     await git.checkout(package_metadata.sourceVersion);
 
