@@ -4,6 +4,7 @@ var fs = require("fs");
 const path = require("path");
 import simplegit from "simple-git/promise";
 import { AppInsights } from "../Common/AppInsights";
+var shell = require("shelljs");
 
 
 async function run() {
@@ -99,30 +100,29 @@ async function run() {
     //Strinp https
     const removeHttps = input => input.replace(/^https?:\/\//, "");
 
-    package_metadata.repository_url = removeHttps(
+    let repository_url = removeHttps(
       package_metadata.repository_url
     );
 
 
+    const git = simplegit(local_source_directory);
+
     let remote: string;
     if (version_control_provider == "bitbucket" || version_control_provider == "azureRepo") {
-       remote = `https://x-token-auth:${token}@${package_metadata.repository_url}`;
+       remote = `https://x-token-auth:${token}@${repository_url}`;
     } else  if(version_control_provider == "github" || version_control_provider == "githubEnterprise") {
-       remote = `https://${token}:x-oauth-basic@${package_metadata.repository_url}`;
+       remote = `https://${token}:x-oauth-basic@${repository_url}`;
     } else if (version_control_provider == "otherGit")
     {
       remote = `https://${username}:${token}@${package_metadata.repository_url}`;
-      remote = `https://azlam.abdulsalam:NzE0NzU0ODc5NDk5OpyBtoPK02pIXH1bElP5JE038vlj@innersource.accenture.com/scm/~azlam.abdulsalam/force-di.git`
+
+      await git.addConfig(`${package_metadata.repository_url}.extraheader`,`AUTHORIZATION: basic ${auth}`);
+     
     }
 
 
 
-    if(remote == "https://azlam.abdulsalam:NzE0NzU0ODc5NDk5OpyBtoPK02pIXH1bElP5JE038vlj@innersource.accenture.com/scm/~azlam.abdulsalam/force-di.git")
-    {
-      console.log("Both Remotes are same")
-    }
-
-    const git = simplegit(local_source_directory);
+   
     await git.silent(false).clone(remote, local_source_directory);
     await git.checkout(package_metadata.sourceVersion);
 
