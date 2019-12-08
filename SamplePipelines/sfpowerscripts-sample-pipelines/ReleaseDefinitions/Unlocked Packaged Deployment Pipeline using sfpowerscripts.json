@@ -1,6 +1,6 @@
 {
   "source": "userInterface",
-  "revision": 4,
+  "revision": 3,
   "description": null,
   "createdBy": "{}",
   "createdOn": "",
@@ -11,7 +11,7 @@
   "variableGroups": [],
   "environments": [
     {
-      "id": 1,
+      "id": 2,
       "name": "ST",
       "rank": 1,
       "owner": {
@@ -31,7 +31,7 @@
             "rank": 1,
             "isAutomated": true,
             "isNotificationOn": false,
-            "id": 1
+            "id": 4
           }
         ],
         "approvalOptions": {
@@ -44,7 +44,7 @@
         }
       },
       "deployStep": {
-        "id": 2
+        "id": 5
       },
       "postDeployApprovals": {
         "approvals": [
@@ -52,7 +52,7 @@
             "rank": 1,
             "isAutomated": true,
             "isNotificationOn": false,
-            "id": 3
+            "id": 6
           }
         ],
         "approvalOptions": {
@@ -93,7 +93,7 @@
             {
               "environment": {},
               "taskId": "d8950cd3-2bf4-4b50-bb75-b9358f741951",
-              "version": "2.*",
+              "version": "3.*",
               "name": "Install SFDX",
               "refName": "",
               "enabled": true,
@@ -105,14 +105,15 @@
               "condition": "succeeded()",
               "inputs": {
                 "sfdx_cli_version": "latest",
-                "sfpowerkit_version": "latest"
+                "sfpowerkit_version": "latest",
+                "isTelemetryEnabled": "true"
               }
             },
             {
               "environment": {},
               "taskId": "5eb34b28-fdd4-4904-9a3e-d3ff63130f16",
-              "version": "4.*",
-              "name": "Authenticate  HubOrg using Credentials",
+              "version": "5.*",
+              "name": "Authenticate HubOrg using Credentials",
               "refName": "",
               "enabled": true,
               "alwaysRun": false,
@@ -129,13 +130,14 @@
                 "securitytoken": "$(prod.securitytoken)",
                 "alias": "HubOrg",
                 "isdevhub": "true",
-                "clientid": ""
+                "clientid": "",
+                "isTelemetryEnabled": "true"
               }
             },
             {
               "environment": {},
               "taskId": "5eb34b28-fdd4-4904-9a3e-d3ff63130f16",
-              "version": "4.*",
+              "version": "5.*",
               "name": "Authenticate $(env.name) using Credentials ",
               "refName": "",
               "enabled": true,
@@ -150,16 +152,17 @@
                 "jwt_key_file": "",
                 "username": "$(env.user)",
                 "password": "$(env.password)",
-                "securitytoken": "$(env.securitytoken)",
+                "securitytoken": "$(env.oken)",
                 "alias": "$(env.name)",
                 "isdevhub": "false",
-                "clientid": ""
+                "clientid": "",
+                "isTelemetryEnabled": "true"
               }
             },
             {
               "environment": {},
               "taskId": "7af1df5d-8a5a-4eaa-9df1-968393c43397",
-              "version": "4.*",
+              "version": "5.*",
               "name": "Install a version of  force-di to $(env.name) ",
               "refName": "",
               "enabled": true,
@@ -180,7 +183,8 @@
                 "security_type": "AllUsers",
                 "upgrade_type": "Mixed",
                 "wait_time": "120",
-                "publish_wait_time": "10"
+                "publish_wait_time": "10",
+                "isTelemetryEnabled": "true"
               }
             }
           ]
@@ -212,7 +216,7 @@
       "schedules": [],
       "currentRelease": {
         "id": 0,
-        "url": "https://vsrm.dev.azure.com/aglideas/84ea38b2-6e6f-44f0-a2fb-fe10f4d41015/_apis/Release/releases/0",
+        "url": "https://vsrm.dev.azure.com/sfpowerscriptstest/e58e8f33-4ba8-4d6c-b2d6-30d8deb9ed77/_apis/Release/releases/0",
         "_links": {}
       },
       "retentionPolicy": {
