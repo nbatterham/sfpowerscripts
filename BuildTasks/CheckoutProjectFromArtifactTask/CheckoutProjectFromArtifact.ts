@@ -6,12 +6,9 @@ import simplegit from "simple-git/promise";
 import { AppInsights } from "../Common/AppInsights";
 var shell = require("shelljs");
 
-
 async function run() {
   try {
-
     AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled", true));
-
 
     const artifact = tl.getInput("artifact", true);
     const version_control_provider: string = tl.getInput(
@@ -30,45 +27,33 @@ async function run() {
       case "bitbucket":
         connection = tl.getInput("bitbucket_connection", true);
         break;
-      case "otherGit":
-        connection = tl.getInput("other_git_connection", true);
-        break;
     }
 
     let token;
-    let username:string;
+    let username: string;
     if (version_control_provider == "azureRepo") {
       token = tl.getVariable("system.accessToken");
-    } else if(version_control_provider == "github" ||version_control_provider == "githubEnterprise" ) {
+    } else if (
+      version_control_provider == "github" ||
+      version_control_provider == "githubEnterprise"
+    ) {
       token = tl.getEndpointAuthorizationParameter(
         connection,
         "AccessToken",
         true
       );
-    } else if(version_control_provider == "bitbucket") {
+    } else if (version_control_provider == "bitbucket") {
       token = tl.getEndpointAuthorizationParameter(
         connection,
         "AccessToken",
         true
       );
-    } else
-    {
-
-     
-
-      var auth = tl.getEndpointAuthorization(connection, false);
-      username = getAuthParameter(auth, 'username');
-      token = getAuthParameter(auth, 'password');
-      
-
-     console.log(`USERNAME  ${username} ${username.length}`)
-     console.log(`TOKEN ${token} ${token.length}`)
-
+    } else {
+      username = tl.getInput("username", true);
+      token = tl.getInput("password", true);
     }
 
     let artifact_directory = tl.getVariable("system.artifactsDirectory");
-
-   
 
     let package_version_id_file_path = path.join(
       artifact_directory,
@@ -83,9 +68,7 @@ async function run() {
 
     let package_metadata = JSON.parse(package_metadata_json);
 
-    
     console.log(package_metadata);
-
 
     let local_source_directory = path.join(
       artifact_directory,
@@ -95,36 +78,31 @@ async function run() {
 
     fs.mkdirSync(local_source_directory, { recursive: true });
 
-    console.log(`Source Directory created at ${local_source_directory}`)
+    console.log(`Source Directory created at ${local_source_directory}`);
 
     //Strinp https
     const removeHttps = input => input.replace(/^https?:\/\//, "");
 
-    let repository_url = removeHttps(
-      package_metadata.repository_url
-    );
-
+    let repository_url = removeHttps(package_metadata.repository_url);
 
     const git = simplegit(local_source_directory);
 
     let remote: string;
-    if (version_control_provider == "bitbucket" || version_control_provider == "azureRepo") {
-       remote = `https://x-token-auth:${token}@${repository_url}`;
-    } else  if(version_control_provider == "github" || version_control_provider == "githubEnterprise") {
-       remote = `https://${token}:x-oauth-basic@${repository_url}`;
-    } else if (version_control_provider == "otherGit")
-    {
+    if (
+      version_control_provider == "bitbucket" ||
+      version_control_provider == "azureRepo"
+    ) {
+      remote = `https://x-token-auth:${token}@${repository_url}`;
+    } else if (
+      version_control_provider == "github" ||
+      version_control_provider == "githubEnterprise"
+    ) {
+      remote = `https://${token}:x-oauth-basic@${repository_url}`;
+    } else if (version_control_provider == "otherGit") {
       remote = `https://${username}:${token}@${repository_url}`;
-
-     // git clone https://azlam.abdulsalam:NzE0NzU0ODc5NDk5OpyBtoPK02pIXH1bElP5JE038vlj@innersource.accenture.com/scm/~azlam.abdulsalam/force-di.git forcedi2
-     
-     
     }
 
-
-
-    child_process.execSync(`git clone https://azlam.abdulsalam:NzE0NzU0ODc5NDk5OpyBtoPK02pIXH1bElP5JE038vlj@innersource.accenture.com/scm/~azlam.abdulsalam/force-di.git ${local_source_directory}`)
-   // await git.silent(false).clone(remote, local_source_directory);
+    await git.silent(false).clone(remote, local_source_directory);
     await git.checkout(package_metadata.sourceVersion);
 
     console.log(`Checked Out ${package_metadata.sourceVersion} sucessfully`);
@@ -141,24 +119,12 @@ async function run() {
       "project_checked_out"
     );
   } catch (err) {
-    
-    AppInsights.trackExcepiton("sfpwowerscripts-checkoutprojectfromartifact-task", err);
+    AppInsights.trackExcepiton(
+      "sfpwowerscripts-checkoutprojectfromartifact-task",
+      err
+    );
     tl.setResult(tl.TaskResult.Failed, err.message);
   }
-}
-
-function getAuthParameter(auth, paramName) {
-  var paramValue = null;
-  var parameters = Object.getOwnPropertyNames(auth['parameters']);
-  var keyName;
-  parameters.some(function (key) {
-      if (key.toLowerCase() === paramName.toLowerCase()) {
-          keyName = key;
-          return true;
-      }
-  });
-  paramValue = auth['parameters'][keyName];
-  return paramValue;
 }
 
 run();

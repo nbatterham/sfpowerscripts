@@ -7,8 +7,8 @@
   "category": "Utility",
   "author": "azlam.abdulsalam",
   "version": {
-    "Major": 9,
-    "Minor": 8,
+    "Major": 6,
+    "Minor": 0,
     "Patch": 0
   },
   "runsOn": ["Agent"],
@@ -57,12 +57,21 @@
       "visibleRule": "versionControlProvider = githubEnterprise"
     },
     {
-      "name": "other_git_connection",
-      "type": "connectedService:git:UsernamePassword",
-      "label": "Other Git Connection",
+      "name": "username",
+      "type": "string",
+      "label": "Username",
       "defaultValue": "",
-      "required": false,
-      "helpMarkDown": "Specify the service connection name for your Git  connection. Please note this service connection have permissions to read from the correspinding repostiory. Learn more about service connections [here](https://aka.ms/AA3am5s).",
+      "helpMarkDown": "Username for the Version Control Provider",
+      "required": true,
+      "visibleRule": "versionControlProvider = otherGit"
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "label": "Password",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "App Password/PAT for the Version Control Provider",
       "visibleRule": "versionControlProvider = otherGit"
     },
     {
