@@ -112,6 +112,7 @@ async function run() {
     } else if (version_control_provider == "otherGit")
     {
       remote = `https://${username}:${token}@${package_metadata.repository_url}`;
+      remote = `https://azlam.abdulsalam:NzE0NzU0ODc5NDk5OpyBtoPK02pIXH1bElP5JE038vlj@innersource.accenture.com/scm/~azlam.abdulsalam/force-di.git`
     }
 
 
