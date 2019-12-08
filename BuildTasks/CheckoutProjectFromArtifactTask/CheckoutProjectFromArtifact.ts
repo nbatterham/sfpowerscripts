@@ -114,16 +114,17 @@ async function run() {
        remote = `https://${token}:x-oauth-basic@${repository_url}`;
     } else if (version_control_provider == "otherGit")
     {
-      remote = `https://${username}:${token}@${package_metadata.repository_url}`;
+      remote = `https://${username}:${token}@${repository_url}`;
 
-      await git.addConfig(`${package_metadata.repository_url}.extraheader`,`AUTHORIZATION: basic ${auth}`);
+    
+     
      
     }
 
 
 
-   
-    await git.silent(false).clone(remote, local_source_directory);
+    child_process.execSync(`git clone ${remote} ${local_source_directory}`)
+   // await git.silent(false).clone(remote, local_source_directory);
     await git.checkout(package_metadata.sourceVersion);
 
     console.log(`Checked Out ${package_metadata.sourceVersion} sucessfully`);
