@@ -14,7 +14,7 @@
     "runsOn": [
         "Agent"
     ],
-    "instanceNameFormat": "Validate  Apex Tests  Coverage for  $(test_coverage) % in $(target_org)",
+    "instanceNameFormat": "Validate  Apex Tests  Coverage for  $(test_coverage) % for package $(package_version_id)",
     "inputs": [
         {
             "name": "target_org",
