@@ -5,6 +5,11 @@ import { AppInsights } from "../Common/AppInsights";
 
 async function run() {
   try {
+
+    AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled",true));
+    AppInsights.trackTask("sfpwowerscripts-createunlockedpackage-task");
+
+
     let sfdx_package: string = tl.getInput("package", true);
     let version_number: string = tl.getInput("version_number", false);
     let tag: string = tl.getInput("tag", false);
@@ -26,9 +31,7 @@ async function run() {
       true
     );
 
-    AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled",true));
-
-    AppInsights.trackTask("sfpwowerscripts-createunlockedpackage-task");
+   
 
     let createUnlockedPackageImpl: CreateUnlockedPackageImpl = new CreateUnlockedPackageImpl(
       sfdx_package,
@@ -44,6 +47,8 @@ async function run() {
     );
 
     let command: string = await createUnlockedPackageImpl.buildExecCommand();
+
+    console.log(`Package Creation Command: ${command}`)
 
     let package_version_id: string = await createUnlockedPackageImpl.exec(
       command

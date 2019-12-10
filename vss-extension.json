@@ -3,7 +3,7 @@
   "id": "sfpowerscripts-dev",
   "publisher": "AzlamSalam",
   "name": "sfpowerscripts (dev)",
-  "version": "5.0.2",
+  "version": "5.0.5",
   "description": "Azure Pipelines tasks for working with Salesforce",
   "tags": [
     "Extension",
@@ -130,6 +130,9 @@
       "path": "BuildTasks/DeployDestructiveManifestToOrgTask"
     },
     {
+      "path": "BuildTasks/ValidateTestCoveragePackageTask"
+    },
+    {
       "path": "static",
       "addressable": true
     },
@@ -139,6 +142,23 @@
     }
   ],
   "contributions": [
+    {
+      "id": "sfpwowerscript-pipelines-hub",
+      "type": "ms.vss-web.hub",
+      "targets": ["ms.vss-build-web.build-release-hub-group"],
+      "includes": [
+        "ms.vss-tfs-web.tfs-page-data-service",
+        "ms.vss-features.host-navigation-service",
+        "ms.vss-features.extension-data-service",
+        "ms.vss-features.host-dialog-service"
+      ],
+      "properties": {
+        "name": "SFPowerscripts Hub",
+        "uri": "Hub/PipelineHub/PipelineHub.html",
+        "icon": "asset://static/sample-icon.png",
+        "supportsMobile": true
+      }
+    },
     {
       "id": "sfpwowerkit-installsfdx-task",
       "type": "ms.vss-distributed-task.task",
@@ -292,21 +312,12 @@
       }
     },
     {
-        "id": "sfpwowerscript-pipelines-hub",
-        "type": "ms.vss-web.hub",
-        "targets": ["ms.vss-build-web.build-release-hub-group"],
-        "includes": [
-          "ms.vss-tfs-web.tfs-page-data-service",
-          "ms.vss-features.host-navigation-service",
-          "ms.vss-features.extension-data-service",
-          "ms.vss-features.host-dialog-service"
-        ],
-        "properties": {
-          "name": "SFPowerscripts Hub",
-          "uri": "Hub/PipelineHub/PipelineHub.html",
-          "icon": "asset://static/sample-icon.png",
-          "supportsMobile": true
-        }
+      "id": "sfpwowerscript-validatetestcoveragepackage-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "BuildTasks/ValidateTestCoveragePackageTask"
       }
+    }
   ]
 }

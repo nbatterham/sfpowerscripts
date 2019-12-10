@@ -19,6 +19,7 @@ The changelog is available at [https://sfpowerscripts.com/changelog/](https://sf
 - Checkout a source based artifact from Git using PAT
 - Deploy a source format based repo to an org (scratch org/sandbox/prod)
 - Deploy an unlocked package to an org
+- Deploy destructive manifest to an org
 
 ## Packaging Related Tasks
 
@@ -49,32 +50,14 @@ For eg: a Pull Request validation for an unlocked package  should feature the ta
 
 - Most of the tasks are very thin wrappers aroud the equivalent sfdx cli commands or the open source sfpowerkit (SFDX CLI extension). Almost all parameters that are requred during a CI run is exposed. If you feel that is not enough for the task at hand, one can quickly fall back to command line parameterized just for the task
 
-- Though the tasks can all be utilized fully in build pipeline. It is recommended to utilize the Release Pipeline to deploy the artifats to make the full use of Azure Pipelines Capability.
+- Though the tasks can all be utilized fully in build pipeline. It is recommended to utilize the Release Pipeline to deploy the artifact to make the full use of Azure Pipelines Capability.
 
-## Why do I have to use this? Can't I script it out?
+## Getting Started
 
-Of course you can, here are some advantages
+ Checkout SFPowerscripts documentation here on how to [Get Started](https://sfpowerscripts.com/gettingstarted/) with these tasks. The [repo](https://github.com/azlamsalam/sfpowerscripts/tree/master/SamplePipelines)  also features  sample pipelines that demonstrate the usage of pipelines. 
 
-1. Save time from writing bash scripts in hooking all these tasks, such as ensuring you get the result values from the json output and parsing it to the next command
-2. Eliminate waste, multiple hours are spend on creating these scripts across multiple projects
-3. Open Source, so fork it and contribute it back
 
 ## What if there is an issue with the extension?
 
-Please create an issue, and I will try to rectify as soon as possible. Wile it being fixed, you can omit the particular task from the extension and resort to command line using simple scripts
-
- ## Sample Pipelines
-
- Sample orchestration pipelines are available in the Sample Pipelines Folder. Import these pipelines (in JSON Format) to your Azure  Pipelines instance , set the variables and other parameters and you will be ready to utilize a highly customizable pipeline in the shortest time.
+Please create an issue using the methods listed [here](https://sfpowerscripts.com/support/).
  
- The following sample pipelines are available. 
- 
-[Pull Request Validation using Scratch  Org](https://raw.githubusercontent.com/azlamsalam/sfpowerscripts/master/SamplePipelines/PR%20Source%20Format%20%5BScratch%20Orgs%5D%20using%20sfpowerscripts.json)
- 
-[Continous Integration Pipeline - Unlocked Package](https://raw.githubusercontent.com/azlamsalam/sfpowerscripts/master/SamplePipelines/Unlocked%20Package%20Build%20using%20sfpowerscript.json)
-
-[Release Pipeline - Unlocked Package](https://raw.githubusercontent.com/azlamsalam/sfpowerscripts/master/SamplePipelines/Unlocked%20Packaged%20Deployment%20Pipeline%20using%20sfpowerscripts.json)
-
-[Continous Integration Pipeline - Org Based](https://raw.githubusercontent.com/azlamsalam/sfpowerscripts/master/SamplePipelines/Source%20Package%20Build%20using%20sfpowerscripts.json)
-
-[Release Pipeline - Org Development](https://raw.githubusercontent.com/azlamsalam/sfpowerscripts/master/SamplePipelines/Source%20Package%20Deployment%20Pipeline%20using%20sfpowerscripts.json)
