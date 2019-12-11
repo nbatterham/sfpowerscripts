@@ -48,7 +48,8 @@ export class AppInsights {
     this.applicationInsightsClient.flush();
   }
 
-  public static trackExcepiton(taskName: string, err: any) {
+  public static trackExcepiton(taskName: string, err?: any) {
+    if(err)
     this.applicationInsightsClient.trackException({ exception: err });
 
     let taskType = tl.getVariable("Release.ReleaseId")

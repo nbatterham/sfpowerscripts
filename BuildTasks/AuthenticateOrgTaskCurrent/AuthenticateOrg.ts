@@ -37,7 +37,7 @@ async function run() {
     }
   } catch (err) {
     tl.setResult(tl.TaskResult.Failed, err.message);
-    AppInsights.trackExcepiton("sfpwowerscript-authenticateorg-task",err);
+    AppInsights.trackExcepiton("sfpwowerscript-authenticateorg-task");
   }
 }
 
