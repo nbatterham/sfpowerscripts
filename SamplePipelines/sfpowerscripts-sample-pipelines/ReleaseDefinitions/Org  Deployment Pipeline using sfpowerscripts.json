@@ -1,6 +1,6 @@
 {
   "source": "userInterface",
-  "revision": 2,
+  "revision": 3,
   "description": null,
   "createdBy": "{}",
   "createdOn": "",
@@ -93,7 +93,7 @@
             {
               "environment": {},
               "taskId": "7915fcdb-f02a-43ae-92bd-494993a31e5d",
-              "version": "5.*",
+              "version": "6.*",
               "name": "Checkout  from Git",
               "refName": "forcedi",
               "enabled": true,
@@ -104,9 +104,13 @@
               "overrideInputs": {},
               "condition": "succeeded()",
               "inputs": {
-                "artifact": "force-di",
+                "versionControlProvider": "github",
+                "github_connection": "",
+                "bitbucket_connection": "",
+                "github_enterprise_connection": "",
                 "username": "$(git.username)",
                 "password": "$(git.password)",
+                "artifact": "force-di",
                 "isTelemetryEnabled": "true"
               }
             },

@@ -161,7 +161,7 @@
             "condition": "succeeded()",
             "task": {
               "id": "2d221ae3-0f82-4cac-a269-ffcd98a72d96",
-              "versionSpec": "3.*",
+              "versionSpec": "4.*",
               "definitionType": "task"
             },
             "inputs": {
@@ -172,7 +172,8 @@
               "outputPath": "",
               "version": "6.18.0",
               "isToBreakBuild": "true",
-              "project_directory": ""
+              "project_directory": "",
+              "isTelemetryEnabled": "true"
             }
           },
           {
@@ -271,7 +272,7 @@
       "fetchDepth": "0",
       "gitLfsSupport": "false",
       "reportBuildStatus": "true",
-      "connectedServiceId": "$GitHub_7d0042a8$",
+      "connectedServiceId": "$GitHub_87c816bb$",
       "skipSyncSource": "false",
       "labelSourcesFormat": "$(build.buildNumber)",
       "labelSources": "0"
@@ -306,7 +307,7 @@
   "path": "\\",
   "type": "build",
   "queueStatus": "enabled",
-  "revision": 6,
+  "revision": 7,
   "createdDate": "",
   "project": "{}"
 }
