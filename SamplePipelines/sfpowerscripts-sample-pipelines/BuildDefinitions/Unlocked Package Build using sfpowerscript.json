@@ -165,7 +165,7 @@
       "fetchDepth": "0",
       "gitLfsSupport": "false",
       "reportBuildStatus": "true",
-      "connectedServiceId": "$GitHub_ac4cdbec$",
+      "connectedServiceId": "$GitHub_16604db4$",
       "skipSyncSource": "false",
       "labelSourcesFormat": "$(build.buildNumber)",
       "labelSources": "0"
@@ -200,7 +200,7 @@
   "path": "\\",
   "type": "build",
   "queueStatus": "enabled",
-  "revision": 4,
+  "revision": 5,
   "createdDate": "",
   "project": "{}"
 }

@@ -142,13 +142,37 @@
               "target_org": "scratchorg",
               "project_directory": "",
               "source_directory": "force-di",
-              "checkonly": "false",
+              "checkonly": "true",
               "wait_time": "20",
               "validation_ignore": ".forceignore",
               "testlevel": "NoTestRun",
               "specified_tests": "",
               "apextestsuite": "",
               "isTelemetryEnabled": "true"
+            }
+          },
+          {
+            "environment": {},
+            "enabled": true,
+            "continueOnError": false,
+            "alwaysRun": false,
+            "displayName": "Analyze force-di using PMD",
+            "timeoutInMinutes": 0,
+            "condition": "succeeded()",
+            "task": {
+              "id": "2d221ae3-0f82-4cac-a269-ffcd98a72d96",
+              "versionSpec": "3.*",
+              "definitionType": "task"
+            },
+            "inputs": {
+              "directory": "force-di",
+              "ruleset": "sfpowerkit",
+              "rulesetpath": "",
+              "format": "text",
+              "outputPath": "",
+              "version": "6.18.0",
+              "isToBreakBuild": "true",
+              "project_directory": ""
             }
           },
           {
@@ -247,7 +271,7 @@
       "fetchDepth": "0",
       "gitLfsSupport": "false",
       "reportBuildStatus": "true",
-      "connectedServiceId": "$GitHub_4cfc2437$",
+      "connectedServiceId": "$GitHub_7d0042a8$",
       "skipSyncSource": "false",
       "labelSourcesFormat": "$(build.buildNumber)",
       "labelSources": "0"
@@ -282,7 +306,7 @@
   "path": "\\",
   "type": "build",
   "queueStatus": "enabled",
-  "revision": 4,
+  "revision": 6,
   "createdDate": "",
   "project": "{}"
 }
