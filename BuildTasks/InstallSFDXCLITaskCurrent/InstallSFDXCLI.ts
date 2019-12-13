@@ -13,6 +13,7 @@ async function run() {
         const sfpowerkit_version: string = tl.getInput('sfpowerkit_version', false);
         
 
+        if(tl.getVariable('system.Os'))
         child_process.execSync(`sudo yarn global add sfdx-cli@${cli_version}`);
         child_process.execSync(`echo 'y' | npx sfdx plugins:install sfpowerkit@${sfpowerkit_version}`);
 
