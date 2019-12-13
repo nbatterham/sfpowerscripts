@@ -12,7 +12,11 @@ async function run() {
         const cli_version: string = tl.getInput('sfdx_cli_version', false);
         const sfpowerkit_version: string = tl.getInput('sfpowerkit_version', false);
         
+        if(tl.getVariable("Agent.OS") == "Darwin" || tl.getVariable("Agent.OS") == "Linux")
         child_process.execSync(`sudo yarn global add sfdx-cli@${cli_version}`);
+        else
+        child_process.execSync(`npm install sfdx-cli@${cli_version} --global`);
+
         child_process.execSync(`echo 'y' | npx sfdx plugins:install sfpowerkit@${sfpowerkit_version}`);
 
         console.log("SFDX along with SFPowerkit installed succesfully")
