@@ -1,4 +1,5 @@
-import * as config from "../Common/config.json";
+
+const config = require("../Common/config.json")
 import applicationinsights = require("applicationinsights");
 import tl = require("azure-pipelines-task-lib/task");
 
