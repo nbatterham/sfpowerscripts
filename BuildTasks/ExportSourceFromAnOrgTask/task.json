@@ -55,7 +55,7 @@
             "defaultValue": true,
             "required": true,
             "helpMarkDown": "Unzip the exprted matadata"
-        }
+        },
         {
             "name": "isTelemetryEnabled",
             "type": "boolean",
