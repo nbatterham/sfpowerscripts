@@ -1,8 +1,7 @@
 
-import config from "./config.json";
+import * as config from "../Common/config.json";
 import applicationinsights = require("applicationinsights");
-import tl from "azure-pipelines-task-lib/task";
-
+import tl = require("azure-pipelines-task-lib/task");
 export class AppInsights {
   public static applicationInsightsClient: applicationinsights.TelemetryClient;
 
