@@ -81,12 +81,12 @@ target.incrementversion = function() {
       var ref = new Date(2000, 1, 1);
       var now = new Date();
       var major = semver.major(manifest.version);
-      var minor = Math.floor((now - ref) / 86400000);
+      var minor = Math.floor((now - ref) / 86400000)%100;
       var patch = Math.floor(
         Math.floor(
           now.getSeconds() + 60 * (now.getMinutes() + 60 * now.getHours())
         ) * 0.5
-      );
+      )%100;
       options.version = major + "." + minor + "." + patch;
     }
 
