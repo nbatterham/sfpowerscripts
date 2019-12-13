@@ -340,16 +340,6 @@
             }
         },
         {
-            "id": "sfpwowerscript-validatetestcoveragepackage-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "BuildTasks/ValidateTestCoveragePackageTask"
-            }
-        },
-        {
             "id": "sfpowerscript-exportsourcefromorg-task",
             "type": "ms.vss-distributed-task.task",
             "targets": [
