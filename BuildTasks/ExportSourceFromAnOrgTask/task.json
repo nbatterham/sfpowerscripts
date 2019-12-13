@@ -27,10 +27,10 @@
         {
             "name": "source_directory",
             "type": "string",
-            "label": "Source Directory to be deployed",
-            "defaultValue": "force-app",
+            "label": "Directory to which the source should be exported to",
+            "defaultValue": "metadata",
             "required": true,
-            "helpMarkDown": "The directory "
+            "helpMarkDown": "The directory to which the source should be exported to"
         },
         {
             "name": "quickFilter",

@@ -19,6 +19,7 @@ var cp = require("child_process");
 var fs = require("fs");
 var semver = require("semver");
 var rimraf = require("rimraf");
+var tl = require("azure-pipelines-task-lib/task");
 
 // global paths
 var sourcePath = path.join(__dirname, "BuildTasks");
@@ -104,7 +105,7 @@ target.incrementversion = function() {
     case "review":
       options.public = false;
       updateExtensionManifest(__dirname, options, false);
-      //shell.exec(`echo "##vso[build.updatebuildnumber] ${options.version}"`);
+      tl.updateBuildNumber(options.version);
       break;
     default:
       updateExtensionManifest(__dirname, options, true);
