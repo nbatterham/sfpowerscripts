@@ -104,7 +104,7 @@ target.incrementversion = function() {
     case "review":
       options.public = false;
       updateExtensionManifest(__dirname, options, false);
-      shell.exec(`echo "##vso[build.updatebuildnumber] ${options.version}"`);
+      //shell.exec(`echo "##vso[build.updatebuildnumber] ${options.version}"`);
       break;
     default:
       updateExtensionManifest(__dirname, options, true);
