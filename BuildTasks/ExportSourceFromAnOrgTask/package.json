@@ -1,6 +1,6 @@
 {
-  "name": "sfpowerscript-pushsourcetoorg-task",
-  "description": "sfpowerscript-pushsourcetoorg-task",
+  "name": "sfpowerscript-exportsourcefromorg-task",
+  "description": "sfpowerscript-exportsourcefromorg-task",
   "repository": {
     "type": "git",
     "url": "https://github.com/azlamsalam/sfpowerscripts.git"
