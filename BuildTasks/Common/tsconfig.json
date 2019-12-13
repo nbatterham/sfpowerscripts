@@ -3,6 +3,5 @@
     "compilerOptions": {
         "outDir": "./Common", 
         "sourceRoot": "./",
-        "resolveJsonModule": true
     }
   }

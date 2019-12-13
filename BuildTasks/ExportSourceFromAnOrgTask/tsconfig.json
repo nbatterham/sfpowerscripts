@@ -2,8 +2,7 @@
     "extends": "../tsconfig.json",
     "compilerOptions": {
         "outDir": "./", 
-        "sourceRoot": "./",
-        "resolveJsonModule": true
+        "sourceRoot": "./"
     },
     "files": [
         "ExportSourceFromAnOrg.ts",
