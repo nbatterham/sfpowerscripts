@@ -19,6 +19,7 @@ var cp = require("child_process");
 var fs = require("fs");
 var semver = require("semver");
 var rimraf = require("rimraf");
+var tl = require("azure-pipelines-task-lib/task");
 
 // global paths
 var sourcePath = path.join(__dirname, "BuildTasks");
@@ -89,6 +90,17 @@ target.incrementversion = function() {
       );
       options.version = major + "." + minor + "." + patch;
     }
+    else if (options.version=='dev')
+    {
+      //Treat patch as the build number, let major and minor be developer controlled
+      var major = semver.major(manifest.version);
+      var minor = semver.major(manifest.minor);
+      var patch = semver.major(manifest.patch);
+
+      pitch+=1;
+
+      options.version = major + "." + minor + "." + patch;
+    }
 
     if (!semver.valid(options.version)) {
       console.error("package", "Invalid semver version: " + options.version);
@@ -104,7 +116,7 @@ target.incrementversion = function() {
     case "review":
       options.public = false;
       updateExtensionManifest(__dirname, options, false);
-      shell.exec(`echo "##vso[build.updatebuildnumber] ${options.version}"`);
+      tl.updateBuildNumber(options.version);
       break;
     default:
       updateExtensionManifest(__dirname, options, true);

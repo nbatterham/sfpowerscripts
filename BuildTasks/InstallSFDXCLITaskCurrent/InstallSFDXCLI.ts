@@ -9,12 +9,20 @@ async function run() {
         AppInsights.setupAppInsights(tl.getBoolInput("isTelemetryEnabled",true));
         console.log("SFPowerScript.. Install SFDX/SFPowerkit")
 
+        if(tl.getVariable("Agent.OS") == "Windows_NT")
+        {
+            throw new Error("Unsupported OS.. Please use hosted linux only")
+        }
+
         const cli_version: string = tl.getInput('sfdx_cli_version', false);
         const sfpowerkit_version: string = tl.getInput('sfpowerkit_version', false);
         
-
+        
         child_process.execSync(`sudo yarn global add sfdx-cli@${cli_version}`);
         child_process.execSync(`echo 'y' | npx sfdx plugins:install sfpowerkit@${sfpowerkit_version}`);
+        
+       
+      
 
         console.log("SFDX along with SFPowerkit installed succesfully")
 

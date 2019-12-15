@@ -3,7 +3,7 @@
     "id": "sfpowerscripts-dev",
     "publisher": "AzlamSalam",
     "name": "sfpowerscripts (dev)",
-    "version": "5.0.7",
+    "version": "6.0.0",
     "description": "Azure Pipelines tasks for working with Salesforce",
     "tags": [
         "Extension",
@@ -133,6 +133,9 @@
         },
         {
             "path": "BuildTasks/ValidateTestCoveragePackageTask"
+        },
+        {
+            "path": "BuildTasks/ExportSourceFromAnOrgTask"
         }
     ],
     "contributions": [
@@ -334,6 +337,16 @@
             ],
             "properties": {
                 "name": "BuildTasks/ValidateTestCoveragePackageTask"
+            }
+        },
+        {
+            "id": "sfpowerscript-exportsourcefromorg-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/ExportSourceFromAnOrgTask"
             }
         }
     ]
