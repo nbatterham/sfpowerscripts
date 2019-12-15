@@ -8,8 +8,8 @@
     "author": "azlam.abdulsalam",
     "version": {
         "Major": 3,
-        "Minor": 2,
-        "Patch": 5
+        "Minor": 3,
+        "Patch": 0
     },
     "runsOn": [
         "Agent"
