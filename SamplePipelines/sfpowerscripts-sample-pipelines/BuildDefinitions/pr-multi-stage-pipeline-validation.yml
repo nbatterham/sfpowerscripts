@@ -1,0 +1,171 @@
+trigger: none
+pr:
+  branches:
+    include:
+    - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: StaticCodeAnalysis
+  displayName: Static Code Analysis
+  jobs:
+  - job: StaticCodeAnalysis
+    displayName: Static Code Analysis
+    steps:
+    - task: sfpwowerscript-installsfdx-task@3
+      displayName: Install SFDX
+
+    - task: sfpwowerscript-validatedxunlockedpackage-task@2
+      displayName: Validates Package for MetadataCoverage
+      inputs:
+        package: logging
+
+    - task: sfpwowerscripts-analyzewithpmd-task@4
+      displayName: PMD Static Code Coverage
+      inputs:
+        ruleset: Custom
+        rulesetpath: '$(Parameters.rulesetpath)'
+        format: html
+
+- stage: UnitTest
+  displayName: Unit Test
+  dependsOn: []
+  jobs: 
+  - job: UnitTest
+    displayName: Unit Test
+    steps:
+    - task: sfpwowerscript-installsfdx-task@3
+      displayName: Install SFDX
+      inputs:
+        isTelemetryEnabled: true
+
+    - task: sfpwowerscript-authenticateorg-task@5
+      displayName: 'Authenticate to DevHub'
+      inputs:
+        method: Credentials
+        username: '$(devHub.username)'
+        password: '$(devHub.password)'
+        securitytoken: '$(devHub.securityToken)'
+        alias: DevHub
+        isdevhub: true
+        isTelemetryEnabled: true
+
+    - task: sfpwowerscript-managescratchorg-task@4
+      displayName: Create a Scratch Org
+      inputs:
+        action: 'Create'
+        config_file_path: 'config/default-scratch-def.json'
+        alias: MyScratchOrg
+        devhub_alias: DevHub
+        isTelemetryEnabled: true
+
+    - task: sfpowerscript-deploysourcetoorg-task@3
+      displayName: Deploy source to scratch org
+      inputs:
+        target_org: 'MyScratchOrg'
+        source_directory: 'pkg/logging'
+        checkonly: false
+        wait_time: '20'
+        testlevel: 'NoTestRun'
+        isTelemetryEnabled: true
+
+    - task: sfpwowerscript-triggerapextest-task@2
+      displayName: Run Apex Unit Tests
+      inputs:
+        target_org: 'MyScratchOrg'
+        testlevel: 'RunLocalTests'
+        wait_time: '60'
+        isTelemetryEnabled: true
+
+    - task: sfpwowerscript-validateapextestcoverage-task@2
+      displayName: Validate 90% Apex Test Code Coverage
+      inputs:
+        target_org: 'MyScratchOrg'
+        test_coverage: '90'
+        isTelemetryEnabled: true
+
+    - task: sfpwowerscript-managescratchorg-task@4
+      displayName: Delete Scratch Org
+      condition: always()
+      inputs:
+        action: 'Delete'
+        target_org: MyScratchOrg
+        devhub_alias: DevHub
+
+- stage: CIPackageTest
+  displayName: CI Package Test
+  dependsOn: UnitTest
+  jobs: 
+  - job: CIPackageTest
+    displayName: CI Package Test
+    steps:
+    - task: sfpwowerscript-installsfdx-task@3
+      displayName: Install SFDX
+
+    - task: sfpwowerscript-authenticateorg-task@5
+      displayName: 'Authenticate to DevHub'
+      inputs:
+        method: Credentials
+        username: '$(devHub.username)'
+        password: '$(devHub.password)'
+        securitytoken: '$(devHub.securityToken)'
+        alias: 'DevHub'
+        isdevhub: true
+
+    - task: sfpwowerscripts-createunlockedpackage-task@5
+      name: CIPackageCreate
+      displayName: 'Create CI Package'
+      inputs:
+        package: '$(CI_PACKAGE_NAME)'
+        config_file_path: 'config/default-scratch-def.json'
+        installationkeybypass: true
+        enable_coverage: false
+        devhub_alias: 'DevHub'
+        wait_time: '120'
+        build_artifact_enabled: false
+        isTelemetryEnabled: true
+    
+    - task: sfpwowerscript-managescratchorg-task@4
+      displayName: Create a Scratch Org
+      inputs:
+        action: 'Create'
+        config_file_path: 'config/default-scratch-def.json'
+        alias: MyScratchOrg
+        devhub_alias: DevHub
+        isTelemetryEnabled: true
+
+    - task: sfpwowerscript-installunlockedpackage-task@5
+      displayName: Deploy CI Package to Org
+      inputs:
+        envname: 'MyScratchOrg'
+        package: '$(CI_PACKAGE_NAME)'
+        packageinstalledfrom: 'Custom'
+        package_version_id: $(CIPackageCreate.sfpowerscripts_package_version_id)
+        security_type: 'AdminsOnly'
+        upgrade_type: 'Mixed'
+        isTelemetryEnabled: true
+
+    - task: sfpwowerscript-triggerapextest-task@2
+      displayName: Run Apex Unit Tests
+      inputs:
+        target_org: 'MyScratchOrg'
+        testlevel: 'RunLocalTests'
+        wait_time: '60'
+        isTelemetryEnabled: true
+
+    - task: sfpwowerscript-validateapextestcoverage-task@2
+      displayName: Validate 90% Apex Test Code Coverage
+      inputs:
+        target_org: 'MyScratchOrg'
+        test_coverage: '90'
+        isTelemetryEnabled: true
+
+    - task: sfpwowerscript-managescratchorg-task@4
+      displayName: Delete Scratch Org
+      condition: always()
+      inputs:
+        action: 'Delete'
+        target_org: MyScratchOrg
+        devhub_alias: DevHub
